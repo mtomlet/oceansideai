@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, PhoneCall, Sparkles, Shield, Cpu, Clock, Globe, ArrowRight, Waves } from "lucide-react";
+import { Check, PhoneCall, Sparkles, Shield, Cpu, Clock, Globe, ArrowRight, Waves, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -23,6 +23,15 @@ function LogoOceanside({ className = "h-8 w-8" }: { className?: string }) {
       <circle cx="54" cy="24" r="3.2" fill="url(#g)" />
       <circle cx="56" cy="40" r="2.4" fill="url(#g)" />
     </svg>
+  );
+}
+function FiveStars() {
+  return (
+    <div className="mb-3 flex items-center gap-1" aria-label="5 out of 5 stars">
+      {Array.from({ length: 5 }).map((_, i) => (
+        <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+      ))}
+    </div>
   );
 }
 
@@ -319,18 +328,21 @@ export default function OceansideLanding() {
         <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           <Card className="border-white/10 bg-white/5">
             <CardContent className="p-6">
+              <FiveStars />
               <div className="text-zinc-300">“We run outbound sales across AU and needed an AI that wouldn’t embarrass us. Oceanside shipped in a week, handled accents flawlessly, and booked more qualified calls than our old SDR team.”</div>
               <div className="mt-4 text-sm text-zinc-400">— Apex Outbound, Sydney</div>
             </CardContent>
           </Card>
           <Card className="border-white/10 bg-white/5">
             <CardContent className="p-6">
+              <FiveStars />
               <div className="text-zinc-300">“Our truck & trailer shop misses calls after hours. Their agent answers, filters spam, and sends us clean job tickets. It’s like adding a night shift without payroll.”</div>
               <div className="mt-4 text-sm text-zinc-400">— Merx Truck & Trailer</div>
             </CardContent>
           </Card>
           <Card className="border-white/10 bg-white/5">
             <CardContent className="p-6">
+              <FiveStars />
               <div className="text-zinc-300">“Time saver of the decade. Multilingual support means our Rio team finally stopped juggling missed calls and WhatsApps. Huge win.”</div>
               <div className="mt-4 text-sm text-zinc-400">— Learn Global </div>
             </CardContent>
@@ -339,12 +351,14 @@ export default function OceansideLanding() {
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
           <Card className="border-white/10 bg-white/5">
             <CardContent className="p-6">
+              <FiveStars />
               <div className="text-zinc-300">“Mark is incredible to work with—fast, calm under pressure, and deeply technical. He delivered newsroom automations that cut our script time from hours to minutes.”</div>
               <div className="mt-4 text-sm text-zinc-400">— CBN News </div>
             </CardContent>
           </Card>
           <Card className="border-white/10 bg-white/5">
             <CardContent className="p-6">
+              <FiveStars />
               <div className="text-zinc-300">“Mark helped us with a website automation that saved ~500 hours of time.”</div>
               <div className="mt-4 text-sm text-zinc-400">— Regent University</div>
             </CardContent>
