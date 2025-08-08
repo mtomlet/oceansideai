@@ -193,7 +193,6 @@ export default function OceansideLanding() {
               <span className="underline decoration-cyan-400/40 underline-offset-4">Work with us</span>
             </a>
           </div>
-          <span>Scroll to explore</span>
         </div>
       </section>
 
