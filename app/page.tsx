@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Oceanside AI Solutions",
+  description: "Voice AI that books, routes, and resolves—built like a Tesla.",
+};
+
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
