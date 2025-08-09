@@ -610,6 +610,29 @@ export default function OceansideLanding() {
         </div>
       )}
 
+      {/* YouTube */}
+<section id="youtube" className="mx-auto max-w-7xl px-6 py-16">
+  <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
+    <h3 className="text-2xl font-semibold tracking-tight">
+      <span className="underline decoration-cyan-400/40 underline-offset-4">
+        Watch on YouTube — 100k+ views
+      </span>
+    </h3>
+    <p className="mt-3 text-zinc-300">
+      Tutorials, live builds, and real client delivery.
+    </p>
+    <a
+      href="https://www.youtube.com/@TechTomlet"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-6 inline-flex items-center justify-center rounded-xl border border-white/30 px-5 py-3 hover:bg-white/10"
+    >
+      Visit Channel
+    </a>
+  </div>
+</section>
+
+
       {/* Footer */}
       <footer className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 py-10 md:flex-row">
