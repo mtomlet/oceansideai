@@ -4,6 +4,7 @@ export const metadata = {
 };
 
 "use client";
+import Link from "next/link"; // needed for your <Link> components
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Check, PhoneCall, Sparkles, Shield, Cpu, Clock, Globe, ArrowRight, Waves, Star } from "lucide-react";
