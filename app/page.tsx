@@ -616,9 +616,17 @@ export default function OceansideLanding() {
             <LogoOceanside className="h-6 w-6" />
             <div className="text-sm text-zinc-400">© {new Date().getFullYear()} Oceanside AI Solutions. All rights reserved.</div>
           </div>
-          <div className="flex items-center gap-6 text-sm text-zinc-400">
-            <a className="hover:text-white" href="#">Privacy</a>
-            <a className="hover:text-white" href="#">Terms</a>
+         <div className="flex items-center gap-6 text-sm text-zinc-400">
+           <Link className="hover:text-white" href="/privacy">Privacy</Link>
+           <Link className="hover:text-white" href="/terms">Terms</Link>
+           <a
+             className="hover:text-white"
+             href="https://www.skool.com/pioneers/about"
+             target="_blank"
+             rel="noopener noreferrer"
+           >
+             Community
+           </a>
           </div>
         </div>
       </footer>
