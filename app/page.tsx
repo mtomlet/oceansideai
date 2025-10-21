@@ -1,9 +1,11 @@
+"use client";
+
 export const metadata = {
   title: "Oceanside AI Solutions",
-  description: "We build AI voice agents that sound human, respond instantly, and scale your business 24/7.",
+  description:
+    "We build AI voice agents that sound human, respond instantly, and scale your business 24/7.",
 };
 
-"use client";
 import Link from "next/link"; // needed for your <Link> components
 import { useState } from "react";
 import { motion } from "framer-motion";
