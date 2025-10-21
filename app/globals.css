@@ -120,3 +120,44 @@
     @apply bg-background text-foreground;
   }
 }
+/* --- Custom animations & audio styling --- */
+
+/* Fade-in animation for case studies and sections */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out both;
+}
+
+/* Custom audio player styling */
+audio {
+  width: 100%;
+  border-radius: 8px;
+  background-color: #18181b;
+  margin-top: 0.5rem;
+}
+
+audio::-webkit-media-controls-panel {
+  background-color: #18181b !important;
+  border-radius: 8px;
+}
+
+audio::-webkit-media-controls-play-button {
+  filter: invert(1) brightness(1.5);
+}
+
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display {
+  color: white;
+  font-size: 0.8rem;
+}
+
