@@ -371,13 +371,11 @@ export default function OceansideLanding() {
       <div className="mt-4 text-cyan-300 font-medium">500+ Hours Saved Annually</div>
     </CardContent>
   </Card>
-
 </div>
-
+  
+</section> {/* ✅ CLOSE Case Studies properly */}
 
   
-
-
       {/* Founder Story (with photo slot) */}
       <section id="story" className="mx-auto max-w-5xl px-6 py-20">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
