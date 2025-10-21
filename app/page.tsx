@@ -1,6 +1,6 @@
 export const metadata = {
   title: "Oceanside AI Solutions",
-  description: "Voice AI that books, routes, and resolves—built like a Tesla.",
+  description: "We build AI voice agents that sound human, respond instantly, and scale your business 24/7.",
 };
 
 "use client";
