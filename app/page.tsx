@@ -312,7 +312,7 @@ export default function OceansideLanding() {
 <div className="mt-12 flex flex-col gap-16">
 
   {/* Case Study: Merx Truck & Trailer */}
-  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+ <Card className="fade-in-up border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
     <img src="/case-merx.png" alt="Merx Truck & Trailer" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Merx Truck & Trailer Repair</h3>
@@ -328,7 +328,7 @@ export default function OceansideLanding() {
   </Card>
 
   {/* Case Study: Funeral Buddy */}
-  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+  <Card className="fade-in-up border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
     <img src="/case-funeral.png" alt="Funeral Buddy" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Funeral Buddy</h3>
@@ -344,7 +344,7 @@ export default function OceansideLanding() {
   </Card>
 
   {/* Case Study: Tutor ABC */}
-  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+ <Card className="fade-in-up border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
     <img src="/case-tutor.png" alt="Tutor ABC" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Tutor ABC — Brazil</h3>
@@ -360,7 +360,7 @@ export default function OceansideLanding() {
   </Card>
 
   {/* Case Study: CBN News */}
-  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+  <Card className="fade-in-up border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
     <img src="/case-cbn.png" alt="CBN News + Regent University" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">CBN News + Regent University</h3>
