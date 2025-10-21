@@ -321,7 +321,7 @@ export default function OceansideLanding() {
       </p>
       <div className="text-sm text-zinc-400 mb-3">Industry: Truck Repair | Type: Voice AI</div>
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
-        <source src="/audio/merx-demo.mp3" type="audio/mpeg" />
+        <source src="/merx-demo.mp3" type="audio/mpeg" />
       </audio>
       <div className="mt-4 text-cyan-300 font-medium">165%+ Extra Bookings Per Month</div>
     </CardContent>
@@ -337,7 +337,7 @@ export default function OceansideLanding() {
       </p>
       <div className="text-sm text-zinc-400 mb-3">Industry: Funeral Services | Type: Voice AI (Outbound)</div>
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
-        <source src="/audio/funeral-demo.mp3" type="audio/mpeg" />
+        <source src="/funeral-demo.mp3" type="audio/mpeg" />
       </audio>
       <div className="mt-4 text-cyan-300 font-medium">3 Hours Saved Daily</div>
     </CardContent>
@@ -353,7 +353,7 @@ export default function OceansideLanding() {
       </p>
       <div className="text-sm text-zinc-400 mb-3">Industry: Education | Type: Voice AI (Multilingual)</div>
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
-        <source src="/audio/tutor-demo.mp3" type="audio/mpeg" />
+        <source src="/tutor-demo.mp3" type="audio/mpeg" />
       </audio>
       <div className="mt-4 text-cyan-300 font-medium">Multilingual Receptionist</div>
     </CardContent>
