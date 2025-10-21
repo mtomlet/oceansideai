@@ -301,7 +301,7 @@ export default function OceansideLanding() {
 {/* Case Studies */}
 <section id="case-studies" className="mx-auto max-w-7xl px-6 py-20">
   <h2 className="text-3xl font-semibold tracking-tight md:text-4xl">
-    <span className="underline decoration-cyan-400/40 underline-offset-4">Case Studies</span>
+    <span className="underline decoration-cyan-400/40 underline-offset-4">Our Success Stories</span>
   </h2>
   <p className="mt-3 max-w-2xl text-zinc-300">
     <span className="underline decoration-cyan-400/30 underline-offset-4">
@@ -309,72 +309,73 @@ export default function OceansideLanding() {
     </span>
   </p>
 
-  <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2">
-    {/* Merx Truck & Trailer */}
-    <Card className="border-white/10 bg-white/5">
-      <CardContent className="p-6">
-        <img src="/case-merx.png" alt="Merx Truck & Trailer" className="h-40 w-full rounded-2xl object-cover mb-4" />
-        <h3 className="text-xl font-semibold text-zinc-100 mb-2">Merx Truck & Trailer Repair</h3>
-        <p className="text-zinc-300 mb-3">
-          Reduced missed calls from <span className="text-cyan-300">20% to 0%</span>, capturing new clients weekly they otherwise would’ve lost —
-          worth thousands per month. Deployed across multiple shop locations.
-        </p>
-        <div className="text-sm text-zinc-400 mb-2">Industry: Truck Repair | Type: Voice AI</div>
-        <audio controls className="w-full mt-2">
-          <source src="/audio/merx-demo.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </CardContent>
-    </Card>
+<div className="mt-12 flex flex-col gap-16">
 
-    {/* Funeral Buddy */}
-    <Card className="border-white/10 bg-white/5">
-      <CardContent className="p-6">
-        <img src="/case-funeral.png" alt="Funeral Buddy" className="h-40 w-full rounded-2xl object-cover mb-4" />
-        <h3 className="text-xl font-semibold text-zinc-100 mb-2">Funeral Buddy</h3>
-        <p className="text-zinc-300 mb-3">
-          Ran outbound sales campaigns that booked meetings with funeral homes across Australia.
-          Increased conversion rates and client reach without hiring extra staff.
-        </p>
-        <div className="text-sm text-zinc-400 mb-2">Industry: Funeral Services | Type: Voice AI (Outbound)</div>
-        <audio controls className="w-full mt-2">
-          <source src="/audio/funeral-demo.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </CardContent>
-    </Card>
+  {/* Case Study: Merx Truck & Trailer */}
+  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+    <img src="/case-merx.png" alt="Merx Truck & Trailer" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
+    <CardContent className="p-6 md:w-1/2">
+      <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Merx Truck & Trailer Repair</h3>
+      <p className="text-zinc-300 mb-3">
+        Reduced missed calls from <span className="text-cyan-300">20% to 0%</span>, capturing new clients weekly they otherwise would’ve lost — worth thousands per month.
+      </p>
+      <div className="text-sm text-zinc-400 mb-3">Industry: Truck Repair | Type: Voice AI</div>
+      <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
+        <source src="/audio/merx-demo.mp3" type="audio/mpeg" />
+      </audio>
+      <div className="mt-4 text-cyan-300 font-medium">165%+ Extra Bookings Per Month</div>
+    </CardContent>
+  </Card>
 
-    {/* Tutor ABC */}
-    <Card className="border-white/10 bg-white/5">
-      <CardContent className="p-6">
-        <img src="/case-tutor.png" alt="Tutor ABC" className="h-40 w-full rounded-2xl object-cover mb-4" />
-        <h3 className="text-xl font-semibold text-zinc-100 mb-2">Tutor ABC — Brazil</h3>
-        <p className="text-zinc-300 mb-3">
-          Built a 24/7 AI receptionist answering questions faster than humans and selling language courses automatically.
-          Saved the company <span className="text-cyan-300">$50,000/year</span> through automation.
-        </p>
-        <div className="text-sm text-zinc-400 mb-2">Industry: Education | Type: Voice AI (Multilingual)</div>
-        <audio controls className="w-full mt-2">
-          <source src="/audio/tutor-demo.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
-      </CardContent>
-    </Card>
+  {/* Case Study: Funeral Buddy */}
+  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+    <img src="/case-funeral.png" alt="Funeral Buddy" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
+    <CardContent className="p-6 md:w-1/2">
+      <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Funeral Buddy</h3>
+      <p className="text-zinc-300 mb-3">
+        Ran outbound sales campaigns that booked meetings with funeral homes across Australia. Increased conversion rates and client reach without hiring extra staff.
+      </p>
+      <div className="text-sm text-zinc-400 mb-3">Industry: Funeral Services | Type: Voice AI (Outbound)</div>
+      <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
+        <source src="/audio/funeral-demo.mp3" type="audio/mpeg" />
+      </audio>
+      <div className="mt-4 text-cyan-300 font-medium">3 Hours Saved Daily</div>
+    </CardContent>
+  </Card>
 
-    {/* CBN News + Regent University */}
-    <Card className="border-white/10 bg-white/5">
-      <CardContent className="p-6">
-        <img src="/case-cbn.png" alt="CBN News & Regent University" className="h-40 w-full rounded-2xl object-cover mb-4" />
-        <h3 className="text-xl font-semibold text-zinc-100 mb-2">CBN News + Regent University</h3>
-        <p className="text-zinc-300 mb-3">
-          Built custom AI workflows for journalists that cut scriptwriting time from <span className="text-cyan-300">4 hours to 20 minutes</span>.
-          Regent’s automation saved over <span className="text-cyan-300">500 hours</span> of staff time yearly.
-        </p>
-        <div className="text-sm text-zinc-400 mb-2">Industry: Media & Education | Type: Workflow Automation</div>
-      </CardContent>
-    </Card>
-  </div>
-</section>
+  {/* Case Study: Tutor ABC */}
+  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+    <img src="/case-tutor.png" alt="Tutor ABC" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
+    <CardContent className="p-6 md:w-1/2">
+      <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Tutor ABC — Brazil</h3>
+      <p className="text-zinc-300 mb-3">
+        Built a 24/7 AI receptionist answering questions faster than humans and selling language courses automatically. Saved the company <span className="text-cyan-300">$50,000/year</span> through automation.
+      </p>
+      <div className="text-sm text-zinc-400 mb-3">Industry: Education | Type: Voice AI (Multilingual)</div>
+      <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
+        <source src="/audio/tutor-demo.mp3" type="audio/mpeg" />
+      </audio>
+      <div className="mt-4 text-cyan-300 font-medium">Multilingual Receptionist</div>
+    </CardContent>
+  </Card>
+
+  {/* Case Study: CBN News */}
+  <Card className="border-white/10 bg-white/5 overflow-hidden md:flex md:items-center md:gap-8 hover:scale-[1.01] transition-transform duration-300">
+    <img src="/case-cbn.png" alt="CBN News + Regent University" className="md:w-1/2 h-64 md:h-80 w-full object-cover opacity-90 hover:opacity-100 transition" />
+    <CardContent className="p-6 md:w-1/2">
+      <h3 className="text-2xl font-semibold text-zinc-100 mb-2">CBN News + Regent University</h3>
+      <p className="text-zinc-300 mb-3">
+        Built newsroom automations that cut scriptwriting time from <span className="text-cyan-300">4 hours to 20 minutes</span>. Regent’s AI saved over <span className="text-cyan-300">500 hours</span> yearly.
+      </p>
+      <div className="text-sm text-zinc-400 mb-3">Industry: Media & Education | Type: Workflow Automation</div>
+      <div className="mt-4 text-cyan-300 font-medium">500+ Hours Saved Annually</div>
+    </CardContent>
+  </Card>
+
+</div>
+
+
+  
 
 
       {/* Founder Story (with photo slot) */}
