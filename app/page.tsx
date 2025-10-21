@@ -736,8 +736,6 @@ export default function OceansideLanding() {
 }
 
 // --- Quick self-tests (non-breaking) ---
-// These are simple runtime checks to validate the gating logic.
-// They don't render anything and won't affect the UI.
 export function __selfTest__() {
   type Lead = { budget: number; setupFee: number; mrr: number };
   const qualifies = (l: Lead) => l.budget >= 300 && l.setupFee >= 1000 && l.mrr >= 10000;
@@ -752,3 +750,4 @@ export function __selfTest__() {
   ];
   return cases.map(([l, expect]) => qualifies(l) === expect).every(Boolean);
 }
+
