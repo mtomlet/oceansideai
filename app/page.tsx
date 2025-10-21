@@ -335,8 +335,8 @@ export default function OceansideLanding() {
         <img src="/case-funeral.png" alt="Funeral Buddy" className="h-40 w-full rounded-2xl object-cover mb-4" />
         <h3 className="text-xl font-semibold text-zinc-100 mb-2">Funeral Buddy</h3>
         <p className="text-zinc-300 mb-3">
-          Ran outbound sales campaigns that booked meetings with funeral homes across Australia. Increased conversion rates
-          and client reach without hiring extra staff.
+          Ran outbound sales campaigns that booked meetings with funeral homes across Australia.
+          Increased conversion rates and client reach without hiring extra staff.
         </p>
         <div className="text-sm text-zinc-400 mb-2">Industry: Funeral Services | Type: Voice AI (Outbound)</div>
         <audio controls className="w-full mt-2">
@@ -373,14 +373,11 @@ export default function OceansideLanding() {
           Regent’s automation saved over <span className="text-cyan-300">500 hours</span> of staff time yearly.
         </p>
         <div className="text-sm text-zinc-400 mb-2">Industry: Media & Education | Type: Workflow Automation</div>
-        <audio controls className="w-full mt-2">
-          <source src="/audio/cbn-demo.mp3" type="audio/mpeg" />
-          Your browser does not support the audio element.
-        </audio>
       </CardContent>
     </Card>
   </div>
 </section>
+
 
       {/* Founder Story (with photo slot) */}
       <section id="story" className="mx-auto max-w-5xl px-6 py-20">
