@@ -403,49 +403,7 @@ export default function OceansideLanding() {
         </div>
       </section>
 
-      {/* Reviews */}
-      <section id="reviews" className="mx-auto max-w-7xl px-6 py-20">
-        <h2 className="text-3xl font-semibold tracking-tight md:text-4xl"><span className="underline decoration-cyan-400/40 underline-offset-4">What clients say</span></h2>
-        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
-          <Card className="border-white/10 bg-white/5">
-            <CardContent className="p-6">
-              <FiveStars />
-              <div className="text-zinc-300">“We run outbound sales across AU and needed an AI that wouldn’t embarrass us. Oceanside shipped in a week, handled accents flawlessly, and booked more qualified calls than our old SDR team.”</div>
-              <div className="mt-4 text-sm text-zinc-400">— Apex Outbound, Sydney</div>
-            </CardContent>
-          </Card>
-          <Card className="border-white/10 bg-white/5">
-            <CardContent className="p-6">
-              <FiveStars />
-              <div className="text-zinc-300">“Our truck & trailer shop misses calls after hours. Their agent answers, filters spam, and sends us clean job tickets. It’s like adding a night shift without payroll.”</div>
-              <div className="mt-4 text-sm text-zinc-400">— Merx Truck & Trailer</div>
-            </CardContent>
-          </Card>
-          <Card className="border-white/10 bg-white/5">
-            <CardContent className="p-6">
-              <FiveStars />
-              <div className="text-zinc-300">“Time saver of the decade. Multilingual support means our Rio team finally stopped juggling missed calls and WhatsApps. Huge win.”</div>
-              <div className="mt-4 text-sm text-zinc-400">— Learn Global </div>
-            </CardContent>
-          </Card>
-        </div>
-        <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <Card className="border-white/10 bg-white/5">
-            <CardContent className="p-6">
-              <FiveStars />
-              <div className="text-zinc-300">“Mark is incredible to work with—fast, calm under pressure, and deeply technical. He delivered newsroom automations that cut our script time from hours to minutes.”</div>
-              <div className="mt-4 text-sm text-zinc-400">— CBN News </div>
-            </CardContent>
-          </Card>
-          <Card className="border-white/10 bg-white/5">
-            <CardContent className="p-6">
-              <FiveStars />
-              <div className="text-zinc-300">“Mark helped us with a website automation that saved ~500 hours of time.”</div>
-              <div className="mt-4 text-sm text-zinc-400">— Regent University</div>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
+     
 
       {/* CTA + Demo Form */}
       <section id="demo" className="mx-auto max-w-7xl px-6 pb-24">
@@ -688,11 +646,17 @@ export default function OceansideLanding() {
       {/* YouTube */}
 <section id="youtube" className="mx-auto max-w-7xl px-6 py-16">
   <div className="rounded-2xl border border-white/10 bg-white/5 p-8 text-center">
-    <h3 className="text-2xl font-semibold tracking-tight">
-      <span className="underline decoration-cyan-400/40 underline-offset-4">
-        Watch on YouTube — 100k+ views
-      </span>
-    </h3>
+   <h3 className="text-2xl font-semibold tracking-tight flex items-center justify-center gap-3">
+  <img
+    src="/youtube-profile.jpg" // <-- replace with your actual image path
+    alt="YouTube profile"
+    className="h-10 w-10 rounded-full border border-white/20"
+  />
+  <span className="underline decoration-cyan-400/40 underline-offset-4">
+    Watch on YouTube — 100k+ views
+  </span>
+</h3>
+
     <p className="mt-3 text-zinc-300">
       Tutorials, live builds, and real client delivery.
     </p>
