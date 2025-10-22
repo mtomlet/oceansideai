@@ -155,7 +155,10 @@ export default function OceansideLanding() {
             <a href="#what" className="text-sm text-zinc-300 hover:text-white"><span className="underline decoration-cyan-400/40 underline-offset-4">What we do</span></a>
             <a href="#process" className="text-sm text-zinc-300 hover:text-white"><span className="underline decoration-cyan-400/40 underline-offset-4">Process</span></a>
             <a href="#story" className="text-sm text-zinc-300 hover:text-white"><span className="underline decoration-cyan-400/40 underline-offset-4">Founder</span></a>
-            <a href="#reviews" className="text-sm text-zinc-300 hover:text-white"><span className="underline decoration-cyan-400/40 underline-offset-4">Reviews</span></a>
+            <a href="#case-studies" className="text-sm text-zinc-300 hover:text-white">
+  <span className="underline decoration-cyan-400/40 underline-offset-4">Client Success Stories</span>
+</a>
+
           </nav>
           <div className="flex items-center gap-3">
             <a href="#demo" className="group inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-2 text-sm font-medium text-white hover:border-white/40">
