@@ -322,7 +322,11 @@ export default function OceansideLanding() {
       <p className="text-zinc-300 mb-3">
         Reduced missed calls from <span className="text-cyan-300">20% to 0%</span>, capturing new clients weekly they otherwise would’ve lost — worth thousands per month.
       </p>
-      <div className="text-sm text-zinc-400 mb-3">Industry: Truck Repair | Type: Voice AI</div>
+      <div className="flex flex-wrap gap-2 mb-3">
+  <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-zinc-300">Truck Repair</span>
+  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-xs text-cyan-300">Deployed Voice Agent</span>
+</div>
+
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
         <source src="/merx-demo.mp3" type="audio/mpeg" />
       </audio>
