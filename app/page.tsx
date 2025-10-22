@@ -340,7 +340,7 @@ export default function OceansideLanding() {
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Funeral Buddy</h3>
       <p className="text-zinc-300 mb-3">
-        Ran outbound sales campaigns that booked meetings with funeral homes across Australia.One day of calls equaled a week’s output from <span className="text-cyan-300">multiple staff members</span>.
+        Ran outbound sales campaigns that booked meetings with funeral homes across Australia. One day of calls equaled a week’s output from <span className="text-cyan-300">multiple staff members</span>.
 
       </p>
       <div className="flex flex-wrap gap-2 mb-3">
@@ -383,7 +383,11 @@ export default function OceansideLanding() {
       <p className="text-zinc-300 mb-3">
         Built newsroom automations that cut scriptwriting time from <span className="text-cyan-300">4 hours to 20 minutes</span>. Regent’s AI saved over <span className="text-cyan-300">500 hours</span> yearly.
       </p>
-      <div className="text-sm text-zinc-400 mb-3">Industry: Media & Education | Type: Workflow Automation</div>
+      <div className="flex flex-wrap gap-2 mb-3">
+  <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-zinc-300">News Media</span>
+  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-xs text-cyan-300">Workflow Automation</span>
+</div>
+
       <div className="mt-4 text-cyan-300 font-medium">500+ Hours Saved Annually</div>
     </CardContent>
   </Card>
