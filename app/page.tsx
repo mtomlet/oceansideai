@@ -324,7 +324,7 @@ export default function OceansideLanding() {
       </p>
       <div className="flex flex-wrap gap-2 mb-3">
   <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-zinc-300">Truck Repair</span>
-  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-xs text-cyan-300">Deployed Voice Agent</span>
+  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-xs text-cyan-300">Off-Hours Receptionist</span>
 </div>
 
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
@@ -340,13 +340,18 @@ export default function OceansideLanding() {
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Funeral Buddy</h3>
       <p className="text-zinc-300 mb-3">
-        Ran outbound sales campaigns that booked meetings with funeral homes across Australia. Increased conversion rates and client reach without hiring extra staff.
+        Ran outbound sales campaigns that booked meetings with funeral homes across Australia. <p>One day of calls equaled a week’s output from <span className="text-cyan-300">multiple staff members</span>.</p>
+
       </p>
-      <div className="text-sm text-zinc-400 mb-3">Industry: Funeral Services | Type: Voice AI (Outbound)</div>
+      <div className="flex flex-wrap gap-2 mb-3">
+  <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-zinc-300">Funeral Services</span>
+  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-xs text-cyan-300">Outbound Sales Agent</span>
+</div>
+
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
         <source src="/funeral-demo.mp3" type="audio/mpeg" />
       </audio>
-      <div className="mt-4 text-cyan-300 font-medium">3 Hours Saved Daily</div>
+      <div className="mt-4 text-cyan-300 font-medium">10 Hours Saved Daily</div>
     </CardContent>
   </Card>
 
@@ -356,13 +361,17 @@ export default function OceansideLanding() {
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Tutor ABC — Brazil</h3>
       <p className="text-zinc-300 mb-3">
-        Built a 24/7 AI receptionist answering questions faster than humans and selling language courses automatically. Saved the company <span className="text-cyan-300">$50,000/year</span> through automation.
+        Built a 24/7 AI receptionist answering questions faster than humans and selling language courses automatically. Reduced the need of <span className="text-cyan-300">multiple staff members</span> through automation.
       </p>
-      <div className="text-sm text-zinc-400 mb-3">Industry: Education | Type: Voice AI (Multilingual)</div>
+      <div className="flex flex-wrap gap-2 mb-3">
+  <span className="rounded-full border border-white/20 px-3 py-1 text-xs text-zinc-300">Education</span>
+  <span className="rounded-full border border-cyan-400/30 px-3 py-1 text-xs text-cyan-300">Multilingual Receptionist</span>
+</div>
+
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
         <source src="/tutor-demo.mp3" type="audio/mpeg" />
       </audio>
-      <div className="mt-4 text-cyan-300 font-medium">Multilingual Receptionist</div>
+      <div className="mt-4 text-cyan-300 font-medium">$50,0000 Saved Annually</div>
     </CardContent>
   </Card>
 
