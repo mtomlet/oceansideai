@@ -340,7 +340,7 @@ export default function OceansideLanding() {
     <CardContent className="p-6 md:w-1/2">
       <h3 className="text-2xl font-semibold text-zinc-100 mb-2">Funeral Buddy</h3>
       <p className="text-zinc-300 mb-3">
-        Ran outbound sales campaigns that booked meetings with funeral homes across Australia. <p>One day of calls equaled a week’s output from <span className="text-cyan-300">multiple staff members</span>.</p>
+        Ran outbound sales campaigns that booked meetings with funeral homes across Australia.One day of calls equaled a week’s output from <span className="text-cyan-300">multiple staff members</span>.
 
       </p>
       <div className="flex flex-wrap gap-2 mb-3">
@@ -351,7 +351,7 @@ export default function OceansideLanding() {
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
         <source src="/funeral-demo.mp3" type="audio/mpeg" />
       </audio>
-      <div className="mt-4 text-cyan-300 font-medium">10 Hours Saved Daily</div>
+      <div className="mt-4 text-cyan-300 font-medium">10hrs+ Saved Daily</div>
     </CardContent>
   </Card>
 
@@ -371,7 +371,7 @@ export default function OceansideLanding() {
       <audio controls preload="none" className="w-full mt-2 rounded-lg bg-zinc-800">
         <source src="/tutor-demo.mp3" type="audio/mpeg" />
       </audio>
-      <div className="mt-4 text-cyan-300 font-medium">$50,0000 Saved Annually</div>
+      <div className="mt-4 text-cyan-300 font-medium">$50,000+ Saved Annually</div>
     </CardContent>
   </Card>
 
