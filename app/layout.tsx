@@ -8,7 +8,9 @@ export const metadata: Metadata = {
     template: "%s | Oceanside AI",
   },
   description: "Voice AI that books, routes, and resolves—built like a Tesla.",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
