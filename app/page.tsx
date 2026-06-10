@@ -157,16 +157,31 @@ function CursorRipples() {
     type Ripple = { x: number; y: number; r: number; max: number; a: number };
     const ripples: Ripple[] = [];
     let last = 0;
+    let lastX = -1;
+    let lastY = -1;
 
     const onMove = (e: PointerEvent) => {
       const now = performance.now();
-      if (now - last < 110) return;
+      if (now - last < 55) return;
+      const speed =
+        lastX < 0 ? 0 : Math.hypot(e.clientX - lastX, e.clientY - lastY);
       last = now;
-      ripples.push({ x: e.clientX, y: e.clientY, r: 2, max: 36 + Math.random() * 16, a: 0.32 });
-      if (ripples.length > 20) ripples.shift();
+      lastX = e.clientX;
+      lastY = e.clientY;
+      // faster movement makes bigger, brighter ripples
+      const boost = Math.min(1.7, 0.65 + speed / 90);
+      ripples.push({
+        x: e.clientX,
+        y: e.clientY,
+        r: 2,
+        max: (55 + Math.random() * 45) * boost,
+        a: Math.min(0.55, 0.34 * boost),
+      });
+      if (ripples.length > 30) ripples.shift();
     };
     const onDown = (e: PointerEvent) => {
-      ripples.push({ x: e.clientX, y: e.clientY, r: 4, max: 90, a: 0.45 });
+      ripples.push({ x: e.clientX, y: e.clientY, r: 6, max: 190, a: 0.6 });
+      ripples.push({ x: e.clientX, y: e.clientY, r: 2, max: 110, a: 0.45 });
     };
     window.addEventListener("pointermove", onMove);
     window.addEventListener("pointerdown", onDown);
@@ -174,24 +189,34 @@ function CursorRipples() {
     let raf = 0;
     const tick = () => {
       ctx.clearRect(0, 0, W, H);
+      ctx.globalCompositeOperation = "lighter";
       for (let i = ripples.length - 1; i >= 0; i--) {
         const p = ripples[i];
-        p.r += (p.max - p.r) * 0.055 + 0.5;
-        p.a *= 0.955;
+        p.r += (p.max - p.r) * 0.05 + 0.65;
+        p.a *= 0.962;
         if (p.a < 0.012) {
           ripples.splice(i, 1);
           continue;
         }
-        ctx.lineWidth = 1.2;
+        ctx.shadowColor = "rgba(34,211,238,0.8)";
+        ctx.shadowBlur = 14;
+        ctx.lineWidth = 1.6;
         ctx.strokeStyle = `rgba(103,232,249,${p.a})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.stroke();
-        ctx.strokeStyle = `rgba(165,243,252,${p.a * 0.45})`;
+        ctx.shadowBlur = 0;
+        ctx.lineWidth = 1.1;
+        ctx.strokeStyle = `rgba(165,243,252,${p.a * 0.55})`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 0.55, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.r * 0.68, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.strokeStyle = `rgba(199,250,255,${p.a * 0.3})`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r * 0.4, 0, Math.PI * 2);
         ctx.stroke();
       }
+      ctx.globalCompositeOperation = "source-over";
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -682,6 +707,33 @@ export default function OceansideLanding() {
         />
         <div className="absolute -left-40 top-[-10%] h-[36rem] w-[36rem] rounded-full bg-cyan-500/[0.07] blur-3xl [animation:drift-a_26s_ease-in-out_infinite]" />
         <div className="absolute -right-40 top-[25%] h-[32rem] w-[32rem] rounded-full bg-indigo-500/[0.07] blur-3xl [animation:drift-b_30s_ease-in-out_infinite]" />
+        {/* persistent ocean swell pinned to the viewport bottom */}
+        <motion.div
+          className="absolute bottom-[-3rem] left-[-12%] w-[124%]"
+          animate={{ x: [0, -70, 0], y: [0, -8, 0] }}
+          transition={{ duration: 21, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <svg viewBox="0 0 1440 320" className="h-40 w-full" preserveAspectRatio="none">
+            <path
+              fill="#06b6d4"
+              fillOpacity="0.07"
+              d="M0,256L60,224C120,192,240,128,360,122.7C480,117,600,171,720,186.7C840,203,960,181,1080,160C1200,139,1320,117,1380,106.7L1440,96V320H0Z"
+            />
+          </svg>
+        </motion.div>
+        <motion.div
+          className="absolute bottom-[-3rem] left-[-12%] w-[124%]"
+          animate={{ x: [0, 55, 0], y: [0, -12, 0] }}
+          transition={{ duration: 27, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        >
+          <svg viewBox="0 0 1440 320" className="h-32 w-full" preserveAspectRatio="none">
+            <path
+              fill="#6366f1"
+              fillOpacity="0.06"
+              d="M0,288L48,250.7C96,213,192,139,288,122.7C384,107,480,149,576,170.7C672,192,768,192,864,176C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192V320H0Z"
+            />
+          </svg>
+        </motion.div>
       </div>
 
       {/* ============ NAV ============ */}
@@ -723,28 +775,41 @@ export default function OceansideLanding() {
       <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-36 pb-28">
         {/* drifting waves at the base */}
         <motion.div
-          className="absolute bottom-0 left-[-10%] w-[120%]"
-          animate={{ x: [0, -60, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-0 left-[-12%] w-[124%]"
+          animate={{ x: [0, -100, 0], y: [0, -14, 0] }}
+          transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
         >
-          <svg viewBox="0 0 1440 320" className="h-48 w-full" preserveAspectRatio="none">
+          <svg viewBox="0 0 1440 320" className="h-64 w-full" preserveAspectRatio="none">
             <path
               fill="#06b6d4"
-              fillOpacity="0.10"
+              fillOpacity="0.20"
               d="M0,256L60,224C120,192,240,128,360,122.7C480,117,600,171,720,186.7C840,203,960,181,1080,160C1200,139,1320,117,1380,106.7L1440,96V320H0Z"
             />
           </svg>
         </motion.div>
         <motion.div
-          className="absolute bottom-0 left-[-10%] w-[120%]"
-          animate={{ x: [0, 50, 0] }}
-          transition={{ duration: 24, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute bottom-0 left-[-12%] w-[124%]"
+          animate={{ x: [0, 85, 0], y: [0, -10, 0] }}
+          transition={{ duration: 19, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
         >
-          <svg viewBox="0 0 1440 320" className="h-36 w-full" preserveAspectRatio="none">
+          <svg viewBox="0 0 1440 320" className="h-52 w-full" preserveAspectRatio="none">
             <path
               fill="#6366f1"
-              fillOpacity="0.08"
+              fillOpacity="0.16"
               d="M0,288L48,250.7C96,213,192,139,288,122.7C384,107,480,149,576,170.7C672,192,768,192,864,176C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192V320H0Z"
+            />
+          </svg>
+        </motion.div>
+        <motion.div
+          className="absolute bottom-0 left-[-12%] w-[124%]"
+          animate={{ x: [0, -55, 0], y: [0, -18, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
+        >
+          <svg viewBox="0 0 1440 320" className="h-44 w-full" preserveAspectRatio="none">
+            <path
+              fill="#22d3ee"
+              fillOpacity="0.12"
+              d="M0,224L80,229.3C160,235,320,245,480,224C640,203,800,149,960,144C1120,139,1280,181,1360,202.7L1440,224V320H0Z"
             />
           </svg>
         </motion.div>
@@ -1140,7 +1205,7 @@ export default function OceansideLanding() {
                   rel="noopener noreferrer"
                   className="text-cyan-300 transition hover:text-cyan-200"
                 >
-                  Pioneer Path
+                  AI Voice Pioneers
                 </a>
                 , the #1 community on Voice AI.
               </p>
@@ -1217,7 +1282,7 @@ export default function OceansideLanding() {
                   <Crown className="h-3.5 w-3.5" /> #1 Community on Voice AI
                 </div>
                 <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight">
-                  Pioneer Path
+                  AI Voice Pioneers
                 </h3>
                 <p className="mt-3 text-zinc-400">
                   Mark runs the #1 community on Voice AI, where builders learn to ship real agents.
