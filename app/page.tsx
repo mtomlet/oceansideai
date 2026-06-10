@@ -154,69 +154,61 @@ function CursorRipples() {
     size();
     window.addEventListener("resize", size);
 
+    // boat-wake effect: small rings left along the cursor's path
     type Ripple = { x: number; y: number; r: number; max: number; a: number };
     const ripples: Ripple[] = [];
-    let last = 0;
     let lastX = -1;
     let lastY = -1;
 
     const onMove = (e: PointerEvent) => {
-      const now = performance.now();
-      if (now - last < 55) return;
-      const speed =
-        lastX < 0 ? 0 : Math.hypot(e.clientX - lastX, e.clientY - lastY);
-      last = now;
+      if (lastX < 0) {
+        lastX = e.clientX;
+        lastY = e.clientY;
+        return;
+      }
+      const dx = e.clientX - lastX;
+      const dy = e.clientY - lastY;
+      const dist = Math.hypot(dx, dy);
+      const STEP = 26;
+      if (dist < STEP * 0.5) return;
+      // drop a ring every STEP px along the path so fast moves leave a continuous wake
+      const steps = Math.min(6, Math.floor(dist / STEP) || 1);
+      for (let s = 1; s <= steps; s++) {
+        ripples.push({
+          x: lastX + (dx * s) / steps + (Math.random() - 0.5) * 4,
+          y: lastY + (dy * s) / steps + (Math.random() - 0.5) * 4,
+          r: 1.5,
+          max: 22 + Math.random() * 14,
+          a: 0.22,
+        });
+      }
+      if (ripples.length > 70) ripples.splice(0, ripples.length - 70);
       lastX = e.clientX;
       lastY = e.clientY;
-      // faster movement makes bigger, brighter ripples
-      const boost = Math.min(1.7, 0.65 + speed / 90);
-      ripples.push({
-        x: e.clientX,
-        y: e.clientY,
-        r: 2,
-        max: (55 + Math.random() * 45) * boost,
-        a: Math.min(0.55, 0.34 * boost),
-      });
-      if (ripples.length > 30) ripples.shift();
-    };
-    const onDown = (e: PointerEvent) => {
-      ripples.push({ x: e.clientX, y: e.clientY, r: 6, max: 190, a: 0.6 });
-      ripples.push({ x: e.clientX, y: e.clientY, r: 2, max: 110, a: 0.45 });
     };
     window.addEventListener("pointermove", onMove);
-    window.addEventListener("pointerdown", onDown);
 
     let raf = 0;
     const tick = () => {
       ctx.clearRect(0, 0, W, H);
-      ctx.globalCompositeOperation = "lighter";
       for (let i = ripples.length - 1; i >= 0; i--) {
         const p = ripples[i];
-        p.r += (p.max - p.r) * 0.05 + 0.65;
-        p.a *= 0.962;
-        if (p.a < 0.012) {
+        p.r += (p.max - p.r) * 0.035 + 0.25;
+        p.a *= 0.968;
+        if (p.a < 0.01) {
           ripples.splice(i, 1);
           continue;
         }
-        ctx.shadowColor = "rgba(34,211,238,0.8)";
-        ctx.shadowBlur = 14;
-        ctx.lineWidth = 1.6;
-        ctx.strokeStyle = `rgba(103,232,249,${p.a})`;
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = `rgba(125,211,252,${p.a})`;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
         ctx.stroke();
-        ctx.shadowBlur = 0;
-        ctx.lineWidth = 1.1;
-        ctx.strokeStyle = `rgba(165,243,252,${p.a * 0.55})`;
+        ctx.strokeStyle = `rgba(186,230,253,${p.a * 0.4})`;
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 0.68, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.strokeStyle = `rgba(199,250,255,${p.a * 0.3})`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r * 0.4, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, p.r * 0.6, 0, Math.PI * 2);
         ctx.stroke();
       }
-      ctx.globalCompositeOperation = "source-over";
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
@@ -225,7 +217,6 @@ function CursorRipples() {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", size);
       window.removeEventListener("pointermove", onMove);
-      window.removeEventListener("pointerdown", onDown);
     };
   }, []);
 
