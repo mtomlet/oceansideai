@@ -2,7 +2,15 @@
 
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { motion, animate, useInView, useScroll } from "framer-motion";
+import {
+  motion,
+  animate,
+  useInView,
+  useScroll,
+  useTransform,
+  useMotionValueEvent,
+  type MotionValue,
+} from "framer-motion";
 import {
   ArrowRight,
   ArrowDown,
@@ -14,13 +22,18 @@ import {
   Play,
   Pause,
   Youtube,
-  Calendar,
   MessageCircle,
   CheckCircle2,
   Sparkles,
   Linkedin,
   Users,
   Crown,
+  Calendar,
+  Database,
+  Ear,
+  Brain,
+  Waves,
+  ChevronDown,
 } from "lucide-react";
 
 const CALENDLY_URL = "https://calendly.com/d/crgj-sgp-sq8";
@@ -130,17 +143,68 @@ function CountUp({
   return <span ref={ref}>{`${prefix}0${suffix}`}</span>;
 }
 
-/* ============================== Cursor Ripples ============================== */
+/* ============================== Star / Particle Field ============================== */
 
-function CursorRipples() {
+function StarField() {
   const ref = useRef<HTMLCanvasElement>(null);
-
   useEffect(() => {
     const cv = ref.current;
     if (!cv) return;
     const ctx = cv.getContext("2d");
     if (!ctx) return;
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let W = 0;
+    let H = 0;
+    let stars: { x: number; y: number; z: number; r: number; tw: number }[] = [];
+    const build = () => {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      cv.width = W * dpr;
+      cv.height = H * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = Math.min(150, Math.floor((W * H) / 14000));
+      stars = Array.from({ length: count }, (_, i) => ({
+        x: Math.abs(Math.sin(i * 91.7) * W),
+        y: Math.abs(Math.cos(i * 53.3) * H),
+        z: 0.3 + (Math.abs(Math.sin(i * 12.9)) % 1) * 0.7,
+        r: 0.4 + (Math.abs(Math.cos(i * 7.1)) % 1) * 1.3,
+        tw: Math.abs(Math.sin(i * 3.3)) * 6.28,
+      }));
+    };
+    build();
+    window.addEventListener("resize", build);
+    const t0 = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const t = (now - t0) / 1000;
+      ctx.clearRect(0, 0, W, H);
+      for (const s of stars) {
+        const a = 0.25 + 0.5 * (0.5 + 0.5 * Math.sin(t * 0.8 * s.z + s.tw));
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(148,206,255,${a * s.z})`;
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", build);
+    };
+  }, []);
+  return <canvas ref={ref} className="pointer-events-none fixed inset-0 -z-10 opacity-70" aria-hidden="true" />;
+}
 
+/* ============================== Cursor Ripples ============================== */
+
+function CursorRipples() {
+  const ref = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    const cv = ref.current;
+    if (!cv) return;
+    const ctx = cv.getContext("2d");
+    if (!ctx) return;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let W = 0;
     let H = 0;
@@ -153,13 +217,10 @@ function CursorRipples() {
     };
     size();
     window.addEventListener("resize", size);
-
-    // boat-wake effect: small rings left along the cursor's path
     type Ripple = { x: number; y: number; r: number; max: number; a: number };
     const ripples: Ripple[] = [];
     let lastX = -1;
     let lastY = -1;
-
     const onMove = (e: PointerEvent) => {
       if (lastX < 0) {
         lastX = e.clientX;
@@ -171,7 +232,6 @@ function CursorRipples() {
       const dist = Math.hypot(dx, dy);
       const STEP = 26;
       if (dist < STEP * 0.5) return;
-      // drop a ring every STEP px along the path so fast moves leave a continuous wake
       const steps = Math.min(6, Math.floor(dist / STEP) || 1);
       for (let s = 1; s <= steps; s++) {
         ripples.push({
@@ -187,7 +247,6 @@ function CursorRipples() {
       lastY = e.clientY;
     };
     window.addEventListener("pointermove", onMove);
-
     let raf = 0;
     const tick = () => {
       ctx.clearRect(0, 0, W, H);
@@ -212,31 +271,26 @@ function CursorRipples() {
       raf = requestAnimationFrame(tick);
     };
     raf = requestAnimationFrame(tick);
-
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", size);
       window.removeEventListener("pointermove", onMove);
     };
   }, []);
-
   return <canvas ref={ref} className="pointer-events-none fixed inset-0 z-[65]" aria-hidden="true" />;
 }
 
-/* ============================== Voice Orb ============================== */
+/* ============================== Voice Orb (living core) ============================== */
 
 function VoiceOrb({ className = "" }: { className?: string }) {
   const ref = useRef<HTMLCanvasElement>(null);
-
   useEffect(() => {
     const cv = ref.current;
     if (!cv) return;
     const ctx = cv.getContext("2d");
     if (!ctx) return;
-
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let raf = 0;
-
     const size = () => {
       const s = cv.clientWidth || 480;
       cv.width = s * dpr;
@@ -244,9 +298,7 @@ function VoiceOrb({ className = "" }: { className?: string }) {
     };
     size();
     window.addEventListener("resize", size);
-
     const t0 = performance.now();
-
     const render = (now: number) => {
       const t = (now - t0) / 1000;
       const s = cv.width;
@@ -254,8 +306,6 @@ function VoiceOrb({ className = "" }: { className?: string }) {
       const R = s * 0.3;
       ctx.clearRect(0, 0, s, s);
       ctx.globalCompositeOperation = "lighter";
-
-      // breathing core
       const breath = 1 + 0.05 * Math.sin(t * 1.4);
       let g = ctx.createRadialGradient(c, c, 0, c, c, R * 0.92 * breath);
       g.addColorStop(0, "rgba(186,240,255,0.55)");
@@ -266,8 +316,6 @@ function VoiceOrb({ className = "" }: { className?: string }) {
       ctx.beginPath();
       ctx.arc(c, c, R * 0.92 * breath, 0, Math.PI * 2);
       ctx.fill();
-
-      // inner disc
       g = ctx.createRadialGradient(c, c, 0, c, c, R * 0.34);
       g.addColorStop(0, "rgba(240,252,255,0.9)");
       g.addColorStop(1, "rgba(125,211,252,0)");
@@ -275,8 +323,6 @@ function VoiceOrb({ className = "" }: { className?: string }) {
       ctx.beginPath();
       ctx.arc(c, c, R * 0.34, 0, Math.PI * 2);
       ctx.fill();
-
-      // radial voice bars
       const N = 112;
       ctx.lineCap = "round";
       ctx.lineWidth = Math.max(1.5, s * 0.005);
@@ -298,8 +344,6 @@ function VoiceOrb({ className = "" }: { className?: string }) {
         ctx.lineTo(x2, y2);
         ctx.stroke();
       }
-
-      // expanding pulse rings
       for (let k = 0; k < 2; k++) {
         const phase = ((t * 0.42 + k * 0.5) % 1 + 1) % 1;
         const rr = R * (1.05 + phase * 0.62);
@@ -309,8 +353,6 @@ function VoiceOrb({ className = "" }: { className?: string }) {
         ctx.arc(c, c, rr, 0, Math.PI * 2);
         ctx.stroke();
       }
-
-      // orbiting satellites
       for (let k = 0; k < 3; k++) {
         const a = t * (0.3 + k * 0.12) + (k * Math.PI * 2) / 3;
         const rr = R * (1.32 + k * 0.1);
@@ -324,19 +366,359 @@ function VoiceOrb({ className = "" }: { className?: string }) {
         ctx.arc(x, y, s * 0.016, 0, Math.PI * 2);
         ctx.fill();
       }
-
       ctx.globalCompositeOperation = "source-over";
       raf = requestAnimationFrame(render);
     };
-
     raf = requestAnimationFrame(render);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", size);
     };
   }, []);
-
   return <canvas ref={ref} className={className} aria-hidden="true" />;
+}
+
+/* ============================== The Assembly (scroll centerpiece) ============================== */
+
+const SATELLITES = [
+  { icon: Calendar, label: "Calendar", angle: -55, hue: "from-cyan-400 to-sky-500", win: [0.5, 0.6] },
+  { icon: Database, label: "Knowledge", angle: -125, hue: "from-indigo-400 to-violet-500", win: [0.54, 0.64] },
+  { icon: Users, label: "CRM", angle: 125, hue: "from-emerald-400 to-teal-500", win: [0.58, 0.68] },
+  { icon: MessageCircle, label: "SMS", angle: 55, hue: "from-amber-300 to-orange-500", win: [0.62, 0.72] },
+] as const;
+
+function Conduit({
+  p,
+  angle,
+  r = 380,
+  win,
+  color = "rgba(103,232,249,0.9)",
+}: {
+  p: MotionValue<number>;
+  angle: number;
+  r?: number;
+  win: [number, number];
+  color?: string;
+}) {
+  const rad = (angle * Math.PI) / 180;
+  const x2 = 500 + Math.cos(rad) * r;
+  const y2 = 500 + Math.sin(rad) * r;
+  const draw = useTransform(p, [win[0], win[1]], [0, 1]);
+  const flow = useTransform(p, [win[0], win[1]], [0, 0.55]);
+  const d = `M500 500 L ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+  return (
+    <>
+      <motion.path d={d} stroke={color} strokeWidth={1.4} fill="none" style={{ pathLength: draw, opacity: draw }} />
+      <motion.path
+        d={d}
+        stroke="rgba(186,230,253,0.9)"
+        strokeWidth={3}
+        strokeLinecap="round"
+        strokeDasharray="2 16"
+        fill="none"
+        style={{ opacity: flow }}
+        className="[animation:dash-flow_1s_linear_infinite]"
+      />
+    </>
+  );
+}
+
+function Satellite({
+  p,
+  icon: Icon,
+  label,
+  angle,
+  hue,
+  win,
+}: {
+  p: MotionValue<number>;
+  icon: typeof Calendar;
+  label: string;
+  angle: number;
+  hue: string;
+  win: readonly [number, number];
+}) {
+  const rad = (angle * Math.PI) / 180;
+  const left = 50 + Math.cos(rad) * 38;
+  const top = 50 + Math.sin(rad) * 38;
+  const op = useTransform(p, [win[0], win[0] + 0.05, win[1], 0.98, 1], [0, 1, 1, 1, 1]);
+  const scale = useTransform(p, [win[0], win[1]], [0.2, 1]);
+  const blur = useTransform(p, [win[0], win[0] + 0.06], ["blur(8px)", "blur(0px)"]);
+  return (
+    <motion.div
+      className="absolute z-20"
+      style={{ left: `${left}%`, top: `${top}%`, opacity: op }}
+    >
+      <motion.div style={{ scale, filter: blur }} className="-translate-x-1/2 -translate-y-1/2">
+        <div className="flex flex-col items-center gap-1.5 [animation:bob_5s_ease-in-out_infinite]">
+          <div className="relative">
+            <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${hue} opacity-40 blur-lg`} />
+            <div
+              className={`relative flex h-11 w-11 items-center justify-center rounded-2xl border border-white/20 bg-gradient-to-br ${hue} shadow-lg md:h-14 md:w-14`}
+            >
+              <Icon className="h-5 w-5 text-white md:h-6 md:w-6" />
+            </div>
+          </div>
+          <span className="rounded-full border border-white/10 bg-[#060c16]/80 px-2 py-0.5 text-[10px] font-medium text-zinc-300 backdrop-blur md:text-xs">
+            {label}
+          </span>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
+const PHASES = [
+  {
+    key: "listen",
+    icon: Ear,
+    word: "Listens",
+    line: "“Hi, do you have anything open this week?”",
+    sub: "Natural speech in — captured word for word, in any language.",
+    win: [0.14, 0.32] as [number, number],
+  },
+  {
+    key: "understand",
+    icon: Brain,
+    word: "Understands",
+    line: "Intent: book appointment · urgency: this week",
+    sub: "It reasons like your best receptionist — no menus, no scripts to press.",
+    win: [0.34, 0.5] as [number, number],
+  },
+  {
+    key: "remember",
+    icon: Database,
+    word: "Remembers",
+    line: "Checking calendar · CRM · knowledge base",
+    sub: "Plugged into your calendar, CRM, and systems — it knows what you know.",
+    win: [0.52, 0.7] as [number, number],
+  },
+  {
+    key: "respond",
+    icon: Waves,
+    word: "Responds",
+    line: "“You're booked for Tuesday at 2:30 — just texted you the details.”",
+    sub: "It speaks back, books the slot, and follows up. The call is handled.",
+    win: [0.72, 0.9] as [number, number],
+  },
+];
+
+function PhaseCopy({ p, phase }: { p: MotionValue<number>; phase: (typeof PHASES)[number] }) {
+  const [a, b] = phase.win;
+  const pad = 0.04;
+  const op = useTransform(p, [a - pad, a, b, b + pad], [0, 1, 1, 0]);
+  const y = useTransform(p, [a - pad, a, b, b + pad], [24, 0, 0, -24]);
+  const Icon = phase.icon;
+  return (
+    <motion.div
+      style={{ opacity: op, y }}
+      className="pointer-events-none absolute inset-x-0 top-0 flex flex-col items-center px-6 text-center"
+    >
+      <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-cyan-400/25 bg-cyan-500/[0.06] px-3.5 py-1 text-[11px] font-medium uppercase tracking-[0.25em] text-cyan-300">
+        <Icon className="h-3.5 w-3.5" /> {phase.key}
+      </div>
+      <h3 className="font-display text-4xl font-semibold tracking-tight md:text-6xl">
+        It <GradientText>{phase.word}</GradientText>
+      </h3>
+      <p className="mt-3 max-w-md text-sm leading-relaxed text-zinc-300 md:text-base">{phase.line}</p>
+      <p className="mt-1.5 max-w-sm text-xs text-zinc-500 md:text-sm">{phase.sub}</p>
+    </motion.div>
+  );
+}
+
+function AgentAssembly() {
+  const wrap = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: wrap, offset: ["start start", "end end"] });
+  const p = scrollYProgress;
+  const [active, setActive] = useState(0);
+  useMotionValueEvent(p, "change", (v) => {
+    const i = v < 0.34 ? 0 : v < 0.52 ? 1 : v < 0.72 ? 2 : 3;
+    setActive(i);
+  });
+
+  // core + ring transforms
+  const coreOp = useTransform(p, [0.02, 0.16], [0, 1]);
+  const coreScale = useTransform(p, [0.02, 0.2], [0.3, 1]);
+  const ring1 = useTransform(p, [0.32, 0.48], [0, 1]);
+  const ring1s = useTransform(p, [0.32, 0.48], [0.6, 1]);
+  const ring2 = useTransform(p, [0.5, 0.68], [0, 1]);
+  const ring2s = useTransform(p, [0.5, 0.68], [0.6, 1]);
+
+  // inbound "listen" node (left) + outbound "respond" node (right)
+  const inOp = useTransform(p, [0.14, 0.24, 0.5, 0.6], [0, 1, 1, 0.35]);
+  const inConduit = useTransform(p, [0.16, 0.3], [0, 1]);
+  const outOp = useTransform(p, [0.72, 0.82], [0, 1]);
+  const bookedOp = useTransform(p, [0.84, 0.92], [0, 1]);
+  const assembledOp = useTransform(p, [0.92, 0.99], [0, 1]);
+
+  return (
+    <section ref={wrap} className="relative h-[520vh]" aria-label="How the voice agent works">
+      <div className="sticky top-0 flex h-screen flex-col items-center justify-start overflow-hidden pt-[27vh]">
+        {/* section eyebrow */}
+        <div className="absolute top-[6%] left-1/2 -translate-x-1/2 text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-[11px] font-medium uppercase tracking-[0.3em] text-zinc-400 backdrop-blur">
+            <Sparkles className="h-3 w-3 text-cyan-300" /> Watch one get built
+          </div>
+        </div>
+
+        {/* phase copy stack (top) */}
+        <div className="absolute top-[12%] left-1/2 h-40 w-full max-w-3xl -translate-x-1/2">
+          {PHASES.map((ph) => (
+            <PhaseCopy key={ph.key} p={p} phase={ph} />
+          ))}
+        </div>
+
+        {/* left phase rail */}
+        <div className="absolute left-4 top-1/2 hidden -translate-y-1/2 flex-col gap-5 md:left-10 md:flex">
+          {PHASES.map((ph, i) => {
+            const on = i === active;
+            const passed = i < active;
+            return (
+              <div key={ph.key} className="flex items-center gap-3">
+                <div
+                  className={`relative flex h-3 w-3 items-center justify-center rounded-full transition-all duration-500 ${
+                    on ? "bg-cyan-300" : passed ? "bg-cyan-500/60" : "bg-white/15"
+                  }`}
+                >
+                  {on && <span className="absolute inset-0 animate-ping rounded-full bg-cyan-300/60" />}
+                </div>
+                <span
+                  className={`text-xs font-medium tracking-wide transition-colors duration-500 ${
+                    on ? "text-white" : "text-zinc-600"
+                  }`}
+                >
+                  {ph.word}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* ============ THE STAGE ============ */}
+        <div className="relative aspect-square w-[min(84vw,500px)]">
+          {/* conduits + rings SVG */}
+          <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" className="absolute inset-0 h-full w-full">
+            {SATELLITES.map((s) => (
+              <Conduit key={s.label} p={p} angle={s.angle} win={s.win as [number, number]} />
+            ))}
+            {/* inbound conduit (left → core) */}
+            <motion.path
+              d="M120 500 L 500 500"
+              stroke="rgba(52,211,153,0.8)"
+              strokeWidth={1.4}
+              fill="none"
+              style={{ pathLength: inConduit, opacity: inConduit }}
+            />
+            <motion.path
+              d="M120 500 L 500 500"
+              stroke="rgba(167,243,208,0.9)"
+              strokeWidth={3}
+              strokeLinecap="round"
+              strokeDasharray="2 16"
+              fill="none"
+              style={{ opacity: inOp }}
+              className="[animation:dash-flow_0.9s_linear_infinite]"
+            />
+            {/* outbound conduit (core → right) */}
+            <motion.path
+              d="M500 500 L 880 500"
+              stroke="rgba(103,232,249,0.85)"
+              strokeWidth={3}
+              strokeLinecap="round"
+              strokeDasharray="2 16"
+              fill="none"
+              style={{ opacity: outOp }}
+              className="[animation:dash-flow_0.8s_linear_infinite_reverse]"
+            />
+          </svg>
+
+          {/* understanding ring */}
+          <motion.div
+            style={{ opacity: ring1, scale: ring1s }}
+            className="absolute left-1/2 top-1/2 h-[54%] w-[54%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-cyan-300/30 [animation:spin-slow_24s_linear_infinite]"
+          />
+          {/* memory ring */}
+          <motion.div
+            style={{ opacity: ring2, scale: ring2s }}
+            className="absolute left-1/2 top-1/2 h-[80%] w-[80%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-indigo-300/20 [animation:spin-rev_40s_linear_infinite]"
+          >
+            <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-indigo-300/70" />
+            <span className="absolute left-0 top-1/2 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-300/70" />
+          </motion.div>
+
+          {/* central living core */}
+          <motion.div
+            style={{ opacity: coreOp, scale: coreScale }}
+            className="absolute left-1/2 top-1/2 h-[46%] w-[46%] -translate-x-1/2 -translate-y-1/2"
+          >
+            <VoiceOrb className="h-full w-full" />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-[#060c16]/60 backdrop-blur md:h-16 md:w-16">
+                <Cpu className="h-6 w-6 text-cyan-200 md:h-7 md:w-7" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* satellites */}
+          {SATELLITES.map((s) => (
+            <Satellite key={s.label} p={p} icon={s.icon} label={s.label} angle={s.angle} hue={s.hue} win={s.win} />
+          ))}
+
+          {/* inbound listen node */}
+          <motion.div style={{ opacity: inOp }} className="absolute left-[-2%] top-1/2 z-20 -translate-y-1/2">
+            <div className="-translate-x-1/2 flex flex-col items-center gap-1.5">
+              <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl border border-emerald-400/30 bg-gradient-to-br from-emerald-500/25 to-teal-500/25 backdrop-blur md:h-14 md:w-14">
+                <PhoneCall className="h-5 w-5 text-emerald-200 md:h-6 md:w-6" />
+                <span className="absolute inset-0 rounded-2xl bg-emerald-400/30 [animation:ping-slow_2.2s_ease-out_infinite]" />
+              </div>
+              <span className="rounded-full border border-white/10 bg-[#060c16]/80 px-2 py-0.5 text-[10px] text-zinc-300 backdrop-blur md:text-xs">
+                Inbound
+              </span>
+            </div>
+          </motion.div>
+
+          {/* outbound respond node */}
+          <motion.div style={{ opacity: outOp }} className="absolute right-[-2%] top-1/2 z-20 -translate-y-1/2">
+            <div className="translate-x-1/2 flex flex-col items-center gap-1.5">
+              <div className="flex h-11 items-end gap-[3px] rounded-2xl border border-cyan-400/25 bg-[#060c16]/70 px-3 backdrop-blur md:h-14">
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <span
+                    key={i}
+                    className="w-[3px] origin-bottom rounded-full bg-cyan-300/90 [animation:eq_1s_ease-in-out_infinite]"
+                    style={{ height: `${35 + ((i * 41) % 55)}%`, animationDelay: `${i * 0.12}s` }}
+                  />
+                ))}
+              </div>
+              <span className="rounded-full border border-white/10 bg-[#060c16]/80 px-2 py-0.5 text-[10px] text-zinc-300 backdrop-blur md:text-xs">
+                Voice out
+              </span>
+            </div>
+          </motion.div>
+
+          {/* booked pill */}
+          <motion.div
+            style={{ opacity: bookedOp }}
+            className="absolute bottom-[6%] left-1/2 z-30 -translate-x-1/2"
+          >
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/15 px-4 py-2 text-xs font-medium text-emerald-200 backdrop-blur md:text-sm">
+              <CheckCircle2 className="h-4 w-4" /> Appointment booked · Tue 2:30 PM
+            </div>
+          </motion.div>
+        </div>
+
+        {/* assembled caption */}
+        <motion.div
+          style={{ opacity: assembledOp }}
+          className="pointer-events-none absolute bottom-[7%] left-1/2 -translate-x-1/2 text-center"
+        >
+          <p className="font-display text-lg font-semibold text-white md:text-2xl">
+            One agent. <GradientText>Every call, answered.</GradientText>
+          </p>
+          <p className="mt-1 text-xs text-zinc-500 md:text-sm">Assembled for your business in about a week.</p>
+        </motion.div>
+      </div>
+    </section>
+  );
 }
 
 /* ============================== Live Call Simulation ============================== */
@@ -403,12 +785,10 @@ function LiveCallCard() {
 
   const fmt = (s: number) =>
     `${String(Math.floor(s / 60)).padStart(2, "0")}:${String(s % 60).padStart(2, "0")}`;
-
   const typingRole = CALL_SCRIPT[count]?.role;
 
   return (
     <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-[#060c16]/85 shadow-2xl shadow-cyan-500/10 backdrop-blur-xl">
-      {/* header */}
       <div className="flex items-center gap-3 border-b border-white/5 px-5 py-4">
         <div className="relative">
           <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-cyan-400 to-indigo-500">
@@ -433,8 +813,6 @@ function LiveCallCard() {
           ))}
         </div>
       </div>
-
-      {/* transcript */}
       <div ref={bodyRef} className="flex h-[280px] flex-col gap-3 overflow-hidden px-5 py-4">
         {CALL_SCRIPT.slice(0, count).map((m, i) => (
           <div
@@ -461,11 +839,7 @@ function LiveCallCard() {
           </div>
         )}
         {done && (
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-1 space-y-2"
-          >
+          <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-1 space-y-2">
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-300">
               <CheckCircle2 className="h-3.5 w-3.5" /> Appointment booked · Tue 2:30 PM
             </div>
@@ -511,16 +885,13 @@ function AudioDemo({ src, label }: { src: string; label: string }) {
     if (a.paused) a.play();
     else a.pause();
   };
-
   const seek = (e: React.MouseEvent<HTMLDivElement>) => {
     const a = audioRef.current;
     if (!a || !a.duration) return;
     const r = e.currentTarget.getBoundingClientRect();
     a.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * a.duration;
   };
-
-  const fmt = (s: number) =>
-    `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
   return (
     <div className="mt-6 rounded-2xl border border-white/10 bg-white/[0.04] p-4 backdrop-blur">
@@ -631,8 +1002,8 @@ export default function OceansideLanding() {
       resultLabel: "Saved Daily",
       body: (
         <>
-          Ran outbound sales campaigns that booked meetings with funeral homes across Australia.
-          One day of calls equaled a week’s output from{" "}
+          Ran outbound sales campaigns that booked meetings with funeral homes across Australia. One
+          day of calls equaled a week’s output from{" "}
           <span className="text-cyan-300">multiple staff members</span>.
         </>
       ),
@@ -679,52 +1050,24 @@ export default function OceansideLanding() {
         className="fixed inset-x-0 top-0 z-[70] h-[2px] origin-left bg-gradient-to-r from-cyan-400 via-sky-400 to-indigo-500"
       />
 
-      {/* cursor water ripples */}
+      <StarField />
       <CursorRipples />
 
       {/* global background */}
       <div className="pointer-events-none fixed inset-0 -z-10">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_900px_600px_at_15%_-5%,rgba(34,211,238,0.10),transparent),radial-gradient(ellipse_800px_500px_at_85%_5%,rgba(99,102,241,0.10),transparent),radial-gradient(ellipse_700px_500px_at_50%_110%,rgba(14,116,144,0.12),transparent)]" />
         <div
-          className="absolute inset-0 opacity-[0.55]"
+          className="absolute inset-0 opacity-[0.5]"
           style={{
             backgroundImage:
               "linear-gradient(rgba(148,163,184,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.05) 1px, transparent 1px)",
             backgroundSize: "72px 72px",
             maskImage: "radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(ellipse 90% 70% at 50% 0%, black 30%, transparent 75%)",
           }}
         />
         <div className="absolute -left-40 top-[-10%] h-[36rem] w-[36rem] rounded-full bg-cyan-500/[0.07] blur-3xl [animation:drift-a_26s_ease-in-out_infinite]" />
         <div className="absolute -right-40 top-[25%] h-[32rem] w-[32rem] rounded-full bg-indigo-500/[0.07] blur-3xl [animation:drift-b_30s_ease-in-out_infinite]" />
-        {/* persistent ocean swell pinned to the viewport bottom */}
-        <motion.div
-          className="absolute bottom-[-3rem] left-[-12%] w-[124%]"
-          animate={{ x: [0, -70, 0], y: [0, -8, 0] }}
-          transition={{ duration: 21, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <svg viewBox="0 0 1440 320" className="h-40 w-full" preserveAspectRatio="none">
-            <path
-              fill="#06b6d4"
-              fillOpacity="0.07"
-              d="M0,256L60,224C120,192,240,128,360,122.7C480,117,600,171,720,186.7C840,203,960,181,1080,160C1200,139,1320,117,1380,106.7L1440,96V320H0Z"
-            />
-          </svg>
-        </motion.div>
-        <motion.div
-          className="absolute bottom-[-3rem] left-[-12%] w-[124%]"
-          animate={{ x: [0, 55, 0], y: [0, -12, 0] }}
-          transition={{ duration: 27, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        >
-          <svg viewBox="0 0 1440 320" className="h-32 w-full" preserveAspectRatio="none">
-            <path
-              fill="#6366f1"
-              fillOpacity="0.06"
-              d="M0,288L48,250.7C96,213,192,139,288,122.7C384,107,480,149,576,170.7C672,192,768,192,864,176C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192V320H0Z"
-            />
-          </svg>
-        </motion.div>
       </div>
 
       {/* ============ NAV ============ */}
@@ -738,16 +1081,12 @@ export default function OceansideLanding() {
           </a>
           <nav className="hidden items-center gap-7 lg:flex">
             {[
-              { href: "#what", label: "What we do" },
-              { href: "#process", label: "Process" },
-              { href: "#case-studies", label: "Client Success Stories" },
+              { href: "#build", label: "How it works" },
+              { href: "#case-studies", label: "Client Success" },
               { href: "#story", label: "Founder" },
+              { href: "#community", label: "Community" },
             ].map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
-                className="text-sm text-zinc-400 transition hover:text-white"
-              >
+              <a key={l.href} href={l.href} className="text-sm text-zinc-400 transition hover:text-white">
                 {l.label}
               </a>
             ))}
@@ -763,152 +1102,81 @@ export default function OceansideLanding() {
       </header>
 
       {/* ============ HERO ============ */}
-      <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-36 pb-28">
-        {/* drifting waves at the base */}
+      <section id="top" className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pt-28 pb-20 text-center">
+        {/* orb behind */}
+        <VoiceOrb className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[min(120vw,860px)] max-w-none -translate-x-1/2 -translate-y-[54%] opacity-80" />
+
         <motion.div
-          className="absolute bottom-0 left-[-12%] w-[124%]"
-          animate={{ x: [0, -100, 0], y: [0, -14, 0] }}
-          transition={{ duration: 13, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 18 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 mb-7 inline-flex items-center gap-2.5 rounded-full border border-cyan-400/25 bg-cyan-500/[0.07] px-4 py-2 text-xs font-medium tracking-wide text-cyan-200 backdrop-blur"
         >
-          <svg viewBox="0 0 1440 320" className="h-64 w-full" preserveAspectRatio="none">
-            <path
-              fill="#06b6d4"
-              fillOpacity="0.20"
-              d="M0,256L60,224C120,192,240,128,360,122.7C480,117,600,171,720,186.7C840,203,960,181,1080,160C1200,139,1320,117,1380,106.7L1440,96V320H0Z"
-            />
-          </svg>
-        </motion.div>
-        <motion.div
-          className="absolute bottom-0 left-[-12%] w-[124%]"
-          animate={{ x: [0, 85, 0], y: [0, -10, 0] }}
-          transition={{ duration: 19, repeat: Infinity, ease: "easeInOut", delay: 0.6 }}
-        >
-          <svg viewBox="0 0 1440 320" className="h-52 w-full" preserveAspectRatio="none">
-            <path
-              fill="#6366f1"
-              fillOpacity="0.16"
-              d="M0,288L48,250.7C96,213,192,139,288,122.7C384,107,480,149,576,170.7C672,192,768,192,864,176C960,160,1056,128,1152,128C1248,128,1344,160,1392,176L1440,192V320H0Z"
-            />
-          </svg>
-        </motion.div>
-        <motion.div
-          className="absolute bottom-0 left-[-12%] w-[124%]"
-          animate={{ x: [0, -55, 0], y: [0, -18, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 1.4 }}
-        >
-          <svg viewBox="0 0 1440 320" className="h-44 w-full" preserveAspectRatio="none">
-            <path
-              fill="#22d3ee"
-              fillOpacity="0.12"
-              d="M0,224L80,229.3C160,235,320,245,480,224C640,203,800,149,960,144C1120,139,1280,181,1360,202.7L1440,224V320H0Z"
-            />
-          </svg>
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+          </span>
+          Voice agents answering live, 24/7
         </motion.div>
 
-        <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 px-6 lg:grid-cols-2">
-          {/* left: copy */}
-          <div>
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-cyan-400/25 bg-cyan-500/[0.07] px-4 py-2 text-xs font-medium tracking-wide text-cyan-200"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-              </span>
-              Voice agents answering live, 24/7
-            </motion.div>
+        <motion.h1
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-8xl"
+        >
+          Ride the{" "}
+          <span className="bg-gradient-to-r from-cyan-300 via-indigo-400 to-cyan-300 bg-[length:200%_auto] bg-clip-text text-transparent [animation:shimmer_5s_linear_infinite]">
+            AI Wave
+          </span>
+        </motion.h1>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
-              className="font-display text-5xl font-semibold leading-[1.04] tracking-tight md:text-7xl"
-            >
-              Ride the{" "}
-              <span className="bg-gradient-to-r from-cyan-300 via-indigo-400 to-cyan-300 bg-[length:200%_auto] bg-clip-text text-transparent [animation:shimmer_5s_linear_infinite]">
-                AI Wave
-              </span>
-            </motion.h1>
+        <motion.p
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 md:text-xl"
+        >
+          Voice AI that answers, understands, and closes — for every call your business can’t afford
+          to miss. Built like a Tesla: quiet power, immaculate design.
+        </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-zinc-400 md:text-xl"
-            >
-              Voice AI that books, routes, and resolves. Built like a Tesla: quiet power, immaculate
-              design.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 22 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-9 flex flex-wrap items-center gap-4"
-            >
-              <a
-                href={CALENDLY_URL}
-                className="group inline-flex h-12 items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 px-7 text-sm font-semibold text-white shadow-xl shadow-cyan-500/30 transition hover:scale-[1.02] hover:shadow-cyan-400/40"
-              >
-                Work with us
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a
-                href="#case-studies"
-                className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/15 bg-white/[0.03] px-7 text-sm font-medium text-zinc-200 backdrop-blur transition hover:border-cyan-400/40 hover:text-white"
-              >
-                Hear real calls
-                <ArrowDown className="h-4 w-4" />
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 0.45 }}
-              className="mt-10 flex flex-wrap gap-x-7 gap-y-3 text-sm text-zinc-500"
-            >
-              {["Books appointments", "Routes calls", "Powered by Retell AI"].map((f) => (
-                <span key={f} className="inline-flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-cyan-400" /> {f}
-                </span>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* right: orb + live call */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto flex w-full max-w-xl items-center justify-center"
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 mt-9 flex flex-wrap items-center justify-center gap-4"
+        >
+          <a
+            href={CALENDLY_URL}
+            className="group inline-flex h-12 items-center gap-2 rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 px-7 text-sm font-semibold text-white shadow-xl shadow-cyan-500/30 transition hover:scale-[1.02] hover:shadow-cyan-400/40"
           >
-            <VoiceOrb className="pointer-events-none absolute left-1/2 top-1/2 aspect-square w-[125%] max-w-none -translate-x-1/2 -translate-y-1/2" />
-            <div className="relative z-10 w-full px-2 [animation:float-y_7s_ease-in-out_infinite]">
-              <LiveCallCard />
-            </div>
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-3 top-2 z-20 hidden items-center gap-2 rounded-full border border-white/10 bg-[#060c16]/90 px-4 py-2 text-xs text-zinc-300 shadow-lg backdrop-blur md:inline-flex"
-            >
-              <PhoneCall className="h-3.5 w-3.5 text-cyan-300" /> 100k+ live calls automated
-            </motion.div>
-            <motion.div
-              animate={{ y: [0, 9, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute -left-4 bottom-4 z-20 hidden items-center gap-2 rounded-full border border-white/10 bg-[#060c16]/90 px-4 py-2 text-xs text-zinc-300 shadow-lg backdrop-blur md:inline-flex"
-            >
-              <Globe className="h-3.5 w-3.5 text-cyan-300" /> English · Spanish · Portuguese
-            </motion.div>
-          </motion.div>
-        </div>
+            Work with us
+            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+          <a
+            href="#case-studies"
+            className="inline-flex h-12 items-center gap-2 rounded-xl border border-white/15 bg-white/[0.03] px-7 text-sm font-medium text-zinc-200 backdrop-blur transition hover:border-cyan-400/40 hover:text-white"
+          >
+            Hear real calls
+            <ArrowDown className="h-4 w-4" />
+          </a>
+        </motion.div>
+
+        {/* scroll cue → into the assembly */}
+        <motion.a
+          href="#build"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.6 }}
+          className="relative z-10 mt-16 inline-flex flex-col items-center gap-2 text-xs uppercase tracking-[0.25em] text-zinc-500 transition hover:text-cyan-300"
+        >
+          Scroll to assemble a voice agent
+          <ChevronDown className="h-4 w-4 [animation:float-slow_2.4s_ease-in-out_infinite]" />
+        </motion.a>
       </section>
 
-      {/* ============ LOGOS ============ */}
+      {/* ============ LOGOS (companies we've worked with) ============ */}
       <section className="mx-auto max-w-7xl px-6 py-14">
         <Reveal>
           <h3 className="text-center text-xs font-medium uppercase tracking-[0.3em] text-zinc-500">
@@ -918,10 +1186,8 @@ export default function OceansideLanding() {
         <div
           className="relative mt-8 overflow-hidden"
           style={{
-            maskImage:
-              "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
+            maskImage: "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent, black 12%, black 88%, transparent)",
           }}
         >
           <div className="flex w-max items-center gap-20 [animation:marquee_30s_linear_infinite]">
@@ -948,6 +1214,52 @@ export default function OceansideLanding() {
         </div>
       </section>
 
+      {/* ============ THE ASSEMBLY ============ */}
+      <div id="build" className="scroll-mt-0">
+        <AgentAssembly />
+      </div>
+
+      {/* ============ LIVE CALL ============ */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
+          <div>
+            <SectionHeading
+              eyebrow="See it think"
+              title={
+                <>
+                  Watch it work a call <GradientText>in real time</GradientText>
+                </>
+              }
+              sub="This is a live simulation of the agent taking a call — transcribing, reasoning, booking, and confirming, all in a few seconds."
+            />
+            <div className="mt-8 flex flex-col gap-3">
+              {[
+                { icon: Ear, t: "Understands natural speech", d: "No menus. No “press 1.” Just talk." },
+                { icon: Brain, t: "Reasons and decides", d: "Handles reschedules, edge cases, follow-ups." },
+                { icon: CheckCircle2, t: "Closes the loop", d: "Books, updates the CRM, and texts a confirmation." },
+              ].map((r) => (
+                <Reveal key={r.t}>
+                  <div className="flex items-start gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-cyan-400/20 bg-cyan-500/10">
+                      <r.icon className="h-5 w-5 text-cyan-300" />
+                    </div>
+                    <div>
+                      <div className="font-medium text-white">{r.t}</div>
+                      <div className="text-sm text-zinc-400">{r.d}</div>
+                    </div>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+          <Reveal delay={0.1} className="flex justify-center">
+            <div className="[animation:float-y_7s_ease-in-out_infinite]">
+              <LiveCallCard />
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* ============ METRICS ============ */}
       <section className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
@@ -971,111 +1283,17 @@ export default function OceansideLanding() {
         </div>
       </section>
 
-      {/* ============ WHAT WE DO ============ */}
-      <section id="what" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
-        <SectionHeading
-          eyebrow="What we do"
-          title={
-            <>
-              Phone lines that <GradientText>run themselves</GradientText>
-            </>
-          }
-        />
-        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {[
-            {
-              icon: PhoneCall,
-              title: "Voice Agents",
-              desc: "24/7 phone agents that answer, qualify, and schedule. Integrates with your CRM and calendar.",
-            },
-            {
-              icon: Cpu,
-              title: "Workflow Automation",
-              desc: "Make/Zapier + custom APIs to remove repetitive work across teams.",
-            },
-            {
-              icon: Shield,
-              title: "Security & Reliability",
-              desc: "Built by a cybersecurity specialist. Data minimization and audit trails by default.",
-            },
-          ].map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.1}>
-              <Spotlight className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-8 backdrop-blur transition-colors duration-300 hover:border-cyan-400/25">
-                <div className="relative mb-6 inline-flex">
-                  <div className="absolute inset-0 rounded-2xl bg-cyan-400/30 blur-xl transition group-hover:bg-cyan-400/50" />
-                  <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-cyan-400/25 bg-gradient-to-br from-cyan-500/20 to-indigo-500/20">
-                    <c.icon className="h-6 w-6 text-cyan-300" />
-                  </div>
-                </div>
-                <h3 className="font-display text-xl font-semibold text-white">{c.title}</h3>
-                <p className="mt-3 leading-relaxed text-zinc-400">{c.desc}</p>
-              </Spotlight>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ PROCESS ============ */}
-      <section id="process" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
-        <SectionHeading
-          eyebrow="Process"
-          title="Our process"
-          sub="Clear, fast, and accountable. You’ll always know what’s happening and when."
-        />
-        <div className="relative mt-14">
-          <div className="absolute left-0 right-0 top-7 hidden h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent lg:block" />
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                step: "01",
-                title: "Discovery",
-                desc: "10 to 15 min call. Goals, call flows, systems. We scope the quickest path to value.",
-              },
-              {
-                step: "02",
-                title: "Prototype",
-                desc: "We ship a working agent + call logs. You test scripts and edge cases.",
-              },
-              {
-                step: "03",
-                title: "Integrate",
-                desc: "Calendar, CRM, IVR, sheets, webhooks. Prompts + guardrails hardened.",
-              },
-              {
-                step: "04",
-                title: "Go live",
-                desc: "We monitor, iterate weekly, and report. SLA on uptime and response.",
-              },
-            ].map((p, i) => (
-              <Reveal key={p.step} delay={i * 0.1}>
-                <Spotlight className="relative h-full rounded-3xl border border-white/10 bg-[#040910]/80 p-7 backdrop-blur">
-                  <div className="relative z-10 mb-5 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 to-indigo-500 font-display text-lg font-semibold text-white shadow-lg shadow-cyan-500/25">
-                    {p.step}
-                  </div>
-                  <div className="pointer-events-none absolute -right-2 -top-4 select-none font-display text-[7rem] font-bold leading-none text-white/[0.03]">
-                    {p.step}
-                  </div>
-                  <h3 className="font-display text-xl font-semibold">{p.title}</h3>
-                  <p className="mt-2.5 leading-relaxed text-zinc-400">{p.desc}</p>
-                </Spotlight>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ============ CASE STUDIES ============ */}
       <section id="case-studies" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-24">
         <SectionHeading
           eyebrow="Client Success Stories"
-          title="Our Success Stories"
-          sub="Real businesses using Voice AI and workflow automation to save hours and unlock new revenue."
+          title="Real calls. Real results."
+          sub="Businesses using Voice AI and workflow automation to save hours and unlock new revenue. Press play and hear the agents for yourself."
         />
         <div className="mt-16 flex flex-col gap-24">
           {caseStudies.map((cs, i) => (
             <Reveal key={cs.title}>
               <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-                {/* image */}
                 <div className={`relative ${i % 2 === 1 ? "lg:order-2" : ""}`}>
                   <div className="absolute -inset-6 rounded-[2.5rem] bg-gradient-to-br from-cyan-500/15 via-transparent to-indigo-500/15 blur-2xl" />
                   <div className="group relative overflow-hidden rounded-3xl border border-white/10 p-[1px]">
@@ -1089,7 +1307,6 @@ export default function OceansideLanding() {
                     <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-t from-[#02050a]/60 via-transparent to-transparent" />
                   </div>
                 </div>
-                {/* content */}
                 <div className={i % 2 === 1 ? "lg:order-1" : ""}>
                   <div className="flex flex-wrap gap-2">
                     {cs.tags.map((t, j) => (
@@ -1136,11 +1353,7 @@ export default function OceansideLanding() {
                 className="relative block rounded-[1.75rem] bg-gradient-to-br from-cyan-400/60 to-indigo-500/60 p-[1.5px]"
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/founder.jpg"
-                  alt="Mark Tomlet"
-                  className="h-80 w-full rounded-[1.65rem] object-cover"
-                />
+                <img src="/founder.jpg" alt="Mark Tomlet" className="h-80 w-full rounded-[1.65rem] object-cover" />
               </a>
             </div>
             <div className="mt-5 flex items-center gap-2 text-sm text-zinc-400">
@@ -1159,37 +1372,36 @@ export default function OceansideLanding() {
             <SectionHeading eyebrow="Founder" title="Our Founder’s Story" />
             <div className="mt-8 space-y-5 leading-relaxed text-zinc-400">
               <p>
-                Oceanside AI Solutions began not in a boardroom, but amidst the urgency of
-                Ukraine’s conflict zones, where <span className="text-cyan-300">Mark Tomlet</span>,
-                a cybersecurity specialist with a background in journalism, recognized a pressing
-                need. Surrounded by reporters grappling with tight deadlines, Mark saw an
-                opportunity for AI to revolutionize scriptwriting.
+                Oceanside AI Solutions began not in a boardroom, but amidst the urgency of Ukraine’s
+                conflict zones, where <span className="text-cyan-300">Mark Tomlet</span>, a
+                cybersecurity specialist with a background in journalism, recognized a pressing need.
+                Surrounded by reporters grappling with tight deadlines, Mark saw an opportunity for AI
+                to revolutionize scriptwriting.
               </p>
               <p>
-                Mark’s journey with AI didn’t start with grand ambitions. It began with a simple,
-                yet powerful idea: an AI assistant that could help journalists draft their scripts
-                more efficiently. He programmed the AI to ask journalists a series of questions,
-                gleaning the essence of their stories and style. This innovative approach allowed
-                the AI to produce drafts that resonated with each journalist’s voice.
+                Mark’s journey with AI didn’t start with grand ambitions. It began with a simple, yet
+                powerful idea: an AI assistant that could help journalists draft their scripts more
+                efficiently. He programmed the AI to ask journalists a series of questions, gleaning
+                the essence of their stories and style. This innovative approach allowed the AI to
+                produce drafts that resonated with each journalist’s voice.
               </p>
               <p>
                 The development wasn’t without its challenges. It required extensive training and
-                refinement, but the results were undeniable. A script that once took 4 hours to
-                draft could now be completed in just 20 minutes. This breakthrough caught the
-                attention of <span className="text-cyan-300">CBN News</span>, leading to an
-                invitation for Mark and his team to develop custom AI solutions for their
-                journalists. As word spread, Oceanside AI Solutions evolved, extending its reach
-                beyond journalism.
+                refinement, but the results were undeniable. A script that once took 4 hours to draft
+                could now be completed in just 20 minutes. This breakthrough caught the attention of{" "}
+                <span className="text-cyan-300">CBN News</span>, leading to an invitation for Mark and
+                his team to develop custom AI solutions for their journalists. As word spread,
+                Oceanside AI Solutions evolved, extending its reach beyond journalism.
               </p>
               <p className="border-l-2 border-cyan-400/60 pl-5 text-zinc-300">
-                Oceanside AI Solutions believes AI is like a coming tsunami; companies can either
-                ride it or get wiped out by it.
+                Oceanside AI Solutions believes AI is like a coming tsunami; companies can either ride
+                it or get wiped out by it.
               </p>
               <p>
                 Today, Mark works with companies around the globe deploying voice agents powered by{" "}
-                <span className="text-cyan-300">Retell AI</span>. Hundreds of businesses run on
-                agents he has built, spanning home services from home inspections to roofing, oil
-                and gas, barbershop chains, and beyond. He also runs{" "}
+                <span className="text-cyan-300">Retell AI</span>. Hundreds of businesses run on agents
+                he has built, spanning home services from home inspections to roofing, oil and gas,
+                barbershop chains, and beyond. He also runs{" "}
                 <a
                   href="https://www.skool.com/pioneers/about"
                   target="_blank"
@@ -1210,8 +1422,8 @@ export default function OceansideLanding() {
         </div>
       </section>
 
-      {/* ============ YOUTUBE + COMMUNITY ============ */}
-      <section id="youtube" className="mx-auto max-w-7xl px-6 py-16">
+      {/* ============ YOUTUBE + COMMUNITY (kept) ============ */}
+      <section id="community" className="mx-auto max-w-7xl scroll-mt-28 px-6 py-16">
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <Reveal>
             <Spotlight className="relative h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] p-10 text-center backdrop-blur">
@@ -1231,9 +1443,7 @@ export default function OceansideLanding() {
                 <h3 className="mt-6 font-display text-2xl font-semibold tracking-tight">
                   Watch on YouTube · <GradientText>300k+ views</GradientText>
                 </h3>
-                <p className="mt-3 text-zinc-400">
-                  Tutorials, live builds, and real client delivery.
-                </p>
+                <p className="mt-3 text-zinc-400">Tutorials, live builds, and real client delivery.</p>
                 <div className="min-h-7 flex-1" />
                 <a
                   href="https://www.youtube.com/@TechTomlet"
@@ -1272,9 +1482,7 @@ export default function OceansideLanding() {
                 <div className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-amber-400/30 bg-amber-400/10 px-3.5 py-1 text-xs font-semibold text-amber-300">
                   <Crown className="h-3.5 w-3.5" /> #1 Community on Voice AI
                 </div>
-                <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight">
-                  AI Voice Pioneers
-                </h3>
+                <h3 className="mt-4 font-display text-2xl font-semibold tracking-tight">AI Voice Pioneers</h3>
                 <p className="mt-3 text-zinc-400">
                   Mark runs the #1 community on Voice AI, where builders learn to ship real agents.
                 </p>
@@ -1322,8 +1530,7 @@ export default function OceansideLanding() {
                 <Globe className="h-4 w-4 text-cyan-400" /> English, Spanish, Portuguese, more
               </span>
               <span className="inline-flex items-center gap-2">
-                <Shield className="h-4 w-4 text-cyan-400" /> Security-minded practices &amp; data
-                minimization
+                <Shield className="h-4 w-4 text-cyan-400" /> Security-minded practices &amp; data minimization
               </span>
             </div>
           </div>
