@@ -1,0 +1,542 @@
+[
+ {
+  "slug": "ai-assistant-replaced-my-voicemail",
+  "title": "What Happens When an AI Assistant Answers Every Call You Miss",
+  "dek": "I replaced my own voicemail with an AI assistant, then turned it into a 24/7 call screener. Here's what it does and why it's worth it for a busy owner.",
+  "videoId": "gi12PmCXLpA",
+  "videoTitle": "I Replaced My Voicemail With an AI Agent (Retell AI Tutorial)",
+  "date": "2026-10-02",
+  "readMins": 3,
+  "category": "Operations",
+  "body": [
+   {
+    "type": "p",
+    "text": "I replaced my voicemail with an AI agent, and it's the one running on my phone right now. When I hit decline, don't answer, or my phone's off, the call goes to Amy, my AI executive assistant, instead of a beep nobody wants to leave a message after."
+   },
+   {
+    "type": "h2",
+    "text": "What a caller hears"
+   },
+   {
+    "type": "p",
+    "text": "In my demo, a guy named Tom calls and asks if I'm around. Amy tells him no, I'm afraid not, he's pretending to be very important right now. Tom asks how much a voice agent costs. Amy explains it depends on the integrations and call volume, that I price it case by case, and that Oceanside usually gets one built in 7 to 14 days. Then she offers to take a message so I can send him a quote."
+   },
+   {
+    "type": "p",
+    "text": "She asks, \"Can I use the number you're calling from?\" instead of making him read out ten digits. Small thing, but it makes the call feel a lot smoother."
+   },
+   {
+    "type": "p",
+    "text": "Her whole job is simple. Screen out spam and politely end those calls. Answer basic questions about my business. And for everyone else, take a message: name, callback number, and the reason for the call."
+   },
+   {
+    "type": "h2",
+    "text": "What I get after the call"
+   },
+   {
+    "type": "p",
+    "text": "A few seconds after Tom hung up, an email landed in my inbox. Who called, why, their number, a summary, and the transcript, plus a button to call them right back. Everything's automated."
+   },
+   {
+    "type": "p",
+    "text": "It's a safety net. If I hit decline, don't answer, or my phone's off, I always know every single call got handled."
+   },
+   {
+    "type": "p",
+    "text": "It also didn't take much. Retell's builder drafted the first version of the agent in under 5 minutes from my description, the phone number costs $2 a month, and pointing my real line at it was a forwarding code from my carrier typed into my phone. One gotcha if you're on iPhone: turn off Live Voicemail, because it seems to interfere."
+   },
+   {
+    "type": "h2",
+    "text": "From safety net to 24/7 screener"
+   },
+   {
+    "type": "p",
+    "text": "Here's where it gets more interesting. If the AI can already handle the calls I miss, why only use it when I miss them? The second version answers every call first and only brings me in when I'm actually needed. Perfect if you're getting buried in spam calls and don't want your day interrupted."
+   },
+   {
+    "type": "p",
+    "text": "I told it exactly who gets through: anyone calling about Oceanside AI Solutions or a voice agent, and my wife. Hopefully nobody pretends to be my wife."
+   },
+   {
+    "type": "p",
+    "text": "Everyone else gets a few qualifying questions, like where they heard about me. \"We met at a conference\" is a lot better than \"I saw him on YouTube and got his number.\" The agent uses some judgment there."
+   },
+   {
+    "type": "p",
+    "text": "When someone qualifies, it does a warm transfer. It rings me first with a quick heads up, like \"I've got your wife on the line\" or \"I've got a hot prospect on the line,\" and then connects us."
+   },
+   {
+    "type": "h2",
+    "text": "It remembers who called"
+   },
+   {
+    "type": "p",
+    "text": "I also turned on caller memory, so if Bob calls three times, the agent remembers Bob. When I tested it, I called in saying I'd been promised a free voice agent, hung up, then called back and asked if she remembered why I called last time. She did, and picked right back up where we left off. That's what a real assistant would do."
+   },
+   {
+    "type": "p",
+    "text": "Since it now answers every call, I changed the emails too. I only get one when it matters: a transfer that fails because I didn't pick up, or a conversation the agent judges as high value. No emails for spam, sales pitches, or tire kickers wasting my agent's time."
+   },
+   {
+    "type": "h2",
+    "text": "Pick the level that fits you"
+   },
+   {
+    "type": "p",
+    "text": "We started with something incredibly simple, replacing voicemail, and turned that same agent into a 24/7 screener with transfers, caller memory, and post call summaries. You can stop at whichever level actually makes sense for you."
+   },
+   {
+    "type": "p",
+    "text": "The point is you don't need some massive complicated system to make your phone life dramatically easier. And if you want something like this built for your business, that's exactly what we do."
+   }
+  ]
+ },
+ {
+  "slug": "tcpa-basics-ai-outbound-calls",
+  "title": "Can Your AI Agent Legally Call That Number? TCPA Basics",
+  "dek": "Who you can call, what real consent looks like, and what your agent has to do on every call before you launch an outbound campaign.",
+  "videoId": "TQRWht58WRg",
+  "videoTitle": "AI Cold Calling Laws Explained (TCPA Basics)",
+  "date": "2026-08-13",
+  "readMins": 4,
+  "category": "Compliance",
+  "body": [
+   {
+    "type": "quote",
+    "text": "I'm not a lawyer and this isn't legal advice. It's the base I've learned for running outbound campaigns without getting into stupid trouble."
+   },
+   {
+    "type": "p",
+    "text": "If you're a business owner thinking about having a voice agent make outbound calls, this is what you need to understand first. These laws aren't theory. In February 2026, Mortgage One Funding got hit with two class action lawsuits in 15 days. They ran AI cold calls about refinancing, with no consent, to numbers on the Do Not Call list."
+   },
+   {
+    "type": "h2",
+    "text": "Your AI agent counts as a robocall"
+   },
+   {
+    "type": "p",
+    "text": "In February 2024 the FCC unanimously ruled that an AI generated voice is an artificial voice under the TCPA. That means your agent is regulated exactly like a prerecorded message, under rules that go back to 1991. Doesn't matter how conversational it sounds."
+   },
+   {
+    "type": "p",
+    "text": "A big reason why: right before the New Hampshire primary in January 2024, about 5,000 voters got a call from a Joe Biden voice clone telling them to stay home. The FCC proposed a $6 million fine against the organizer, and the carrier that let the traffic through paid $1 million."
+   },
+   {
+    "type": "p",
+    "text": "Fines are per call. Not per campaign, not per complaint. Per call. That's $500 each, and up to $1,500 if a court decides you did it willfully or knowingly. 100 bad calls at $500 is $50,000. ViSalus made about 1.8 million illegal calls and got hit with $925 million. Dish Network made 51,000 and got $61 million."
+   },
+   {
+    "type": "h2",
+    "text": "Who you can call: consumer or business"
+   },
+   {
+    "type": "p",
+    "text": "Every outbound list goes through one question first. Whose number is this? A consumer's personal phone, or a business line?"
+   },
+   {
+    "type": "p",
+    "text": "If it's a consumer and the call is marketing, meaning you're selling something, offering a promotion, or setting a sales appointment, you need prior express written consent. That's a signed agreement naming your company and that phone number."
+   },
+   {
+    "type": "p",
+    "text": "If it's a consumer and the call is purely informational, like an appointment reminder with no upsell, the bar is lower. Prior express consent is enough. But watch it. If the agent drifts into \"by the way, we're running a discount on such and such,\" that reminder just became a marketing call and the written consent rules apply."
+   },
+   {
+    "type": "p",
+    "text": "Business to business is way simpler than people think. All the noise about AI agents needing written consent to call out is about consumers. Calling a verified business landline without written consent is fine, even for a marketing call. The catch: plenty of contractors, spas, HVAC and roofing companies use a personal cell as the business number. Cross those off, because you're right back in consumer territory."
+   },
+   {
+    "type": "h2",
+    "text": "What real consent looks like"
+   },
+   {
+    "type": "p",
+    "text": "A checkbox alone doesn't cut it. The language matters. Mine reads along these lines: I agree that Oceanside AI Solutions may contact me at the number provided using an automatic dialing system or an artificial or prerecorded voice, and text messages, for marketing purposes. I understand consent is not required and that I can opt out at any time by replying STOP."
+   },
+   {
+    "type": "p",
+    "text": "If it doesn't mention an artificial or prerecorded voice, it does NOT cover your AI agent. And texting permission through A2P is not the same as permission for AI voice calls. Two different things."
+   },
+   {
+    "type": "p",
+    "text": "You also need proof. The person suing never has to prove they didn't consent. You have to prove they did. So keep the timestamp, the checkbox, their phone number, and the exact disclosure text. The IP address isn't technically required right now, but I'd collect it anyway."
+   },
+   {
+    "type": "p",
+    "text": "Old leads come up a lot. A business wants to point an agent at a pile of old leads to bring them back. If those leads never gave proper written consent, you can't just call them to ask for it. Email them, explain clearly what you're asking, send them to a landing page with an unchecked opt in box, and only call the people who opt in. Painful, but that's how it works."
+   },
+   {
+    "type": "h2",
+    "text": "What your agent has to do on every call"
+   },
+   {
+    "type": "p",
+    "text": "Three things on every artificial voice call. Identify who's calling. Give a callback number. And keep an internal do not call list, so when someone says stop, the agent records it somewhere you can check later, even a Google Sheet."
+   },
+   {
+    "type": "p",
+    "text": "Does it have to announce it's an AI up front? At the federal level, no. California's AB 2905, effective January 1, 2025, does require the agent to say it's an AI at the very start of the call. My rule of thumb everywhere: if someone asks, the agent answers honestly. Yes, I'm an AI."
+   },
+   {
+    "type": "p",
+    "text": "States also stack their own rules on top of the federal ones. Colorado, for example, has its own do not call registry separate from the national list. Check every state you plan to call before launch. I go through a preflight checklist on all of this before any campaign, and I'd want anyone running calls for your business to do the same."
+   }
+  ]
+ },
+ {
+  "slug": "sierra-vs-retell-voice-agent-platform",
+  "title": "Sierra or Retell AI: What I'd Check Before Buying a Voice Agent Platform",
+  "dek": "I called a live Sierra voice agent and a Retell equivalent back to back. Here's how they compare on speed, ownership, data control, and price.",
+  "videoId": "2maciHxpkEU",
+  "videoTitle": "Sierra vs Retell AI: Which One Should Enterprises Actually Buy?",
+  "date": "2026-08-07",
+  "readMins": 4,
+  "category": "Buying guide",
+  "body": [
+   {
+    "type": "p",
+    "text": "Here's where I'm coming from. Sierra markets itself as a premium, white glove enterprise solution. On chat and omnichannel, I think that reputation is absolutely earned. On voice specifically, I don't think the product matches the premium. Rather than just tell you that, I tested it. And for full transparency, Retell is the platform I build my clients' agents on."
+   },
+   {
+    "type": "h2",
+    "text": "The call test"
+   },
+   {
+    "type": "p",
+    "text": "I called Sonos, which runs a real Sierra voice agent, and told it my speaker stopped working. It understood me fine. It asked which model I had, then whether the speaker was shaped more like a cylinder or a rectangle. But the pauses were so long I had to hang up. The intelligence is there, but man."
+   },
+   {
+    "type": "p",
+    "text": "Then I called a Retell equivalent with the same problem. It asked which product, offered Move or Roam, asked what the glitch was, and started walking me through checking the volume. Quick back and forth, the way a person would do it."
+   },
+   {
+    "type": "p",
+    "text": "That's not a comprehensive test by any means. But at face value you can already hear clear differences."
+   },
+   {
+    "type": "h2",
+    "text": "Speed is the whole game on the phone"
+   },
+   {
+    "type": "p",
+    "text": "Two humans talking on the phone run around 500 milliseconds between turns. Retell advertises around 620. In reality it's a little higher, but in the best conditions that's what you get. Sierra came in around 1,400 milliseconds at baseline in our own tests, and on that live Sonos call it was a lot worse than that."
+   },
+   {
+    "type": "p",
+    "text": "I'm not saying Sierra is bad. I'm saying Retell is abnormally good on latency. On an independent voice AI benchmark plotting platforms by performance and latency, Retell came out on top."
+   },
+   {
+    "type": "p",
+    "text": "If your customers reach you by phone, this isn't a technical detail. Every pause is something the caller sits through."
+   },
+   {
+    "type": "h2",
+    "text": "Who owns the agent when it's done"
+   },
+   {
+    "type": "p",
+    "text": "Both companies will build the agent for you. What happens afterward is not the same."
+   },
+   {
+    "type": "p",
+    "text": "Retell has forward deployed engineers who'll build the whole thing white glove, like they've done for Lenovo and Motorola. Then, if you want, they transfer full ownership to your own development team to maintain. And because it's an open platform, you can keep customizing it to your exact use case."
+   },
+   {
+    "type": "p",
+    "text": "Sierra, from what I can tell, is white glove only. The agent lives permanently on their closed platform and they retain 100% ownership. That's vendor lock in, and it's worth knowing before you sign anything."
+   },
+   {
+    "type": "h2",
+    "text": "Who controls your data"
+   },
+   {
+    "type": "p",
+    "text": "Both are SOC 2 certified and both cover HIPAA. The difference is who holds the keys. Sierra runs a managed vault. They hold the audio, the guardrails, and the compliance. In one sense that's peace of mind because they take care of it. In another, it's less control."
+   },
+   {
+    "type": "p",
+    "text": "Retell works more like a programmable pipe, and it's one of my favorite things about it. There's literally a button to redact personal info like Social Security numbers, credit cards, and passport numbers. If you're under PCI or HIPAA and you have a security team with opinions, controlling the pipe yourself is worth a lot. If you don't have that team, Sierra's managed vault might honestly be the better fit."
+   },
+   {
+    "type": "h2",
+    "text": "Price, and when each one makes sense"
+   },
+   {
+    "type": "p",
+    "text": "Retell posts pay as you go pricing, roughly 7 to 20 cents a minute depending on the model and setup. You can price it out with their calculator today. Sierra reportedly charges per resolution, around $1 to $2.50, and reports I've read put year one at $200k to $350k or more just to get a simple solution built. To find out for sure, you have to get on a sales call."
+   },
+   {
+    "type": "p",
+    "text": "Sierra has a big name behind it in Bret Taylor, who sits on the board of OpenAI. That doesn't automatically mean a better product."
+   },
+   {
+    "type": "p",
+    "text": "That said, there is a real space for Sierra. If your support mostly lives in a chat window and you want chat, email, and voice under one contract, the way a lot of ecommerce and software companies do, Sierra might actually be the better choice."
+   },
+   {
+    "type": "p",
+    "text": "But if the phone IS the business, like healthcare reception, patient intake, or high call volume your team can't absorb, where a pause actually costs you, Retell has clear advantages I don't think Sierra can match. Especially at that price tag."
+   }
+  ]
+ },
+ {
+  "slug": "human-in-the-loop-voice-agents",
+  "title": "When Your Voice Agent Doesn't Know, It Should Ask You",
+  "dek": "Human in the loop lets an AI receptionist text or call your manager during the call and relay the answer, so callers stop hearing \"we'll get back to you.\"",
+  "videoId": "WqLC3z3jpE4",
+  "videoTitle": "Your Voice Agent Needs Human in the Loop (Poku Labs + Retell AI)",
+  "date": "2025-11-14",
+  "readMins": 3,
+  "category": "Operations",
+  "body": [
+   {
+    "type": "p",
+    "text": "Somebody calls and asks something only a human knows right now. \"Do you have this part in stock?\" \"Can you seat 100 people tonight?\" Most voice agents say \"we'll get back to you,\" because they don't have real time info and can't handle the edge cases. In that moment the agent is useless. Sorry, I had to say it."
+   },
+   {
+    "type": "p",
+    "text": "What if it said \"sure, let me text my manager for you, hold on a sec\" instead? That's human in the loop, and it's one of the most useful things you can add to a voice agent."
+   },
+   {
+    "type": "h2",
+    "text": "What it sounds like on a real call"
+   },
+   {
+    "type": "p",
+    "text": "In my demo, the agent answers the phone for an auto repair shop. A caller asks for an update on their vehicle. The agent asks to put them on a brief hold, texts the manager on WhatsApp, the manager replies, and the agent comes back with: I've checked with our team and your vehicle will be ready tomorrow."
+   },
+   {
+    "type": "p",
+    "text": "The caller never sees the text thread behind it. They just get a real answer on the first call."
+   },
+   {
+    "type": "p",
+    "text": "I built this with Poku Labs connected to Retell AI. Behind the scenes it's a small tool hookup plus instructions telling the agent when to reach out, like whenever someone asks about repair progress or when their vehicle will be ready. Those triggers get tuned to your business. Poku even has a free tier of 20 interactions a month, so it's cheap to try."
+   },
+   {
+    "type": "h2",
+    "text": "A text for routine questions, a phone call for urgent ones"
+   },
+   {
+    "type": "p",
+    "text": "You're not limited to one person or one channel. Sales questions can go to one number, accounting to another, emergencies to a third. You could have five different people each getting the questions meant for them."
+   },
+   {
+    "type": "p",
+    "text": "For urgent stuff, the agent can call the human instead of texting. People tend to respond faster to a phone call. In my demo a caller says they need a tow right now. The agent calls the owner and explains a customer has an emergency and needs towing. The owner says to tell them he'll call in 10 minutes. The agent hangs up with the owner and relays that straight back to the caller."
+   },
+   {
+    "type": "h2",
+    "text": "What if nobody answers?"
+   },
+   {
+    "type": "p",
+    "text": "You set a time limit, say 60 seconds. If the manager doesn't respond in time, the agent tells the caller the manager isn't available right now and someone will get back to them. So the worst case is the same answer you'd get without it."
+   },
+   {
+    "type": "p",
+    "text": "Poku also released a newer feature that keeps the conversation open much longer. If the manager answers an hour later, long after the caller hung up, the caller can still get a text from the agent with the manager's answer."
+   },
+   {
+    "type": "h2",
+    "text": "It works for almost any business"
+   },
+   {
+    "type": "p",
+    "text": "This isn't just for auto shops. Real estate, legal, financial services, property management, Airbnb, plumbing, roofing, education, travel and hospitality. Even if you don't deal with time sensitive questions like what's in stock, it works as a safety net. Whenever the agent gets asked something outside its knowledge, it has a way to get the real answer instead of guessing."
+   },
+   {
+    "type": "p",
+    "text": "My favorite use case: getting email addresses right. Anyone who has tried having a caller spell an email out loud to an AI knows how messy that gets. With this, the agent asks if they'd rather text it. The caller texts it in, and the agent reads back exactly what came through. 100% accurate."
+   },
+   {
+    "type": "p",
+    "text": "If the thing holding you back from a voice agent is all the questions only you or your manager can answer, this is how I'd handle it. The agent doesn't have to know everything. It has to know who to ask."
+   }
+  ]
+ },
+ {
+  "slug": "web-form-attack-voice-agent-bill",
+  "title": "The Web Form Attack That Can Run Up Your Voice Agent Bill Overnight",
+  "dek": "Bots hit my demo agent and ran up $137 before I caught it. Someone I know of lost $18,000. Here's how it works and what I do about it now.",
+  "videoId": "LXDAxHqOkTo",
+  "videoTitle": "My AI Got Attacked… Don't Make This $18,000 Mistake",
+  "date": "2025-09-08",
+  "readMins": 4,
+  "category": "Security",
+  "body": [
+   {
+    "type": "p",
+    "text": "My AI got attacked. By the time I caught it, the bill was over $137, and the only reason it was that low is I caught it literally as it started. Others in my community weren't so lucky. One person lost $18,000."
+   },
+   {
+    "type": "p",
+    "text": "If you have a voice agent that calls people back after they fill out a form on your website, or you're thinking about getting one, you need to know about this. I have a bachelor's degree in cybersecurity, so I look at this as both a builder and someone trained to spot vulnerabilities."
+   },
+   {
+    "type": "h2",
+    "text": "How the attack works"
+   },
+   {
+    "type": "p",
+    "text": "From what I can tell, these attacks target outbound agents, specifically the kind that call someone as soon as they fill out a form on your site. That's exactly the setup I had."
+   },
+   {
+    "type": "p",
+    "text": "Bots fill out the form over and over with random names and fake company emails. The one thing in common was the phone numbers: rotating UK numbers. And those numbers aren't connected to a person. They're connected to a recording that sounds just human enough to keep your agent talking. \"Hi, I have a question.\" \"I can't hear you, I have a sound problem, wait a minute.\" One kept asking my agent if it spoke Arabic. Meanwhile the meter keeps running."
+   },
+   {
+    "type": "p",
+    "text": "My best guess on their setup is a basic script spamming forms, cheap internet phone numbers bought in bulk for around a dollar each, and recordings played on repeat. It probably costs them 25 to 100 bucks max. It can cost you thousands overnight."
+   },
+   {
+    "type": "h2",
+    "text": "What it actually cost people"
+   },
+   {
+    "type": "p",
+    "text": "I was literally in a meeting talking about this exact attack. An hour later I pulled up my demo agent to show a friend, something I normally only check about once a week, and my concurrency was maxed out. 20 out of 20 calls happening at the same time. That's not normal. I detached the agent from the number right there."
+   },
+   {
+    "type": "p",
+    "text": "It was climbing about $10 a minute. If I hadn't caught it, that's $600 by the end of the hour and around $5,000 by the next morning."
+   },
+   {
+    "type": "p",
+    "text": "One builder in my community lost $450. Another lost $600. Someone he knows got charged $18,000. A friend of mine lost over $300, and the scary part is he had CAPTCHAs and spam filters in place. The bots got around them anyway."
+   },
+   {
+    "type": "p",
+    "text": "Why do they do it? Honestly, I don't know. I don't see any profit in it for them. My best guess is trolling or harassment. Either way, it's crazy expensive for whoever owns the agent."
+   },
+   {
+    "type": "h2",
+    "text": "Old defenses aren't enough"
+   },
+   {
+    "type": "p",
+    "text": "My friend's story is the lesson. CAPTCHAs and honeypots are the security of yesterday. A honeypot might slow an attacker down like wading through mud, but it's not going to stop them from getting over the wall anymore. We can't expect yesterday's cybersecurity to stop today's AI attacks."
+   },
+   {
+    "type": "h2",
+    "text": "The three protections I use now"
+   },
+   {
+    "type": "p",
+    "text": "First, only call US numbers. The numbers on the platform I build on can now call internationally, and every one of these attacks came from international numbers. That doesn't mean it can't happen with US numbers, but it closes the door they've been walking through."
+   },
+   {
+    "type": "p",
+    "text": "Second, and this is the big one, a confirmation text. When someone fills out the form and asks for a call, the agent texts them first: hey, this is Mark's agent, just confirming, reply yes if you still want this call. A bot spamming a form can't confirm that text. I don't see a way around it, though I could be wrong."
+   },
+   {
+    "type": "p",
+    "text": "Third, a cooldown. Make the system wait 60 seconds between calls, or cap it at a couple of calls per minute. Even if something slips through, it can't max out 20 lines at once."
+   },
+   {
+    "type": "h2",
+    "text": "What this means if you own the agent"
+   },
+   {
+    "type": "p",
+    "text": "Don't wait for the bill. If a voice agent is wired to a form on your website right now without protections like these, seriously consider taking it down until they're in. Don't wait until you wake up to a bill of $5,000 or more."
+   },
+   {
+    "type": "p",
+    "text": "And whoever builds your agent should be able to tell you exactly what stops a bot from making it dial a pile of fake numbers overnight. That's a fair question to ask before anything goes live."
+   }
+  ]
+ },
+ {
+  "slug": "inside-an-1800-missed-call-agent-for-a-truck-shop",
+  "title": "Inside the $1,800 Missed Call Agent I Built for a Truck Repair Shop",
+  "dek": "What the receptionist I built for Big Sky Truck and Trailer Repair actually does, and the decisions that made it worth paying for.",
+  "videoId": "sJ2mGBg1KeI",
+  "videoTitle": "How I Built an $1,800 AI Voice Agent for a Truck Repair Shop",
+  "date": "2025-08-12",
+  "readMins": 4,
+  "category": "Case study",
+  "body": [
+   {
+    "type": "p",
+    "text": "I sold a voice agent to a real truck repair shop for $1,800. Its job is simple to describe: pick up the calls the team can't get to, answer the basic questions, pull out the details that matter, and email them to the front desk. Here's what went into it, and what I'd want any shop owner to know before buying one."
+   },
+   {
+    "type": "h2",
+    "text": "The job: catch the calls nobody can pick up"
+   },
+   {
+    "type": "p",
+    "text": "The agent is the receptionist for Big Sky Truck and Trailer Repair whenever the team is busy or the shop is closed. That's it. It's not trying to replace the front desk. It covers the calls that would otherwise ring out, including the middle of the night when nobody is there to man the phones."
+   },
+   {
+    "type": "p",
+    "text": "Every caller goes down one of three paths. A new service request. A status check on a truck that's already in the shop. Or a general question that needs a service advisor to follow up. Each path gets its own instructions, because a driver asking \"is my truck done yet\" needs a totally different conversation than someone booking a brake job."
+   },
+   {
+    "type": "p",
+    "text": "On a new service call, the agent gets the caller's name, the make and model, what the truck needs, the best callback number, whether it's drivable or needs a tow, and when they want to drop it off. Then it gives the shop hours and wraps up."
+   },
+   {
+    "type": "h2",
+    "text": "What the shop gets after every call"
+   },
+   {
+    "type": "p",
+    "text": "This is the part owners care about most. When the call ends, the important details get pulled out of the transcript automatically and sent two places. A new row lands in a Google Sheet the managing director can scan. And a clean email hits the front desk: you missed a call from a potential customer, here are the details. Name, number, call type, vehicle, drivable or not, drop off time, a summary, and the recording."
+   },
+   {
+    "type": "p",
+    "text": "Nobody has to listen to a whole call to figure out who called and when they want to come in. That would be super inefficient."
+   },
+   {
+    "type": "p",
+    "text": "One small detail I'm proud of. The agent asks if the number they're calling from is the best one to reach them. If the caller says \"actually, my wife's number is better,\" that's the number that shows up in the email. Otherwise it uses the number they called from. Small thing, but it's the difference between a lead you can call back and one you can't."
+   },
+   {
+    "type": "h2",
+    "text": "Built for truckers, not a demo room"
+   },
+   {
+    "type": "p",
+    "text": "A lot of the decisions came from who's calling. Truck drivers call from the road with a ton of background noise. So I turned noise filtering up to aggressive, and I gave the agent permission to say \"sorry, I can't hear you, can you speak up?\" instead of guessing. Without that, it'll try to answer anyway and probably get it wrong."
+   },
+   {
+    "type": "p",
+    "text": "Speed mattered too. I chose a slightly less smart model because it's faster. The smarter one pushed response time to almost 1,300 milliseconds versus about 1,000 for the one I picked, and a normal phone call with a friend runs around 500 to 600. When you're talking to truckers, I'll trade a little intelligence for a lot less waiting."
+   },
+   {
+    "type": "p",
+    "text": "I also kept it lean with no knowledge base. In my experience they add around 50 milliseconds, and the agent gets worse at finding the right answer than if the info just lives in its main instructions."
+   },
+   {
+    "type": "h2",
+    "text": "Guardrails that protect the shop"
+   },
+   {
+    "type": "p",
+    "text": "The agent only answers what it's been told. If the info isn't in its instructions, it says it doesn't have it and writes the question down for a service advisor. That one rule is the biggest thing I've found for keeping an agent from making stuff up."
+   },
+   {
+    "type": "p",
+    "text": "Pricing gets the same treatment. Ask \"how much for a brake job?\" and it explains the shop wants to look at the truck first to give an accurate estimate, then asks if you can bring it by. Same answer every time."
+   },
+   {
+    "type": "p",
+    "text": "It tells the truth if someone asks whether they're talking to an AI. And if a salesperson calls and keeps pitching, two or more times, it politely ends the call instead of burning minutes and wasting the owner's time."
+   },
+   {
+    "type": "h2",
+    "text": "Testing was 40% of the build"
+   },
+   {
+    "type": "p",
+    "text": "About 40% of the two week build went into testing. I ran simulated callers against the agent, like \"Bob\" calling to check on his truck, and graded each run on whether it followed its steps. Then I tested the whole pipeline from call to inbox, because a great conversation means nothing if the email never reaches the front desk."
+   },
+   {
+    "type": "p",
+    "text": "That's what I'd push any business owner to ask about. Not just \"does it sound human,\" but \"how did you test it, and what happens after the call ends?\" And none of this is specific to trucks. Catching missed calls, a few clear paths, and a clean handoff to your team works for pretty much any business that lives on the phone."
+   }
+  ]
+ }
+]

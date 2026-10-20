@@ -1,26 +1,27 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Geist, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
-const fraunces = Fraunces({
+const geist = Geist({
   subsets: ["latin"],
-  variable: "--font-fraunces",
-  axes: ["opsz", "SOFT"],
+  variable: "--font-geist",
 });
 
-const inter = Inter({
+const serif = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-serif",
+  weight: "400",
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
   title: {
-    default: "Oceanside AI Solutions",
+    default: "Oceanside AI Solutions | AI voice agents that answer every call",
     template: "%s | Oceanside AI",
   },
   description:
-    "Custom AI voice receptionists for businesses that miss calls. Designed, built, and maintained by Mark Tomlet.",
+    "Custom AI voice agents that answer, book, and follow up on every call. Designed, built, and maintained by Mark Tomlet.",
   icons: {
     icon: "/favicon.png",
   },
@@ -28,8 +29,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="bg-[#f6f2ea] text-[#13201d] antialiased">{children}</body>
+    <html lang="en" className={`${geist.variable} ${serif.variable}`}>
+      <body className="bg-[#07090c] text-[#ecebe6] antialiased">{children}</body>
     </html>
   );
 }

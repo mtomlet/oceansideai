@@ -1,0 +1,218 @@
+{
+ "merx": [
+  {
+   "s": "a",
+   "t": 0.4,
+   "x": "Merx Truck and Trailer Repair shop, this is Chet. Who am I speaking with?"
+  },
+  {
+   "s": "c",
+   "t": 5.0,
+   "x": "Chet, this is Eddie. I was wondering, did I leave a message with you in regards to an engine? A QX60?"
+  },
+  {
+   "s": "a",
+   "t": 12.5,
+   "x": "Hey Eddie, let me see. Are you calling about a vehicle that's already in the shop, or do you need to schedule a new service?"
+  },
+  {
+   "s": "c",
+   "t": 22.5,
+   "x": "I was wondering about a vehicle to have a service scheduled."
+  },
+  {
+   "s": "a",
+   "t": 33.1,
+   "x": "Gotcha. Let me get your info. Spell your name for me please."
+  },
+  {
+   "s": "c",
+   "t": 38.0,
+   "x": "E D D I E. V as in Victor, A N C E."
+  },
+  {
+   "s": "a",
+   "t": 44.6,
+   "x": "Thanks Eddie. And what's the vehicle make and model?"
+  },
+  {
+   "s": "c",
+   "t": 49.6,
+   "x": "It's a 2017 QX60."
+  },
+  {
+   "s": "a",
+   "t": 55.6,
+   "x": "All right. What kind of service are you looking for?"
+  },
+  {
+   "s": "c",
+   "t": 58.4,
+   "x": "I'm looking for a remanufactured engine."
+  },
+  {
+   "s": "a",
+   "t": 64.7,
+   "x": "Gotcha. Just so you know, we only use components we source, to guarantee the quality of our work. So bringing your own parts like a remanufactured engine won't be possible."
+  },
+  {
+   "s": "c",
+   "t": 78.2,
+   "x": "Will you be able to source a remanufactured engine? The phasers on it go out once they get over a certain mileage, and it's got four phasers and a myriad of timing chains."
+  },
+  {
+   "s": "a",
+   "t": 121.5,
+   "x": "I hear you, Eddie. We do source parts for repairs, but I can't promise specifics on the engine. Drop it off any time Monday to Friday, eight to five, and Mark the service advisor will take care of it. Is this the best number to reach you at?"
+  },
+  {
+   "s": "c",
+   "t": 140.1,
+   "x": "Yes, it is."
+  },
+  {
+   "s": "c",
+   "t": 158.7,
+   "x": "When you source it, could you call me back to let me know if you can locate a remanufactured engine?"
+  },
+  {
+   "s": "a",
+   "t": 167.1,
+   "x": "Gotcha, Eddie. I'll have Mark the service advisor call you back as soon as they can. About the cost, we need to look at it first to give an accurate quote. Sound good?"
+  },
+  {
+   "s": "c",
+   "t": 178.2,
+   "x": "That sounds good. That completes my concern."
+  },
+  {
+   "s": "a",
+   "t": 186.0,
+   "x": "All right, Eddie, thanks for calling. Have a good one and take care out there."
+  }
+ ],
+ "funeral": [
+  {
+   "s": "a",
+   "t": 0.0,
+   "x": "G'day Jason. Just giving you a quick buzz about a tool saving funeral homes heaps of admin time. Give me 30 seconds?"
+  },
+  {
+   "s": "c",
+   "t": 9.8,
+   "x": "Absolutely."
+  },
+  {
+   "s": "a",
+   "t": 10.1,
+   "x": "Picture this, Jason. It's late, you're buried in paperwork, chasing forms, handling payments, all while supporting grieving families. At this rate you'll need a funeral for your free time. That's where Funeral Buddy comes in. Would you be against seeing how it works?"
+  },
+  {
+   "s": "c",
+   "t": 37.6,
+   "x": "I wouldn't be, but it sounds a lot like the software that we already use."
+  },
+  {
+   "s": "a",
+   "t": 42.7,
+   "x": "Fair call, Jason. A lot of funeral homes say the same thing until they see how Funeral Buddy is built specifically for independent directors like yourself. I'll lock in a quick 15 minute demo. What day and time works best for you, mate?"
+  },
+  {
+   "s": "c",
+   "t": 60.4,
+   "x": "I could do Monday, sort of between 8:30 and 9:30, somewhere around there."
+  },
+  {
+   "s": "a",
+   "t": 69.5,
+   "x": "Let me just check if we've got a spot available for Monday morning. All right Jason, the closest available time we've got is Tuesday at 9am. Would that work for you?"
+  },
+  {
+   "s": "c",
+   "t": 80.8,
+   "x": "It wouldn't. I'll be out of town on Tuesday. So probably maybe Wednesday."
+  },
+  {
+   "s": "a",
+   "t": 86.7,
+   "x": "Let me check Wednesday morning. Looks like Wednesday's booked out too, Jason. The next available time is Thursday at 9am. Would that suit you, mate?"
+  },
+  {
+   "s": "c",
+   "t": 98.5,
+   "x": "Yeah, I think that would work."
+  },
+  {
+   "s": "a",
+   "t": 109.8,
+   "x": "Perfect. I've booked you for a demo of Funeral Buddy on Thursday at 9am, and I'll send the confirmation to your email. Does that sound correct?"
+  },
+  {
+   "s": "c",
+   "t": 119.8,
+   "x": "Yeah."
+  },
+  {
+   "s": "a",
+   "t": 123.8,
+   "x": "Perfect. You'll get confirmation shortly. Thanks for your time, Jason."
+  }
+ ],
+ "tutor": [
+  {
+   "s": "a",
+   "t": 0.0,
+   "x": "Hello, this is Camila. How can I help you today?"
+  },
+  {
+   "s": "c",
+   "t": 4.0,
+   "x": "Hey Camila, I was just wondering about your classes, what time they're at, and maybe how much they cost."
+  },
+  {
+   "s": "a",
+   "t": 16.0,
+   "x": "We offer classes at 8:30am and 8:30pm Brasilia time, every day. The program costs just 10 USD per month for access to 8 classes. Would you be interested in trying a free class?"
+  },
+  {
+   "s": "c",
+   "t": 30.0,
+   "x": "Yeah. And what is it that the classes are teaching?"
+  },
+  {
+   "s": "a",
+   "t": 34.0,
+   "x": "Our classes focus on English language learning tailored to your goals. Would you like to give a free class a try? If so, could I have your name?"
+  },
+  {
+   "s": "c",
+   "t": 49.0,
+   "x": "Wait, so these are English classes? What if I already speak English?"
+  },
+  {
+   "s": "a",
+   "t": 51.5,
+   "x": "If you already speak English, we can help you improve your fluency, vocabulary, or even business communication skills, depending on your needs. Would you like to try a free class?"
+  },
+  {
+   "s": "c",
+   "t": 72.0,
+   "x": "Yeah, my name is Sarah. Can I do the latest class that you offer?"
+  },
+  {
+   "s": "a",
+   "t": 77.0,
+   "x": "Great to meet you, Sarah. To try the latest class, visit our website and fill out the form to schedule your free trial class. Is there anything else I can help with?"
+  },
+  {
+   "s": "c",
+   "t": 87.0,
+   "x": "No, thank you."
+  },
+  {
+   "s": "a",
+   "t": 89.0,
+   "x": "Goodbye."
+  }
+ ]
+}
