@@ -20,24 +20,24 @@ const steps = [
   },
   {
     when: "Week 1",
-    title: "I build, you break it",
-    body: "You get an interactive call flow to comment on. I build the agent, wire it into your systems, and you call it until you can't break it.",
+    title: "We build, you break it",
+    body: "You get an interactive call flow to comment on. We build the agent, wire it into your systems, and you call it until you can't break it.",
   },
   {
     when: "Week 2",
-    title: "Live, and I stay on it",
-    body: "The agent starts taking real calls. I review them, tune the agent, and we keep a standing weekly check in.",
+    title: "Live, and we stay on it",
+    body: "The agent starts taking real calls. We review them, tune the agent, and we keep a standing weekly check in.",
   },
 ];
 
 const faqs = [
   {
     q: "Who actually builds my agent?",
-    a: "I do. Oceanside is me. No sales team, no handoff to a junior developer. The person on your first call is the person who builds, tests, and maintains your agent.",
+    a: "Our team. The same people who scope your agent on the first call build, test, and maintain it. No offshore handoff, no template dropped in and forgotten.",
   },
   {
     q: "What if you're unavailable?",
-    a: "Your agent runs on Retell AI's cloud infrastructure, not my laptop, so it keeps answering whether I'm online or not. You also get your own access to the platform, so you're never locked out of your agent.",
+    a: "Your agent runs on Retell AI's cloud infrastructure, so it keeps answering around the clock, no matter what. You also get your own access to the platform, so you're never locked out of your agent.",
   },
   {
     q: "Will callers know it's AI?",
@@ -107,17 +107,22 @@ export default function Home() {
         <section className="px-5 pt-24 sm:px-8">
           <div className="mx-auto max-w-5xl">
             <p className="text-center text-xs uppercase tracking-[0.22em] text-white/35">Trusted by teams at</p>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-14 gap-y-8">
+            <div className="mx-auto mt-10 grid max-w-5xl grid-cols-2 place-items-center gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
               {[
                 { src: "/logos/cbn.png", alt: "CBN News", h: "h-9" },
                 { src: "/logos/regent.png", alt: "Regent University", h: "h-10" },
-                { src: "/logos/merx.png", alt: "Merx Truck & Trailer", h: "h-8" },
+                { src: "/logos/keepitcut.svg", alt: "Keep It Cut", h: "h-10" },
+                { src: "/logos/lovejoy.png", alt: "LoveJoy Hormone Clinic", h: "h-8" },
+                { src: "/logos/otwg.png", alt: "Oil The Woodlands Group", h: "h-11" },
+                { src: "/logos/merx.png", alt: "Merx Truck & Trailer", h: "h-8", jpg: true },
               ].map((l) => (
                 <img
                   key={l.alt}
                   src={l.src}
                   alt={l.alt}
-                  className={`${l.h} w-auto object-contain opacity-55 mix-blend-screen [filter:grayscale(1)_invert(1)_brightness(1.4)] transition hover:opacity-90`}
+                  className={`${l.h} w-auto max-w-[160px] object-contain opacity-60 transition duration-300 hover:opacity-100 ${
+                    l.jpg ? "mix-blend-screen [filter:grayscale(1)_invert(1)_brightness(1.4)]" : "[filter:brightness(0)_invert(1)]"
+                  }`}
                 />
               ))}
             </div>
@@ -280,7 +285,7 @@ export default function Home() {
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/10 bg-[#07090c]/70 px-4 py-3 backdrop-blur-md">
                   <div>
                     <p className="text-sm font-medium text-white">Mark Tomlet</p>
-                    <p className="text-xs text-white/50">Founder, builder, on every call</p>
+                    <p className="text-xs text-white/50">Founder, Oceanside AI</p>
                   </div>
                   <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white/10 px-3 py-1.5 text-xs transition hover:bg-white/20">LinkedIn</a>
                 </div>
@@ -290,7 +295,7 @@ export default function Home() {
               <Reveal>
                 <Eyebrow>About</Eyebrow>
                 <blockquote className="mt-6 font-serif text-4xl leading-[1.1] text-white sm:text-5xl">
-                  &ldquo;The person on your first call is the person who builds your agent.&rdquo;
+                  &ldquo;AI is coming like a wave. You either ride it, or get wiped out by it.&rdquo;
                 </blockquote>
               </Reveal>
               <Reveal delay={0.08}>
@@ -301,9 +306,9 @@ export default function Home() {
                     to twenty minutes, and CBN News asked me to build more.
                   </p>
                   <p>
-                    Now I build voice agents on Retell AI for truck repair shops, barbershops, home services, oil
-                    and gas, education, and more. Oceanside is a one person shop on purpose. I take on only as many
-                    clients as I can look after properly.
+                    Today our team builds voice agents on Retell AI for truck repair shops, barbershop chains, clinics,
+                    home services, oil and gas, education, and more. Every agent is scoped, built, and tuned by us,
+                    then watched closely after launch.
                   </p>
                 </div>
               </Reveal>
@@ -399,7 +404,7 @@ export default function Home() {
                 Stop sending callers <span className="font-serif font-normal italic text-teal-200">to voicemail.</span>
               </h2>
               <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-white/55">
-                Book a free 30 minute call. I&apos;ll look at how your calls are handled today and tell you straight
+                Book a free 30 minute call. We&apos;ll look at how your calls are handled today and tell you straight
                 whether an agent is worth it.
               </p>
               <Primary className="mt-10">Book a free call</Primary>

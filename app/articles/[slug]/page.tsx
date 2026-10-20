@@ -71,7 +71,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               Want an agent like this <span className="font-serif font-normal italic text-teal-200">for your business?</span>
             </h2>
             <p className="mt-4 leading-relaxed text-white/55">
-              Book a free 30 minute call. I&apos;ll look at how your calls are handled today and tell you straight
+              Book a free 30 minute call. We&apos;ll look at how your calls are handled today and tell you straight
               whether an agent is worth it.
             </p>
             <Primary className="mt-8">Book a free call</Primary>

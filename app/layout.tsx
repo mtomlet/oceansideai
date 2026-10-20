@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: "%s | Oceanside AI",
   },
   description:
-    "Custom AI voice agents that answer, book, and follow up on every call. Designed, built, and maintained by Mark Tomlet.",
+    "Custom AI voice agents that answer, book, and follow up on every call. Designed, built, and maintained by the Oceanside AI team.",
   icons: {
     icon: "/favicon.png",
   },
