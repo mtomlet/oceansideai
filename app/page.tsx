@@ -107,24 +107,35 @@ export default function Home() {
         <section className="px-5 pt-24 sm:px-8">
           <div className="mx-auto max-w-5xl">
             <p className="text-center text-xs uppercase tracking-[0.22em] text-white/35">Trusted by teams at</p>
-            <div className="mx-auto mt-10 grid max-w-5xl grid-cols-2 place-items-center gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
-              {[
-                { src: "/logos/cbn.png", alt: "CBN News", h: "h-9" },
-                { src: "/logos/regent.png", alt: "Regent University", h: "h-10" },
-                { src: "/logos/keepitcut.svg", alt: "Keep It Cut", h: "h-10" },
-                { src: "/logos/lovejoy.png", alt: "LoveJoy Hormone Clinic", h: "h-8" },
-                { src: "/logos/otwg.png", alt: "Oil The Woodlands Group", h: "h-11" },
-                { src: "/logos/merx.png", alt: "Merx Truck & Trailer", h: "h-8", jpg: true },
-              ].map((l) => (
-                <img
-                  key={l.alt}
-                  src={l.src}
-                  alt={l.alt}
-                  className={`${l.h} w-auto max-w-[160px] object-contain opacity-60 transition duration-300 hover:opacity-100 ${
-                    l.jpg ? "mix-blend-screen [filter:grayscale(1)_invert(1)_brightness(1.4)]" : "[filter:brightness(0)_invert(1)]"
-                  }`}
-                />
-              ))}
+            <div className="group/marquee relative mt-10 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]">
+              <div className="flex w-max animate-[marquee_38s_linear_infinite] group-hover/marquee:[animation-play-state:paused]">
+                {[0, 1].map((dup) => (
+                  <div key={dup} className="flex shrink-0 items-center gap-4 pr-4" aria-hidden={dup === 1}>
+                    {[
+                      { src: "/logos/retell.svg", alt: "Retell AI", h: "h-7" },
+                      { src: "/logos/cbn.png", alt: "CBN News", h: "h-9" },
+                      { src: "/logos/regent.png", alt: "Regent University", h: "h-10" },
+                      { src: "/logos/keepitcut.svg", alt: "Keep It Cut", h: "h-10" },
+                      { src: "/logos/lovejoy.png", alt: "LoveJoy Hormone Clinic", h: "h-8" },
+                      { src: "/logos/otwg.png", alt: "Oil The Woodlands Group", h: "h-11" },
+                      { src: "/logos/merx.png", alt: "Merx Truck & Trailer", h: "h-8", jpg: true },
+                    ].map((l) => (
+                      <div
+                        key={l.alt}
+                        className="group/logo grid h-20 w-48 place-items-center rounded-2xl border border-white/[0.06] bg-white/[0.02] transition duration-500 hover:border-white hover:bg-white hover:shadow-[0_0_40px_-8px_rgba(94,234,212,0.5)]"
+                      >
+                        <img
+                          src={l.src}
+                          alt={dup ? "" : l.alt}
+                          className={`${l.h} w-auto max-w-[140px] object-contain opacity-60 transition duration-500 group-hover/logo:opacity-100 group-hover/logo:[filter:none] ${
+                            l.jpg ? "mix-blend-screen group-hover/logo:mix-blend-normal [filter:grayscale(1)_invert(1)_brightness(1.4)]" : "[filter:brightness(0)_invert(1)]"
+                          }`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
