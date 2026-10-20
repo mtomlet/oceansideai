@@ -1,12 +1,12 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Sora, Inter } from "next/font/google";
+import { Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 
-const sora = Sora({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-sora",
-  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-fraunces",
+  axes: ["opsz", "SOFT"],
 });
 
 const inter = Inter({
@@ -19,7 +19,8 @@ export const metadata: Metadata = {
     default: "Oceanside AI Solutions",
     template: "%s | Oceanside AI",
   },
-  description: "Voice AI that books, routes, and resolves. Built like a Tesla.",
+  description:
+    "Custom AI voice receptionists for businesses that miss calls. Designed, built, and maintained by Mark Tomlet.",
   icons: {
     icon: "/favicon.png",
   },
@@ -27,8 +28,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${inter.variable}`}>
-      <body className="bg-[#02050a] text-white antialiased">{children}</body>
+    <html lang="en" className={`${fraunces.variable} ${inter.variable}`}>
+      <body className="bg-[#f6f2ea] text-[#13201d] antialiased">{children}</body>
     </html>
   );
 }
