@@ -14,17 +14,17 @@ const results = [
 
 const steps = [
   {
-    when: "Day 1",
+    when: "Discovery",
     title: "We map your calls",
     body: "A 30 minute call on who phones you, what they want, and where calls fall through today.",
   },
   {
-    when: "Week 1",
+    when: "Build",
     title: "We build, you break it",
     body: "You get an interactive call flow to comment on. We build the agent, wire it into your systems, and you call it until you can't break it.",
   },
   {
-    when: "Week 2",
+    when: "Launch",
     title: "Live, and we stay on it",
     body: "The agent starts taking real calls. We review them, tune the agent, and we keep a standing weekly check in.",
   },
@@ -46,6 +46,10 @@ const faqs = [
   {
     q: "What can it connect to?",
     a: "Calendars, CRMs, booking and POS systems, SMS, email, and most tools with an API. If your system has a way in, the agent can read from it and write to it mid call.",
+  },
+  {
+    q: "Can you handle patient calls?",
+    a: "Yes. We build HIPAA compliant voice agents for clinics and healthcare practices, so patient calls can be answered, routed, and booked without putting protected information at risk.",
   },
   {
     q: "What languages does it speak?",
@@ -82,7 +86,7 @@ export default function Home() {
             <Reveal delay={0.16}>
               <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-white/55 sm:text-xl">
                 AI receptionists that pick up on the first ring, book the appointment, and follow up, at 2pm or
-                2am. Designed around your business and live in about two weeks.
+                2am. Scoped and built around how your business actually runs.
               </p>
             </Reveal>
             <Reveal delay={0.24}>
@@ -92,6 +96,16 @@ export default function Home() {
                   <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor" aria-hidden><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5Z" /></svg>
                   Hear a real call
                 </a>
+              </div>
+            </Reveal>
+            <Reveal delay={0.3}>
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs text-white/45">
+                <span className="flex items-center gap-1.5">
+                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5 text-teal-300" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden><path d="M12 3l7 3v6c0 4.5-3 7.7-7 9-4-1.3-7-4.5-7-9V6l7-3z" /><path d="M9 12l2 2 4-4" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  HIPAA compliant AI
+                </span>
+                <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-white/30" />Built on Retell AI</span>
+                <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-white/30" />English, Spanish, Portuguese</span>
               </div>
             </Reveal>
           </div>
@@ -141,25 +155,19 @@ export default function Home() {
         </section>
 
         {/* results */}
-        <section className="px-5 py-28 sm:px-8 md:py-36">
-          <div className="mx-auto max-w-6xl">
+        <section className="px-5 pb-28 pt-20 sm:px-8 md:pb-36">
+          <div className="mx-auto max-w-5xl">
             <Reveal>
-              <Eyebrow>Results</Eyebrow>
-              <h2 className="mt-5 max-w-3xl text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-white sm:text-6xl">
-                Real businesses. <span className="font-serif font-normal italic text-white/60">Real numbers.</span>
-              </h2>
-            </Reveal>
-            <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-4">
-              {results.map((r, i) => (
-                <Reveal key={r.who} delay={i * 0.07} className="bg-[#07090c]">
-                  <div className="flex h-full flex-col p-7 sm:p-8">
-                    <p className="whitespace-nowrap text-4xl font-medium tracking-[-0.04em] text-white sm:text-5xl lg:text-[2.6rem] xl:text-5xl">{r.big}</p>
-                    <p className="mt-3 text-white/55">{r.label}</p>
-                    <p className="mt-10 text-xs uppercase tracking-[0.18em] text-teal-300/80">{r.who}</p>
+              <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4">
+                {results.map((r, i) => (
+                  <div key={r.who} className={`px-5 text-center ${i > 0 ? "md:border-l md:border-white/[0.07]" : ""} ${i % 2 === 1 ? "border-l border-white/[0.07] md:border-l" : ""}`}>
+                    <p className="whitespace-nowrap text-2xl font-medium tracking-[-0.03em] text-white sm:text-3xl">{r.big}</p>
+                    <p className="mt-1.5 text-sm text-white/45">{r.label}</p>
+                    <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-teal-300/70">{r.who}</p>
                   </div>
-                </Reveal>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -261,7 +269,7 @@ export default function Home() {
             <Reveal>
               <Eyebrow>How it works</Eyebrow>
               <h2 className="mt-5 max-w-3xl text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-white sm:text-6xl">
-                Live in two weeks. <span className="font-serif font-normal italic text-white/60">Not two quarters.</span>
+                Built around <span className="font-serif font-normal italic text-white/60">your business.</span>
               </h2>
             </Reveal>
             <div className="relative mt-16 grid gap-10 md:grid-cols-3 md:gap-8">
@@ -306,7 +314,7 @@ export default function Home() {
               <Reveal>
                 <Eyebrow>About</Eyebrow>
                 <blockquote className="mt-6 font-serif text-4xl leading-[1.1] text-white sm:text-5xl">
-                  &ldquo;AI is coming like a wave. You either ride it, or get wiped out by it.&rdquo;
+                  &ldquo;AI is coming like a tsunami. You either ride it, or get wiped out by it.&rdquo;
                 </blockquote>
               </Reveal>
               <Reveal delay={0.08}>
@@ -326,14 +334,20 @@ export default function Home() {
               <Reveal delay={0.14}>
                 <div className="mt-10 grid grid-cols-2 gap-4">
                   <a href={YOUTUBE_URL} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-white/[0.08] p-5 transition hover:border-white/20 hover:bg-white/[0.03]">
-                    <p className="text-2xl font-medium tracking-tight text-white">300k+</p>
+                    <svg viewBox="0 0 28 20" className="h-6 w-auto" aria-label="YouTube"><rect width="28" height="20" rx="5.5" fill="#FF0033" /><path d="M11.2 5.8v8.4l7.2-4.2-7.2-4.2z" fill="#fff" /></svg>
+                    <p className="mt-4 text-2xl font-medium tracking-tight text-white">400,000+</p>
                     <p className="mt-1 text-sm text-white/50">views teaching voice AI on YouTube</p>
                     <p className="mt-4 flex items-center gap-1.5 text-xs text-teal-300/90">Tech Tomlet <Arrow className="h-3 w-3" /></p>
                   </a>
                   <a href={SKOOL_URL} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-white/[0.08] p-5 transition hover:border-white/20 hover:bg-white/[0.03]">
-                    <p className="text-2xl font-medium tracking-tight text-white">Community</p>
-                    <p className="mt-1 text-sm text-white/50">where builders learn to ship voice agents</p>
-                    <p className="mt-4 flex items-center gap-1.5 text-xs text-teal-300/90">AI Voice Pioneers <Arrow className="h-3 w-3" /></p>
+                    <svg viewBox="0 0 88 28" className="h-6 w-auto" aria-label="Skool">
+                      <text x="0" y="22" fontFamily="Arial Rounded MT Bold, Arial, sans-serif" fontWeight="800" fontSize="26" letterSpacing="-0.5">
+                        <tspan fill="#2E66F6">s</tspan><tspan fill="#F0412E">k</tspan><tspan fill="#F7B32B">o</tspan><tspan fill="#2CA9E1">o</tspan><tspan fill="#F0412E">l</tspan>
+                      </text>
+                    </svg>
+                    <p className="mt-4 text-2xl font-medium tracking-tight text-white">AI Voice Pioneers</p>
+                    <p className="mt-1 text-sm text-white/50">our community where builders learn to ship voice agents</p>
+                    <p className="mt-4 flex items-center gap-1.5 text-xs text-teal-300/90">Join on Skool <Arrow className="h-3 w-3" /></p>
                   </a>
                 </div>
               </Reveal>

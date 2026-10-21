@@ -22,9 +22,6 @@ export const metadata: Metadata = {
   },
   description:
     "Custom AI voice agents that answer, book, and follow up on every call. Designed, built, and maintained by the Oceanside AI team.",
-  icons: {
-    icon: "/favicon.png",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
