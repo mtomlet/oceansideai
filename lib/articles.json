@@ -19,7 +19,7 @@
    },
    {
     "type": "p",
-    "text": "In my demo, a guy named Tom calls and asks if I'm around. Amy tells him no, I'm afraid not, he's pretending to be very important right now. Tom asks how much a voice agent costs. Amy explains it depends on the integrations and call volume, that I price it case by case, and that Oceanside usually gets one built in 7 to 14 days. Then she offers to take a message so I can send him a quote."
+    "text": "In my demo, a guy named Tom calls and asks if I'm around. Amy tells him no, I'm afraid not, he's pretending to be very important right now. Tom asks how much a voice agent costs. Amy explains it depends on the integrations and call volume, and that every agent is scoped and priced case by case. Then she offers to take a message so I can send him a quote."
    },
    {
     "type": "p",
@@ -536,6 +536,590 @@
    {
     "type": "p",
     "text": "That's what I'd push any business owner to ask about. Not just \"does it sound human,\" but \"how did you test it, and what happens after the call ends?\" And none of this is specific to trucks. Catching missed calls, a few clear paths, and a clean handoff to your team works for pretty much any business that lives on the phone."
+   }
+  ]
+ },
+ {
+  "slug": "retell-ai-vs-elevenlabs-for-business-phone-agents",
+  "title": "Retell AI vs ElevenLabs: Which One Should Run Your Business Phone Agent?",
+  "dek": "I built agents on both platforms and compared realism, testing, telephony, latency, and cost. Here's where each one wins and which one we build client agents on.",
+  "videoId": "YIewCbnfLGM",
+  "videoTitle": "Retell AI vs ElevenLabs: The Honest Winner",
+  "date": "2026-04-24",
+  "readMins": 4,
+  "category": "Buying guide",
+  "body": [
+   {
+    "type": "p",
+    "text": "If you're shopping for a voice agent, two platform names keep coming up: Retell AI and ElevenLabs. Your agent is going to live on one of them, so it's worth knowing how they actually differ. I've built on both and compared them on pretty much everything, from voice realism to what you'll pay per minute. For full transparency, Retell is what our team builds client agents on. Here's why, and where ElevenLabs honestly beats it."
+   },
+   {
+    "type": "h2",
+    "text": "Where ElevenLabs wins"
+   },
+   {
+    "type": "p",
+    "text": "Realism. I called an ElevenLabs agent I'd just spun up and it was a little scary realistic, not going to lie. Southern accent, cleared its throat, even sneezed and said \"excuse me\" because I told it to. ElevenLabs gives you surgical precision over exactly how the agent says each word."
+   },
+   {
+    "type": "p",
+    "text": "Retell can run the same ElevenLabs V3 voice model, and it's not bad. But you don't get that same level of control, so on raw realism ElevenLabs is the clear winner. Same on voices and languages: over 10,000 voices and 70 plus languages, versus Retell's 50 plus languages. ElevenLabs also lets you add languages one by one. On Retell you pick one language or all of them, and turning on all of them raises the chance the agent misreads what a caller said."
+   },
+   {
+    "type": "p",
+    "text": "Transcription is another ElevenLabs win. Their Scribe V2 model hit a 1.6% word error rate, while Deepgram Nova 3, which I believe is what Retell runs or something very similar, sits around 18% on the same style of test. ElevenLabs also has WhatsApp for voice and text, which matters if your customers are outside the US, plus more plug and play integrations and a faster setup for simple agents."
+   },
+   {
+    "type": "h2",
+    "text": "Where Retell pulls away: testing"
+   },
+   {
+    "type": "p",
+    "text": "For a business, testing is the make or break. It's not enough for an agent to give the right answer once. It has to give it consistently, or that good answer could just be a fluke."
+   },
+   {
+    "type": "p",
+    "text": "Retell lets us regenerate any single answer 10 times and see how often the agent says what we want. If one of those 10 is wrong, we find it, fix the prompt, and test until it's gone. ElevenLabs' test suite gives you a one time answer, which I can't trust for exactly that reason. On testing, I'd rank ElevenLabs a severe boo."
+   },
+   {
+    "type": "p",
+    "text": "Retell also has an AI quality assurance suite that can analyze thousands of calls and show what went wrong, with alerts built in. That matters once your agent is handling real callers at volume."
+   },
+   {
+    "type": "h2",
+    "text": "Built for the phone"
+   },
+   {
+    "type": "p",
+    "text": "Retell was designed phone first. ElevenLabs was designed as a voice model with telephony added later. Both connect to Twilio and support SIP trunking, but Retell has the call center features a business actually leans on: warm transfers, keypad (DTMF) handling, and call analytics built in. You can even buy a number right inside the Retell dashboard, which you can't do on ElevenLabs. Convenience matters."
+   },
+   {
+    "type": "p",
+    "text": "On raw latency ElevenLabs is faster, around 530 milliseconds versus about 600 to 620 on Retell. But on the VAQI benchmark, ElevenLabs flagged significantly more interruptions and misses. So it may respond quicker, but it's more likely to talk over your caller or miss what they said. Retell is a touch slower and makes the caller feel heard, with fewer mistakes on average."
+   },
+   {
+    "type": "h2",
+    "text": "What it costs, and what happens on a busy day"
+   },
+   {
+    "type": "p",
+    "text": "Pricing is basically a tie. On the surface Retell is about 7 cents a minute and ElevenLabs about 8. Once you add the LLM and everything else, my Retell calls average 15 to 20 cents a minute, which is about where ElevenLabs lands too. One caveat: running the ElevenLabs V3 voice on Retell pushes it to around 35 cents a minute all in. ElevenLabs sells subscription tiers, while Retell charges on usage, so you only pay for what you use. I like that a lot better."
+   },
+   {
+    "type": "p",
+    "text": "Then there's concurrency, meaning how many calls can happen at once. Retell gives you 20 free, then $8 a month per extra slot. It also has a burst option: up to 3x your normal limit, max 300 additional calls, at 10 cents a minute. So if a seasonal rush or an emergency suddenly slams your phones, you're covered without paying every month for capacity you rarely use. On ElevenLabs it's tied to your plan, 4 to 20 on the starter plans, and burst is 2x at around 16 cents a minute."
+   },
+   {
+    "type": "h2",
+    "text": "So which one?"
+   },
+   {
+    "type": "p",
+    "text": "It really depends on your use case. I'd use ElevenLabs for lightweight conversational agents where voice quality is the main requirement, like an ultra realistic voice clone or a simple agent. I'd use Retell for phone operations that are mission critical and running at scale, where accuracy and reliability matter more than the last bit of realism. That's the kind of agent businesses actually pay for."
+   },
+   {
+    "type": "p",
+    "text": "That's why our team builds on Retell as the primary platform for every client. I'm not saying ElevenLabs is bad. I'm saying that for production grade phone work, Retell clearly wins."
+   }
+  ]
+ },
+ {
+  "slug": "what-goes-into-a-good-voice-agent",
+  "title": "What Actually Goes Into a Good Voice Agent",
+  "dek": "Behind the friendly voice are dozens of settings, tools, and tests. Here's what goes into a production agent on Retell AI, so you know what a solid build looks like.",
+  "videoId": "GkkzXdKC950",
+  "videoTitle": "Retell AI Basics 2026: Everything You Need to Start Building Voice Agents (New & Improved)",
+  "date": "2025-12-22",
+  "readMins": 4,
+  "category": "Behind the build",
+  "body": [
+   {
+    "type": "p",
+    "text": "From the outside a voice agent looks simple. Someone calls, a friendly voice picks up, the caller gets help. Underneath that are dozens of settings, and most of what separates a good agent from one that embarrasses your business lives in details your callers never see."
+   },
+   {
+    "type": "p",
+    "text": "I scaled my agency to $11K in a month built entirely on Retell AI, so this is what I've learned delivering for real clients. In the video I build a demo agent for a surf shop, Kai, who gives the surf report, books lessons, and helps with gear. Here's what goes into one."
+   },
+   {
+    "type": "h2",
+    "text": "It starts with the prompt"
+   },
+   {
+    "type": "p",
+    "text": "99% of the issues that come up with a voice agent come down to the prompt. It's by far the most important part. We usually build what's called a single prompt agent, and since the models keep getting smarter, it's one of the best ways to build an all around production ready agent unless you have a very specific use case."
+   },
+   {
+    "type": "p",
+    "text": "Every prompt we write has a role, rules, steps, and skills. Agents perform best when you give them a role. And because these models are pattern matchers, we show rather than tell: we give the agent examples of exactly the output we want."
+   },
+   {
+    "type": "p",
+    "text": "Even when a tool helps draft the prompt, we read it line by line, as tedious as that is. Otherwise something in there causes mistakes, you test and test and test, and you never knew what was in the prompt to begin with. We also keep the model's temperature at the lowest setting so the agent stays predictable, and turn on structured output when it has to call functions with precision."
+   },
+   {
+    "type": "h2",
+    "text": "Tools that let it do real work"
+   },
+   {
+    "type": "p",
+    "text": "A good agent doesn't just talk. On Retell it can end the call naturally when the caller says goodbye, do warm and cold transfers to your team (a must for production agents), hand off to another agent for a different department on the same phone system, and check availability and book appointments through a calendar integration. Custom functions connect it to your CRM or your own systems, and it can send texts."
+   },
+   {
+    "type": "p",
+    "text": "One small detail callers notice: when the agent runs one of these tools, we have it say something like \"let me check that for you.\" Without that setting it can literally sit silent while it's checking, and it may even get the answer back without telling the caller."
+   },
+   {
+    "type": "p",
+    "text": "Then there's the knowledge base, your FAQs, documents, or website, which can refresh every 24 hours. We tell the agent that if the info isn't there, say it doesn't know. That prevents hallucination, so it doesn't make something up. Knowledge base formatting is honestly a skill of its own, and a well formatted one performs better."
+   },
+   {
+    "type": "h2",
+    "text": "The settings that make it sound human"
+   },
+   {
+    "type": "p",
+    "text": "This part is so important and people overlook it. A soft coffee shop or call center background sound, at around 0.80 to 0.85 volume, sounds the most natural. Interruption sensitivity usually sits in the 70s to 80s. Set it too low and a caller can be shouting while the agent keeps talking. Set it to 100 and one small word cuts it off. Backchanneling adds little \"yeah\"s while the caller talks. We always have background noise and background speech removal on."
+   },
+   {
+    "type": "p",
+    "text": "There are safety settings too. A reminder like \"are you still there?\" about every 15 seconds, two times max. Ending the call on silence so the agent isn't sitting there burning minutes. A max call duration about 30 to 40% above the expected length, so if something goes wrong it doesn't run for two hours. And a fallback voice in case the main one fails mid call."
+   },
+   {
+    "type": "h2",
+    "text": "Testing, and getting the data out"
+   },
+   {
+    "type": "p",
+    "text": "These agents are probabilistic, not deterministic. So we regenerate an answer 10 times to see how often the agent gives the one we want, and keep fixing until it's around 9 or 10 out of 10. That way you can be sure it's consistent. We also run simulated callers, like an angry customer, against success criteria, and we can run 50 of those at the same time. Testing is probably the most important skill in this whole business."
+   },
+   {
+    "type": "p",
+    "text": "After the call, the agent can pull out the details you care about, like the caller's name and reason for calling, and send them anywhere: an email, a Google Sheet, your CRM. And if you own the Retell account, you simply add us to your workspace."
+   },
+   {
+    "type": "p",
+    "text": "Most of this is invisible to your callers, which is the point. If you're comparing builders, ask how they test. That answer tells you a lot."
+   }
+  ]
+ },
+ {
+  "slug": "connect-a-voice-agent-to-your-phone-system",
+  "title": "How a Voice Agent Connects to the Phone System You Already Have",
+  "dek": "Cloud PBX, a cell phone, or an on site system: there are only two ways to forward calls to an AI agent, and you keep your public number either way.",
+  "videoId": "SuwmPIkOWhI",
+  "videoTitle": "How to Connect Your Voice Agent to ANY Business Phone System (Full Guide)",
+  "date": "2026-07-15",
+  "readMins": 3,
+  "category": "Operations",
+  "body": [
+   {
+    "type": "p",
+    "text": "One of the first questions owners ask us is some version of \"will this work with our phones?\" The answer is almost always yes, and you don't have to change the number on your website, Google Maps, or reviews. Your public number stays. Calls just get forwarded to the agent."
+   },
+   {
+    "type": "p",
+    "text": "Every setup comes down to two flavors of call forwarding and one question about your phones."
+   },
+   {
+    "type": "h2",
+    "text": "Two ways to forward calls"
+   },
+   {
+    "type": "p",
+    "text": "Unconditional: every call routes straight to the agent. Your phone doesn't ring, the call passes right through your main number, and the agent answers 100% of the time. Use this when you want the AI answering every call and you want to keep your public number."
+   },
+   {
+    "type": "p",
+    "text": "Conditional: your phone rings first, and the call only goes to the agent if a condition hits. Nobody picks up. It's after 5:00 p.m. You're already on another line. This is perfect for an after hours and overflow agent, where you still grab the calls you can and the AI acts as a safety net for the rest."
+   },
+   {
+    "type": "h2",
+    "text": "The one question: do you have a business phone system?"
+   },
+   {
+    "type": "p",
+    "text": "If yes, you're most likely on a cloud PBX like RingCentral, 8x8, or Dialpad. RingCentral is the one I tend to find most in the wild. The buttons are a little different on each, but the idea is the same. You'll have an option to forward all calls, an option to forward when there's no answer, and a place to enter the number to forward to, which is the agent's number."
+   },
+   {
+    "type": "p",
+    "text": "In my video I set up my own RingCentral account like a real company would and walked through both. For an after hours and overflow agent, you find the rule that says \"if no one answers, calls are sent to voicemail\" and change it to send calls to the agent instead. Then you add an after hours rule that routes everything to the agent outside your work hours. That's it. Callers never hear \"please hold while I try to connect you\" followed by a voicemail box again."
+   },
+   {
+    "type": "p",
+    "text": "If you don't have a business phone system, maybe you take calls right off your cell like a lot of roofers, HVAC techs, plumbers, and home inspectors do, we go to the carrier level. You dial a keypad code followed by the agent's number. On T-Mobile, for example, **21* followed by the agent's number forwards all calls. Other codes forward only when you don't answer, when you're busy, when your phone is off or has no signal, or all three at once. Verizon and AT&T use different codes, but it's the same idea. Most of what passes for a landline today is VOIP, and those take the same codes."
+   },
+   {
+    "type": "p",
+    "text": "If you're a bigger company on an on site PBX, don't sweat the details. We'll just ask who manages your phones, and your IT person hops on the call."
+   },
+   {
+    "type": "h2",
+    "text": "The mistake that creates an infinite loop"
+   },
+   {
+    "type": "p",
+    "text": "Here's one I see beginners make. They set up unconditional forwarding so the agent answers 24/7, then also want the agent to transfer callers back to the owner. Think about it. If every call to your number goes straight to the agent, and the agent transfers to that same number, it just goes right back to the agent. It's transferring back to itself."
+   },
+   {
+    "type": "p",
+    "text": "There are two clean fixes. Give the agent a separate number to transfer to, like a Google Voice or other VOIP number, and keep unconditional forwarding. Or switch to conditional forwarding, so your phone rings first and a transfer back actually reaches you instead of looping."
+   },
+   {
+    "type": "h2",
+    "text": "Why we don't port your number"
+   },
+   {
+    "type": "p",
+    "text": "Technically you could move your phone number over to the voice platform's phone provider entirely. I never recommend it. Porting a number can take days or even weeks, there's a lot of bureaucracy involved, and you end up at the mercy of that provider. Forwarding gets the same result while your number stays exactly where it is."
+   },
+   {
+    "type": "p",
+    "text": "So whatever you're using today, there's a way to connect it. It's two flavors, one question, and a few minutes of setup once we know which one fits."
+   }
+  ]
+ },
+ {
+  "slug": "why-outbound-ai-calls-get-flagged-as-spam",
+  "title": "Why Outbound AI Calls Get Flagged as Spam Likely, and How We Prevent It",
+  "dek": "You can have a great script and a clean lead list and still get zero pickups. Here's what the carriers are doing to your number and the settings that fix it.",
+  "videoId": "MOcrBtIgIWo",
+  "videoTitle": "Retell AI Outbound Calling: The Complete Guide",
+  "date": "2026-07-02",
+  "readMins": 3,
+  "category": "Operations",
+  "body": [
+   {
+    "type": "p",
+    "text": "Your outbound AI agent might be getting blocked, and you'd have no idea."
+   },
+   {
+    "type": "p",
+    "text": "Picture it. A great script, a great voice, a clean list of leads. You launch the campaign and nobody picks up. You blame the offer. It's not the offer."
+   },
+   {
+    "type": "h2",
+    "text": "What's actually happening"
+   },
+   {
+    "type": "p",
+    "text": "The phone carriers are marking your number as \"spam likely.\" You've seen that label on your own phone. Your leads see it too, and they never answer. Sometimes the call gets blocked before it even rings."
+   },
+   {
+    "type": "p",
+    "text": "Out of the box, most new numbers will be marked as spam. You can check yours on a site like Nomorobo or IPQualityScore. If you're already running outbound, that check is worth doing today."
+   },
+   {
+    "type": "h2",
+    "text": "The two settings most people skip"
+   },
+   {
+    "type": "p",
+    "text": "Verified phone number. This tells the carriers your number is legit, not a robocall. On Retell it means submitting a business profile, and once it's approved your number loses that spam likely label when it calls people."
+   },
+   {
+    "type": "p",
+    "text": "Branded call. This shows your business name on the screen when you ring, instead of a random number. One catch: Verizon cuts your business name at 15 characters, while T-Mobile and AT&T give you 32. Even \"Oceanside AI Solutions\" gets chopped on Verizon. Keep the name short."
+   },
+   {
+    "type": "p",
+    "text": "Retell also requires an ID verification on the account before you run batch calls, so that's part of our setup too."
+   },
+   {
+    "type": "h2",
+    "text": "Concurrency and calls per second"
+   },
+   {
+    "type": "p",
+    "text": "I wish those add ons were all it took. There's one more piece, and if you don't understand it you're likely to overspend and have your numbers blocked without knowing why."
+   },
+   {
+    "type": "p",
+    "text": "Concurrency is how many calls happen at the same time. Retell caps you at 20 by default across all your agents, and extra slots are $8 each per month. This matters because outbound and inbound share that pool. If your outbound campaign eats all 20, the agent answering your inbound calls can get choked out, so we reserve capacity for it."
+   },
+   {
+    "type": "p",
+    "text": "Calls per second is how fast new calls get started. Picture a swimming pool: concurrency is how much water the pool holds, and calls per second is the faucet filling it. The default is one call per second. Here's where people get burned: if you pay for 100 concurrent calls but you're starting one call per second and each call averages 30 seconds, you'll only ever have about 30 going at once. You paid for capacity you can't use."
+   },
+   {
+    "type": "p",
+    "text": "You can raise calls per second, up to 5 on Twilio and 16 on Telnyx. Retell recommends raising it gradually, because a sudden jump can get your number blocked. That's also why Twilio is fine to start, but Telnyx is better for large scale outbound."
+   },
+   {
+    "type": "h2",
+    "text": "Lists versus live triggers"
+   },
+   {
+    "type": "p",
+    "text": "There are two ways we set up outbound calling. Batch calling is for when you have a list. You upload it with the details you want the agent to use, like each lead's first name, and schedule the campaign to run on its own, say Monday morning. The time it takes is simple math: number of leads, divided by concurrency, times the average call length. Five leads, one at a time, at 5 minutes each is 25 minutes."
+   },
+   {
+    "type": "p",
+    "text": "API calling is for when something happens and you need to react immediately. Someone fills out a quote form, a lead moves to a new stage in your CRM, and the call fires from your own system right away. That's how speed to lead works."
+   },
+   {
+    "type": "p",
+    "text": "Either way, we turn on voicemail detection so the agent either hangs up or leaves a short message instead of talking to a machine."
+   },
+   {
+    "type": "p",
+    "text": "Outbound is only worth running if people pick up. So before anyone obsesses over the script, make sure your number isn't flagged."
+   }
+  ]
+ },
+ {
+  "slug": "which-ai-voice-should-answer-your-phones",
+  "title": "Which AI Voice Should Answer Your Phones? What Held Up on Real Calls",
+  "dek": "After two years testing every Retell AI voice across dozens of production agents, these are the ones that pass as human, plus the accent trick that beats all of them.",
+  "videoId": "nBxZ_9430_0",
+  "videoTitle": "Retell AI Voices: The 5 Most Realistic (I Tested Every Single One)",
+  "date": "2026-06-04",
+  "readMins": 3,
+  "category": "Buying guide",
+  "body": [
+   {
+    "type": "p",
+    "text": "I've tried every single voice in Retell AI across dozens of production agents over the last 2 years. Here's the catch nobody tells you: a voice that sounds great in the demo often falls apart in production. So this isn't a demo ranking. It's what held up on real calls."
+   },
+   {
+    "type": "p",
+    "text": "If you're picking a voice for your business, this is how I'd think about it."
+   },
+   {
+    "type": "h2",
+    "text": "The top 5, from good to best"
+   },
+   {
+    "type": "p",
+    "text": "5. Chloe. Decent, not amazing. She actually sounds better on the older ElevenLabs V2 model than on V3."
+   },
+   {
+    "type": "p",
+    "text": "4. Hayley. Smooth. And here's a trick: Retell doesn't let you drop in audio tags, but if you spell out a sound like \"ahem\" in the greeting, the V3 model will actually clear its throat. Tiny human touch, big jump in realism. I also set the voice speed 15 to 20% faster on her."
+   },
+   {
+    "type": "p",
+    "text": "3. Kate. Soft and natural. I've used her on numerous production clients."
+   },
+   {
+    "type": "p",
+    "text": "2. Ethan. The only male voice on the list, and most male voices don't hold up. If you run a truck and trailer repair shop, a mechanic shop, or other blue collar work, he really takes the cake."
+   },
+   {
+    "type": "p",
+    "text": "1. Grace. A little controversial, and not everyone will agree. On V3 she's bubbly, and her recording has a slight room echo that reads as real instead of crisp and fake. She works great for a lot of my use cases. That said, some clients tell me they'd prefer a more laid back agent, and if that's you, Grace might not be the one."
+   },
+   {
+    "type": "h2",
+    "text": "Why the clean voices give themselves away"
+   },
+   {
+    "type": "p",
+    "text": "Some voices are so upbeat and polished nobody actually talks like that. \"Hey there, I'm Paul, your dedicated helper. Let's get to work on your request.\" Who talks like this, honestly?"
+   },
+   {
+    "type": "p",
+    "text": "The more a voice sounds like Siri, crisp and simple English, the more callers start evaluating whether it's an AI. That's the opposite of what you want."
+   },
+   {
+    "type": "h2",
+    "text": "The accent trick"
+   },
+   {
+    "type": "p",
+    "text": "Here's the part most people miss. The voices that sound MOST human aren't the clean English ones. They're the accents. A thick accent makes the caller focus on understanding the words, not on catching the AI."
+   },
+   {
+    "type": "p",
+    "text": "My favorites are Yumi, a Japanese accent, and Alejandro, a Spanish accent. If you're somewhere bilingual like South Texas or Miami, Alejandro can be a great option since he sounds natural in both languages. At the top it's a tie between Louie, a French accent, and Monica, an Indian accent. I've used Monica on outbound campaigns where most people had no idea they were talking to an AI."
+   },
+   {
+    "type": "h2",
+    "text": "Match the voice to the job"
+   },
+   {
+    "type": "p",
+    "text": "There's a real tradeoff. I don't make the accent voices my go to, because a lot of businesses that come to us don't want one, and a heavy accent can make it harder for the caller to understand the agent. That's not great for fast, transactional calls like booking an appointment or reading back an address. It IS great when realism is the whole point."
+   },
+   {
+    "type": "p",
+    "text": "So we match the voice to the job and to who's calling you. A law firm, a mechanic shop, and a tech support line probably shouldn't sound the same."
+   },
+   {
+    "type": "p",
+    "text": "And whatever voice you land on, test it on real calls, not in the demo. If you're starting from scratch, Kate or Grace is a safe place to begin."
+   }
+  ]
+ },
+ {
+  "slug": "making-a-voice-agent-sound-human",
+  "title": "Making a Voice Agent Sound Human Takes More Than a Good Voice",
+  "dek": "Retell's Expressive Mode lets an agent sigh, pause, and soften its tone. The toggle is the easy part. Here's what actually makes it land on a call.",
+  "videoId": "IiB8Puw6-aM",
+  "videoTitle": "Retell AI Expressive Mode: Make Your Voice Agents Sound Human",
+  "date": "2026-07-09",
+  "readMins": 3,
+  "category": "Behind the build",
+  "body": [
+   {
+    "type": "p",
+    "text": "You can have the most realistic voice on the platform and still sound like ChatGPT with a speaker."
+   },
+   {
+    "type": "p",
+    "text": "That's the line I keep coming back to. Most voice agents don't have a voice problem. They have a words problem. A realistic voice reading robotic words is still a robot, and your callers can hear it."
+   },
+   {
+    "type": "p",
+    "text": "To test this, I built a counseling agent and called it myself as someone whose dog had just died. That's about the hardest kind of call there is to get right, and it's exactly where a flat, cheerful agent falls apart."
+   },
+   {
+    "type": "h2",
+    "text": "What Expressive Mode does"
+   },
+   {
+    "type": "p",
+    "text": "Retell's Expressive Mode gives your agent audio tags: sigh, pause, clear throat, excited, gentle. 18 voices support it. You switch it on in the voice settings, and you can override Retell's default instructions for how the tags get used."
+   },
+   {
+    "type": "p",
+    "text": "Two things to know up front. The tags are a fixed list, so the model won't reliably sneeze or cough no matter what you write. And the default instructions are a starting point. They aren't enough."
+   },
+   {
+    "type": "h2",
+    "text": "The prompt is what makes it land"
+   },
+   {
+    "type": "p",
+    "text": "Two things in the agent's own prompt do the real work."
+   },
+   {
+    "type": "p",
+    "text": "First, an expressive delivery section with rules for your specific use case. For the counseling agent, I told it to lean on empathy, use pauses, slow down, let a feeling land, and stress the one word that matters most. A dental office or a plumbing company would get different rules."
+   },
+   {
+    "type": "p",
+    "text": "Second, a full example conversation at the bottom of the prompt with the tags already in it. Agent, caller, agent, caller, the kind of exchange it'll actually run into. Show the model, don't just tell it."
+   },
+   {
+    "type": "p",
+    "text": "Tag density matters too. Put a tag in every sentence and you get weird swings, excited about one thing and sighing about something sad two seconds later. Use no tags and it's flat. There's a middle, and finding it takes testing."
+   },
+   {
+    "type": "h2",
+    "text": "The settings behind it"
+   },
+   {
+    "type": "p",
+    "text": "Under the agent handbook there are three settings we lean on. The colloquial model is a tiny model trained on thousands of real phone calls that rewrites the agent's words in real time so they sound like something a person would say. It costs about 900 tokens and 50 milliseconds of latency. Then natural filler words, and high empathy."
+   },
+   {
+    "type": "p",
+    "text": "Then voice speed. I keep mine at 1.06, because competent speakers talk 5 to 10% faster. It varies voice to voice, and you can set it to adjust to the caller."
+   },
+   {
+    "type": "p",
+    "text": "Here's the distinction people miss. Expressive Mode controls the speech. The colloquial model controls the words. You need both."
+   },
+   {
+    "type": "h2",
+    "text": "The honest limitations"
+   },
+   {
+    "type": "p",
+    "text": "Consistency. The agent always clears its throat when told to, but the intensity varies from one run to the next. Getting a good output once doesn't mean the agent is done, so we test the same lines several times before anything ships."
+   },
+   {
+    "type": "p",
+    "text": "Voice variance. What works on one voice won't necessarily work on another, and accents add more complexity. Switching voices means testing again."
+   },
+   {
+    "type": "p",
+    "text": "If you're evaluating a voice agent for your business, listen past the voice itself. Ask whether it sounds like a person choosing words, or a script being read out loud. That's usually the difference."
+   }
+  ]
+ },
+ {
+  "slug": "single-prompt-vs-conversational-flow",
+  "title": "Single Prompt or Conversational Flow: How Your Voice Agent Should Be Built",
+  "dek": "There are two ways to build a voice agent on Retell, and one is almost always a mistake. Here's which one we use, when the other wins, and what beats both.",
+  "videoId": "B_LGWZzJ6m0",
+  "videoTitle": "Single Prompt vs Conversational Flow in Retell AI (Which One Wins?)",
+  "date": "2026-06-05",
+  "readMins": 3,
+  "category": "Behind the build",
+  "body": [
+   {
+    "type": "p",
+    "text": "There are two ways to build a voice agent: single prompt or conversational flow. After coaching 600+ builders and shipping both to production, I can tell you single prompt wins about 90% of the time."
+   },
+   {
+    "type": "p",
+    "text": "You don't need to build one yourself to care about this. How your agent is built decides how natural it sounds, how it handles the weird questions, and how hard it is to change later."
+   },
+   {
+    "type": "h2",
+    "text": "The number one mistake"
+   },
+   {
+    "type": "p",
+    "text": "People assume conversational flow is the advanced option, so it must be better. That's the furthest thing from the truth."
+   },
+   {
+    "type": "p",
+    "text": "When most owners picture a voice agent, they picture something that sounds human and rolls with whatever the caller says. Conversational flow is closer to the opposite. You map out every step of the call as nodes and wire them together. It's perfect for replacing a phone menu. But if you want to replace a receptionist, single prompt is the one that actually flows."
+   },
+   {
+    "type": "h2",
+    "text": "Why single prompt usually wins"
+   },
+   {
+    "type": "p",
+    "text": "It's about 1/10 the work. Picture an agent answering questions at the front desk of a barbershop. As a single prompt, we write the prompt, edit, and test. As a flow, every node has to be mapped and organized, and it gets messy fast."
+   },
+   {
+    "type": "p",
+    "text": "It has a built in safety net. These agents run on the same kind of models as ChatGPT, trained on huge amounts of data. So when a caller asks something outside the questions you planned for, the agent can still answer naturally. A flow just hits a wall."
+   },
+   {
+    "type": "p",
+    "text": "Fun fact: flex mode inside conversational flow is just a single prompt agent under the hood with a visual layer on top."
+   },
+   {
+    "type": "h2",
+    "text": "When conversational flow actually wins"
+   },
+   {
+    "type": "p",
+    "text": "These models are probabilistic. They pick the most likely good answer, which makes them natural, but it's also their greatest downfall. Some businesses need certain things to happen 100% of the time. If you can only get an agent to make a required transfer 84% of the time, that's not good enough."
+   },
+   {
+    "type": "p",
+    "text": "Conversational flow gives you that hard, locked down control in exchange for some naturalness. It shines when the agent's job is to run the call, not just answer questions. Think of an agent that has to ask 30 critical medical questions where skipping even one could open the company up to a lawsuit. In that case the caller needs to understand from the start that it's a structured call."
+   },
+   {
+    "type": "h2",
+    "text": "The silver bullet that beats both"
+   },
+   {
+    "type": "p",
+    "text": "Single prompt has one real limit. Past about 8K to 12K tokens, the prompt bloats. It's like handing an employee so much information they can't juggle it. The agent costs more per answer, responds slower, and makes more mistakes."
+   },
+   {
+    "type": "p",
+    "text": "For reference, one single prompt agent I have live for a client right now does three call transfers, updates a CRM, and answers questions from a knowledge base. That's about 5,000 tokens, and it runs well. Where single prompts break down is something like 15 tool calls or 15K tokens."
+   },
+   {
+    "type": "p",
+    "text": "So when an agent outgrows one prompt, we build a small network of single prompt agents linked by a routing agent. Picture a simple trifecta. The router greets the caller and asks if it's an emergency. Yes goes to a locked down emergency agent. No goes to the general agent."
+   },
+   {
+    "type": "p",
+    "text": "They share the same voice and personality, so to the caller it sounds like one system. But each agent stays small and focused, and they're isolated. The general agent can't touch the emergency lines, and the emergency agent can't touch the CRM. That clear separation is what keeps transfers from misfiring."
+   },
+   {
+    "type": "p",
+    "text": "You get the naturalness of single prompt and the control of flow, without the bloat. That's how we build for clients: start with a single prompt, and only split it up when it grows."
    }
   ]
  }
