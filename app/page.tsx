@@ -1,6 +1,7 @@
 // app/page.tsx
 import CallConsole from "@/components/CallConsole";
 import Reveal from "@/components/Reveal";
+import Countries from "@/components/Countries";
 import ArticleCard from "@/components/ArticleCard";
 import Integrations from "@/components/Integrations";
 import { articles } from "@/lib/articles";
@@ -305,7 +306,7 @@ export default function Home() {
                   className="aspect-[4/5] w-full rounded-[28px] object-cover [filter:grayscale(0.35)_contrast(1.05)]"
                 />
                 <span className="absolute left-4 top-4 rounded-full border border-white/10 bg-[#07090c]/60 px-3 py-1 text-xs text-white/70 backdrop-blur-md">
-                  Ukraine
+                  Ukraine, 2023
                 </span>
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/10 bg-[#07090c]/70 px-4 py-3 backdrop-blur-md">
                   <div>
@@ -326,23 +327,32 @@ export default function Home() {
               <Reveal delay={0.08}>
                 <div className="mt-8 space-y-5 text-lg leading-relaxed text-white/55">
                   <p>
-                    That&apos;s Mark in Ukraine, covering the war. It&apos;s also where he started messing with AI. A
-                    news script took about four hours to write, so he built a tool that got it down to twenty
-                    minutes, and <span className="text-white">CBN News</span> asked him to build more.
+                    That&apos;s Mark in <span className="text-white">Ukraine in 2023</span>, covering the war. He grew
+                    up in <span className="text-white">Panama</span>, starred in a movie in Armenia as a teen, and
+                    spent his late teens filming out of helicopters. Journalism took him to the front lines in
+                    Ukraine, Armenia, Azerbaijan, and Venezuela, and to <Countries /> so far.
                   </p>
                   <p>
-                    He grew up in Panama, was in a movie as a teen, and spent his late teens filming out of
-                    helicopters. Camera, then journalism, then AI. Not the usual path into tech.
+                    Ukraine is also where he started messing with AI. A news script took four hours to write, so he
+                    built a tool that did it in twenty minutes, and <span className="text-white">CBN News</span>{" "}
+                    asked him to build more.
                   </p>
                   <p>
-                    After CBN, other companies wanted help with AI, so he started flying out to meet them. Almost
-                    every conversation ended up at the phones. A missed call is a lost customer, and a voice agent
-                    is something an owner can call and hear working the same day.
+                    He started Oceanside out of his <span className="text-white">dorm room</span> at Regent
+                    University while studying cybersecurity. He finished the degree in three years, and by then a
+                    cybersecurity job didn&apos;t make sense anymore. So he spent what would have been senior year
+                    living in <span className="text-white">a new country every month</span> with his wife, running
+                    the company from wherever they landed.
                   </p>
                   <p>
-                    He started posting the builds on YouTube, and that&apos;s how most of our clients find us now.
-                    Today it&apos;s a team, building and looking after voice agents for repair shops, barbershops,
-                    clinics, and oil and gas companies.
+                    Growing up between languages taught him how much it matters to be understood. It&apos;s why our
+                    agents speak English, Spanish, and Portuguese, and why we obsess over how they sound.
+                  </p>
+                  <p>
+                    The voice work came from clients. Business after business asked for the same thing first:{" "}
+                    <span className="text-white">answer our phones.</span> Today the team runs agents for a 12
+                    location barbershop chain, a hormone clinic, a truck repair shop, and an oil and gas company, and
+                    Mark teaches what he learns in public on YouTube and in a 500+ member community.
                   </p>
                 </div>
               </Reveal>
@@ -361,7 +371,7 @@ export default function Home() {
                       </text>
                     </svg>
                     <p className="mt-4 text-2xl font-medium tracking-tight text-white">AI Voice Pioneers</p>
-                    <p className="mt-1 text-sm text-white/50">our community where builders learn to ship voice agents</p>
+                    <p className="mt-1 text-sm text-white/50">500+ builders learning to ship voice agents</p>
                     <p className="mt-4 flex items-center gap-1.5 text-xs text-teal-300/90">Join on Skool <Arrow className="h-3 w-3" /></p>
                   </a>
                 </div>
