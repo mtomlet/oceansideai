@@ -340,12 +340,12 @@ export default function Home() {
                   <p>
                     That tool turned into a company. Mark started Oceanside out of his{" "}
                     <span className="text-white">dorm room</span> at Regent University, where he was studying
-                    cybersecurity, and started flying around the country helping companies figure out AI. Almost all
+                    cybersecurity, and was soon flying around the country helping companies figure out AI. Almost all
                     of them wanted the same thing first: <span className="text-white">voice.</span> An agent on the
                     phones was the most tangible thing AI could do for them, and the easiest return to see.
                   </p>
                   <p>
-                    So he started making YouTube videos on how to build them, and companies started finding him
+                    So he made YouTube videos on how to build them, and companies found him
                     through those videos and hiring the team. He finished his degree in three years, and by then a
                     cybersecurity job didn&apos;t make sense anymore. He spent what would have been senior year
                     living in <span className="text-white">a new country every month</span> with his wife, running
