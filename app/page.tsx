@@ -338,23 +338,22 @@ export default function Home() {
                     asked him to build more.
                   </p>
                   <p>
-                    He started Oceanside out of his <span className="text-white">dorm room</span> at Regent
-                    University while studying cybersecurity. He finished the degree in three years, and by then a
-                    cybersecurity job didn&apos;t make sense anymore. So he spent what would have been senior year
+                    That tool turned into a company. Mark started Oceanside out of his{" "}
+                    <span className="text-white">dorm room</span> at Regent University, where he was studying
+                    cybersecurity, and started flying around the country helping companies figure out AI. Almost all
+                    of them wanted the same thing first: <span className="text-white">voice.</span> An agent on the
+                    phones was the most tangible thing AI could do for them, and the easiest return to see.
+                  </p>
+                  <p>
+                    So he started making YouTube videos on how to build them, and companies started finding him
+                    through those videos and hiring the team. He finished his degree in three years, and by then a
+                    cybersecurity job didn&apos;t make sense anymore. He spent what would have been senior year
                     living in <span className="text-white">a new country every month</span> with his wife, running
                     the company from wherever they landed.
                   </p>
                   <p>
-                    What started as a news tool in Ukraine turned into the work. Covering a war, you learn fast how
-                    much rides on someone picking up the phone. A business is no different:{" "}
-                    <span className="text-white">a missed call is a customer gone.</span> So the team builds voice
-                    agents that answer every call, follow up with new leads in seconds, cover after hours, and bring
-                    old leads back, in English, Spanish, and Portuguese.
-                  </p>
-                  <p>
-                    Today that means clinics of all kinds (hormone, DPC, substance abuse), barbershops, roofers,
-                    repair shops, oil and gas, and home insurance. Mark shares everything he learns on YouTube and
-                    with 500+ builders in AI Voice Pioneers.
+                    Today the team builds voice agents for clinics, barbershops, roofers, repair shops, oil and gas,
+                    and insurance, and Mark teaches 500+ builders how to do it in AI Voice Pioneers.
                   </p>
                 </div>
               </Reveal>
