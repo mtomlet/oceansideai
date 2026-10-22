@@ -323,15 +323,33 @@ export default function Home() {
               <Reveal delay={0.08}>
                 <div className="mt-8 space-y-5 text-lg leading-relaxed text-white/55">
                   <p>
-                    I&apos;m Mark. I studied cybersecurity and started out working alongside journalists, including
-                    reporters covering the war in Ukraine. I built them an AI assistant that cut a four hour script
-                    to twenty minutes, and CBN News asked me to build more.
+                    I&apos;m Mark. I was born and raised in Panama. At 16 I starred in a movie,{" "}
+                    <em className="text-white/75">Armenia: A Love Story</em>, and by my late teens I was hanging out of
+                    helicopters over Panama as a cameraman.
                   </p>
                   <p>
-                    Today our team builds voice agents on Retell AI for truck repair shops, barbershop chains, clinics,
-                    home services, oil and gas, education, and more. Every agent is scoped, built, and tuned by us,
-                    then watched closely after launch.
+                    That turned into journalism. I covered wars and disasters on the front lines in Ukraine, Armenia,
+                    Azerbaijan, and Venezuela, and I&apos;ve been to nearly 40 countries. Somewhere in there I also
+                    got a B.S. in cybersecurity from Regent University.
                   </p>
+                  <p>
+                    The AI part started at <span className="text-white">CBN News</span>. I built the newsroom an AI
+                    assistant that cut a four hour script down to twenty minutes. They asked me to build more, and
+                    that was it for me.
+                  </p>
+                  <p>
+                    After CBN I was flying around the country consulting companies on AI. Everyone wanted something
+                    different, but one ask kept coming up first:{" "}
+                    <span className="text-white">answer our phones.</span> Voice was the automation they could
+                    actually hear working, and a missed call is money you can count, so the ROI was obvious.
+                  </p>
+                  <p>
+                    So I started making YouTube videos about building voice agents, and companies started finding us
+                    through them. I&apos;ve even built agents alongside Retell AI&apos;s own team. Today we build for
+                    truck repair shops, barbershop chains, clinics, home services, oil and gas, and education. Every
+                    agent is scoped, built, and tuned by us, then watched closely after launch.
+                  </p>
+                  <p>When I&apos;m not doing that, I&apos;m surfing.</p>
                 </div>
               </Reveal>
               <Reveal delay={0.14}>
