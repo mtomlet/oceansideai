@@ -7,13 +7,6 @@ import Integrations from "@/components/Integrations";
 import { articles } from "@/lib/articles";
 import { Arrow, CALENDLY_URL, Eyebrow, Footer, LINKEDIN_URL, Nav, Primary, SKOOL_URL, YOUTUBE_URL } from "@/components/Site";
 
-const results = [
-  { big: "20% → 0%", label: "missed calls", who: "Merx Truck & Trailer" },
-  { big: "10+ hrs", label: "of calling saved every day", who: "Funeral Buddy" },
-  { big: "$50k+", label: "saved per year", who: "TutorABC Brazil" },
-  { big: "4h → 20m", label: "per news script", who: "CBN News" },
-];
-
 const steps = [
   {
     when: "Discovery",
@@ -156,25 +149,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* results */}
-        <section className="px-5 pb-28 pt-20 sm:px-8 md:pb-36">
-          <div className="mx-auto max-w-5xl">
-            <Reveal>
-              <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4">
-                {results.map((r, i) => (
-                  <div key={r.who} className={`px-5 text-center ${i > 0 ? "md:border-l md:border-white/[0.07]" : ""} ${i % 2 === 1 ? "border-l border-white/[0.07] md:border-l" : ""}`}>
-                    <p className="whitespace-nowrap text-2xl font-medium tracking-[-0.03em] text-white sm:text-3xl">{r.big}</p>
-                    <p className="mt-1.5 text-sm text-white/45">{r.label}</p>
-                    <p className="mt-3 text-[10px] uppercase tracking-[0.2em] text-teal-300/70">{r.who}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
         {/* what it does: bento */}
-        <section className="px-5 pb-28 sm:px-8 md:pb-36">
+        <section className="px-5 pb-28 pt-28 sm:px-8 md:pb-36 md:pt-36">
           <div className="mx-auto max-w-6xl">
             <Reveal>
               <Eyebrow>What it does</Eyebrow>
