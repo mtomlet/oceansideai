@@ -329,7 +329,7 @@ export default function Home() {
                   <p>
                     That&apos;s Mark in <span className="text-white">Ukraine in 2023</span>, covering the war. He grew
                     up in <span className="text-white">Panama</span>, starred in a movie in Armenia as a teen, and
-                    spent his late teens filming out of helicopters. Journalism took him to the front lines in
+                    worked as a helicopter cameraman in his late teens. Journalism took him to the front lines in
                     Ukraine, Armenia, Azerbaijan, and Venezuela, and to <Countries /> so far.
                   </p>
                   <p>
@@ -343,17 +343,18 @@ export default function Home() {
                     cybersecurity job didn&apos;t make sense anymore. So he spent what would have been senior year
                     living in <span className="text-white">a new country every month</span> with his wife, running
                     the company from wherever they landed.
+                  </                  <p>
+                    What started as a news tool in Ukraine turned into the work. Covering a war, you learn fast how
+                    much rides on someone picking up the phone. A business is no different:{" "}
+                    <span className="text-white">a missed call is a customer gone.</span> So the team builds voice
+                    agents that answer every call, follow up with new leads in seconds, cover after hours, and bring
+                    old leads back, in English, Spanish, and Portuguese.
                   </p>
                   <p>
-                    Growing up between languages taught him how much it matters to be understood. It&apos;s why our
-                    agents speak English, Spanish, and Portuguese, and why we obsess over how they sound.
-                  </p>
-                  <p>
-                    The voice work came from clients. Business after business asked for the same thing first:{" "}
-                    <span className="text-white">answer our phones.</span> Today the team runs agents for a 12
-                    location barbershop chain, a hormone clinic, a truck repair shop, and an oil and gas company, and
-                    Mark teaches what he learns in public on YouTube and in a 500+ member community.
-                  </p>
+                    Today that means clinics of all kinds (hormone, DPC, substance abuse), barbershops, roofers,
+                    repair shops, oil and gas, and home insurance. Mark shares everything he learns on YouTube and
+                    with 500+ builders in AI Voice Pioneers.
+                  </p>/p>
                 </div>
               </Reveal>
               <Reveal delay={0.14}>
