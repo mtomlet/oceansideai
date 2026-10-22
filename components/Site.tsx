@@ -58,7 +58,7 @@ export function Nav() {
             <span className="text-[15px] font-medium tracking-tight">Oceanside AI</span>
           </a>
           <nav className="hidden items-center gap-8 text-sm text-white/55 md:flex">
-            <a href="/#calls" className="transition hover:text-white">Real calls</a>
+            <a href="/#integrations" className="transition hover:text-white">Integrations</a>
             <a href="/#how" className="transition hover:text-white">How it works</a>
             <a href="/#about" className="transition hover:text-white">About</a>
             <Link href="/articles" className="transition hover:text-white">Writing</Link>

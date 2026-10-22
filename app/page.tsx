@@ -2,6 +2,7 @@
 import CallConsole from "@/components/CallConsole";
 import Reveal from "@/components/Reveal";
 import ArticleCard from "@/components/ArticleCard";
+import Integrations from "@/components/Integrations";
 import { articles } from "@/lib/articles";
 import { Arrow, CALENDLY_URL, Eyebrow, Footer, LINKEDIN_URL, Nav, Primary, SKOOL_URL, YOUTUBE_URL } from "@/components/Site";
 
@@ -255,13 +256,15 @@ export default function Home() {
                       ))}
                     </div>
                   </div>
-                  <h3 className="mt-6 text-xl font-medium text-white">Plugs into your systems</h3>
+                  <h3 className="mt-6 text-xl font-medium text-white"><a href="#integrations" className="hover:text-teal-200">Plugs into your systems →</a></h3>
                   <p className="mt-2 leading-relaxed text-white/50">Reads and writes the tools you already run, then hands off to a human when it should.</p>
                 </div>
               </Reveal>
             </div>
           </div>
         </section>
+
+        <Integrations />
 
         {/* how */}
         <section id="how" className="scroll-mt-24 border-y border-white/[0.06] bg-white/[0.015] px-5 py-28 sm:px-8 md:py-36">
