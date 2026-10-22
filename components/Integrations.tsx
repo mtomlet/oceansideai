@@ -1,3 +1,4 @@
+import Expandable from "@/components/Expandable";
 import Reveal from "@/components/Reveal";
 import { Eyebrow } from "@/components/Site";
 import { allPlatforms, categories, iconPlatforms, type Platform } from "@/lib/integrations";
@@ -80,9 +81,10 @@ export default function Integrations() {
           <Row items={iconPlatforms.slice(half)} reverse />
         </div>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
-          {categories.map((c, i) => (
-            <Reveal key={c.title} delay={(i % 3) * 0.06} className="bg-[#07090c]">
+        <Expandable label={`See all ${allPlatforms.length}+ integrations`}>
+        <div className="grid gap-px overflow-hidden rounded-3xl border border-white/[0.07] bg-white/[0.07] sm:grid-cols-2 lg:grid-cols-3">
+          {categories.map((c) => (
+            <div key={c.title} className="bg-[#07090c]">
               <div className="h-full p-6 sm:p-7">
                 <h3 className="text-lg font-medium text-white">{c.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-white/45">{c.blurb}</p>
@@ -98,13 +100,14 @@ export default function Integrations() {
                   ))}
                 </div>
               </div>
-            </Reveal>
+            </div>
           ))}
         </div>
 
         <p className="mt-6 text-center text-sm text-white/40">
           Don&apos;t see yours? If it has an API, we can connect it.
         </p>
+        </Expandable>
       </div>
     </section>
   );
