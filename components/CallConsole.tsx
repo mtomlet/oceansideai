@@ -8,6 +8,13 @@ type Turn = { s: "a" | "c"; t: number; x: string };
 
 const CALLS = [
   {
+    id: "lovejoy",
+    client: "LoveJoy Hormone Clinic",
+    kind: "Inbound · After hours patient intake",
+    src: "/lovejoy-demo.mp3",
+    agent: "Ellie",
+  },
+  {
     id: "merx",
     client: "Merx Truck & Trailer",
     kind: "Inbound · After hours receptionist",
@@ -31,6 +38,23 @@ const CALLS = [
 ] as const;
 
 const BARS = 56;
+
+// [[n]] in a transcript is a redacted span n characters wide (names, DOB)
+function Redactable({ text }: { text: string }) {
+  return text.split(/(\[\[\d+\]\])/).map((part, i) => {
+    const m = part.match(/^\[\[(\d+)\]\]$/);
+    if (!m) return part;
+    return (
+      <span
+        key={i}
+        aria-label="redacted"
+        title="Redacted"
+        className="mx-0.5 inline-block h-[1em] translate-y-[3px] rounded-[3px] bg-white/60"
+        style={{ width: `${m[1]}ch` }}
+      />
+    );
+  });
+}
 
 function fmt(s: number) {
   if (!Number.isFinite(s)) return "0:00";
@@ -265,7 +289,7 @@ export default function CallConsole() {
                             t.s === "a" ? "bg-teal-300/[0.08] text-white/90" : "bg-white/[0.05] text-white/75"
                           } ${current ? "ring-1 ring-teal-300/40" : ""}`}
                         >
-                          {t.x}
+                          <Redactable text={t.x} />
                         </p>
                       </div>
                     </motion.div>
