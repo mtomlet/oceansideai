@@ -307,7 +307,7 @@ export default function Home() {
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/10 bg-[#07090c]/70 px-4 py-3 backdrop-blur-md">
                   <div>
                     <p className="text-sm font-medium text-white">Mark Tomlet</p>
-                    <p className="text-xs text-white/50">Founder, Oceanside AI</p>
+                    <p className="text-xs text-white/50">Founder, Oceanside AI · Ukraine</p>
                   </div>
                   <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white/10 px-3 py-1.5 text-xs transition hover:bg-white/20">LinkedIn</a>
                 </div>
@@ -323,33 +323,24 @@ export default function Home() {
               <Reveal delay={0.08}>
                 <div className="mt-8 space-y-5 text-lg leading-relaxed text-white/55">
                   <p>
-                    I&apos;m Mark. I was born and raised in Panama. At 16 I starred in a movie,{" "}
-                    <em className="text-white/75">Armenia: A Love Story</em>, and by my late teens I was hanging out of
-                    helicopters over Panama as a cameraman.
+                    Mark grew up in Panama. He was in a movie as a teenager, then worked as a helicopter cameraman,
+                    and that led him into journalism.
                   </p>
                   <p>
-                    That turned into journalism. I covered wars and disasters on the front lines in Ukraine, Armenia,
-                    Azerbaijan, and Venezuela, and I&apos;ve been to nearly 40 countries. Somewhere in there I also
-                    got a B.S. in cybersecurity from Regent University.
+                    That&apos;s him in Ukraine, covering the war. It&apos;s also where he started tinkering with AI,
+                    building a tool to speed up the reporting. It cut a four hour script down to twenty minutes, and
+                    CBN News asked him to build more.
                   </p>
                   <p>
-                    The AI part started at <span className="text-white">CBN News</span>. I built the newsroom an AI
-                    assistant that cut a four hour script down to twenty minutes. They asked me to build more, and
-                    that was it for me.
+                    From there he started helping other companies with AI. The thing they asked for most was the
+                    phones, because a missed call is a lost customer and you can hear right away if the fix works.
+                    So that became the focus.
                   </p>
                   <p>
-                    After CBN I was flying around the country consulting companies on AI. Everyone wanted something
-                    different, but one ask kept coming up first:{" "}
-                    <span className="text-white">answer our phones.</span> Voice was the automation they could
-                    actually hear working, and a missed call is money you can count, so the ROI was obvious.
+                    He started sharing what he learned on YouTube, and that&apos;s how most of our clients found us.
+                    Today the Oceanside team builds and looks after voice agents for repair shops, barbershops,
+                    clinics, home services, oil and gas, and education.
                   </p>
-                  <p>
-                    So I started making YouTube videos about building voice agents, and companies started finding us
-                    through them. I&apos;ve even built agents alongside Retell AI&apos;s own team. Today we build for
-                    truck repair shops, barbershop chains, clinics, home services, oil and gas, and education. Every
-                    agent is scoped, built, and tuned by us, then watched closely after launch.
-                  </p>
-                  <p>When I&apos;m not doing that, I&apos;m surfing.</p>
                 </div>
               </Reveal>
               <Reveal delay={0.14}>
