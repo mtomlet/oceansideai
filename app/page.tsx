@@ -343,7 +343,8 @@ export default function Home() {
                     cybersecurity job didn&apos;t make sense anymore. So he spent what would have been senior year
                     living in <span className="text-white">a new country every month</span> with his wife, running
                     the company from wherever they landed.
-                  </                  <p>
+                  </p>
+                  <p>
                     What started as a news tool in Ukraine turned into the work. Covering a war, you learn fast how
                     much rides on someone picking up the phone. A business is no different:{" "}
                     <span className="text-white">a missed call is a customer gone.</span> So the team builds voice
@@ -354,7 +355,7 @@ export default function Home() {
                     Today that means clinics of all kinds (hormone, DPC, substance abuse), barbershops, roofers,
                     repair shops, oil and gas, and home insurance. Mark shares everything he learns on YouTube and
                     with 500+ builders in AI Voice Pioneers.
-                  </p>/p>
+                  </p>
                 </div>
               </Reveal>
               <Reveal delay={0.14}>
