@@ -304,10 +304,13 @@ export default function Home() {
                   alt="Mark Tomlet"
                   className="aspect-[4/5] w-full rounded-[28px] object-cover [filter:grayscale(0.35)_contrast(1.05)]"
                 />
+                <span className="absolute left-4 top-4 rounded-full border border-white/10 bg-[#07090c]/60 px-3 py-1 text-xs text-white/70 backdrop-blur-md">
+                  Ukraine
+                </span>
                 <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-2xl border border-white/10 bg-[#07090c]/70 px-4 py-3 backdrop-blur-md">
                   <div>
                     <p className="text-sm font-medium text-white">Mark Tomlet</p>
-                    <p className="text-xs text-white/50">Founder, Oceanside AI · Ukraine</p>
+                    <p className="text-xs text-white/50">Founder, Oceanside AI</p>
                   </div>
                   <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="rounded-full bg-white/10 px-3 py-1.5 text-xs transition hover:bg-white/20">LinkedIn</a>
                 </div>
@@ -323,23 +326,23 @@ export default function Home() {
               <Reveal delay={0.08}>
                 <div className="mt-8 space-y-5 text-lg leading-relaxed text-white/55">
                   <p>
-                    Mark grew up in Panama. He was in a movie as a teenager, then worked as a helicopter cameraman,
-                    and that led him into journalism.
+                    That&apos;s Mark in Ukraine, covering the war. It&apos;s also where he started messing with AI. A
+                    news script took about four hours to write, so he built a tool that got it down to twenty
+                    minutes, and <span className="text-white">CBN News</span> asked him to build more.
                   </p>
                   <p>
-                    That&apos;s him in Ukraine, covering the war. It&apos;s also where he started tinkering with AI,
-                    building a tool to speed up the reporting. It cut a four hour script down to twenty minutes, and
-                    CBN News asked him to build more.
+                    He grew up in Panama, was in a movie as a teen, and spent his late teens filming out of
+                    helicopters. Camera, then journalism, then AI. Not the usual path into tech.
                   </p>
                   <p>
-                    From there he started helping other companies with AI. The thing they asked for most was the
-                    phones, because a missed call is a lost customer and you can hear right away if the fix works.
-                    So that became the focus.
+                    After CBN, other companies wanted help with AI, so he started flying out to meet them. Almost
+                    every conversation ended up at the phones. A missed call is a lost customer, and a voice agent
+                    is something an owner can call and hear working the same day.
                   </p>
                   <p>
-                    He started sharing what he learned on YouTube, and that&apos;s how most of our clients found us.
-                    Today the Oceanside team builds and looks after voice agents for repair shops, barbershops,
-                    clinics, home services, oil and gas, and education.
+                    He started posting the builds on YouTube, and that&apos;s how most of our clients find us now.
+                    Today it&apos;s a team, building and looking after voice agents for repair shops, barbershops,
+                    clinics, and oil and gas companies.
                   </p>
                 </div>
               </Reveal>
