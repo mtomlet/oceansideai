@@ -55,7 +55,7 @@ const faqs = [
   },
   {
     q: "What languages does it speak?",
-    a: "English, Spanish, Portuguese, and more. One agent can switch languages mid call if the caller does.",
+    a: "Pretty much any language your callers speak. One agent can switch languages mid call if the caller does.",
   },
 ];
 
@@ -107,7 +107,7 @@ export default function Home() {
                   HIPAA compliant AI
                 </span>
                 <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-white/30" />Built on Retell AI</span>
-                <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-white/30" />English, Spanish, Portuguese</span>
+                <span className="flex items-center gap-1.5"><span className="h-1 w-1 rounded-full bg-white/30" />Speaks any language</span>
               </div>
             </Reveal>
           </div>
@@ -243,7 +243,7 @@ export default function Home() {
                     ))}
                   </div>
                   <h3 className="mt-6 text-xl font-medium text-white">Speaks their language</h3>
-                  <p className="mt-2 leading-relaxed text-white/50">English, Spanish, Portuguese, and more, switching mid call if the caller does.</p>
+                  <p className="mt-2 leading-relaxed text-white/50">Whatever language your callers speak, switching mid call if the caller does.</p>
                 </div>
               </Reveal>
 
