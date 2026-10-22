@@ -173,6 +173,7 @@ export const industries: Industry[] = [
   {
     title: "Salons, med spas & fitness",
     platforms: [
+      { name: "Salon Sync", domain: "salon-sync.co" },
       { name: "Meevo", domain: "meevo.com" },
       { name: "Zenoti", domain: "zenoti.com" },
       { name: "Boulevard", domain: "joinblvd.com" },
