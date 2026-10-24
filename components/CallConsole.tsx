@@ -33,7 +33,7 @@ const CALLS = [
   },
   {
     id: "funeral",
-    logo: null,
+    logo: "/calls/funeralbuddy.png",
     client: "Funeral Buddy",
     kind: "Outbound · Sales appointment setter",
     src: "/funeral-demo.mp3",
