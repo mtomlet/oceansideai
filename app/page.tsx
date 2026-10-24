@@ -2,6 +2,7 @@
 import CallConsole from "@/components/CallConsole";
 import Reveal from "@/components/Reveal";
 import Countries from "@/components/Countries";
+import HoverPhoto from "@/components/HoverPhoto";
 import ArticleCard from "@/components/ArticleCard";
 import Integrations from "@/components/Integrations";
 import { articles } from "@/lib/articles";
@@ -306,7 +307,9 @@ export default function Home() {
                   <p>
                     That&apos;s Mark in <span className="text-white">Ukraine in 2023</span>, covering the war. He grew
                     up in <span className="text-white">Panama</span>, starred in a movie in Armenia as a teen, and
-                    worked as a helicopter cameraman in his late teens. Journalism took him to the front lines in
+                    worked as a{" "}
+                    <HoverPhoto label="helicopter cameraman" src="/helicopter.jpg" alt="Mark in a helicopter over Panama" caption="Up in the air over Panama" />{" "}
+                    in his late teens. Journalism took him to the front lines in
                     Ukraine, Armenia, Azerbaijan, and Venezuela, and to <Countries /> so far.
                   </p>
                   <p>
