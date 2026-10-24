@@ -310,7 +310,7 @@ export default function Home() {
                     worked as a{" "}
                     <HoverPhoto label="helicopter cameraman" src="/helicopter.jpg" alt="Mark in a helicopter over Panama" caption="Up in the air over Panama" />{" "}
                     in his late teens. Journalism took him to the front lines in
-                    Ukraine, Armenia, Azerbaijan, and Venezuela, and to <Countries /> so far.
+                    Ukraine, Armenia, Azerbaijan, and Venezuela, and all in he&apos;s been to <Countries />.
                   </p>
                   <p>
                     Ukraine is also where he started messing with AI. A news script took four hours to write, so he
@@ -326,7 +326,7 @@ export default function Home() {
                   </p>
                   <p>
                     So he made YouTube videos on how to build them, and companies found him
-                    through those videos and hiring the team. He finished his degree in three years, and by then a
+                    through those videos and hired the team. He finished his degree in three years, and by then a
                     cybersecurity job didn&apos;t make sense anymore. He spent what would have been senior year
                     living in <span className="text-white">a new country every month</span> with his wife, running
                     the company from wherever they landed.
