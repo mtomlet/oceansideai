@@ -124,6 +124,7 @@ export default function Home() {
                       { src: "/logos/retell.svg", alt: "Retell AI", h: "h-7" },
                       { src: "/logos/cbn.png", alt: "CBN News", h: "h-9" },
                       { src: "/logos/regent.png", alt: "Regent University", h: "h-10" },
+                      { src: "/logos/spectora.png", alt: "Spectora", h: "h-7" },
                       { src: "/logos/keepitcut.svg", alt: "Keep It Cut", h: "h-10" },
                       { src: "/logos/lovejoy.png", alt: "LoveJoy Hormone Clinic", h: "h-8" },
                       { src: "/logos/otwg.png", alt: "Oil The Woodlands Group", h: "h-11" },
