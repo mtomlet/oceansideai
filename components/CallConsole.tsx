@@ -9,6 +9,7 @@ type Turn = { s: "a" | "c"; t: number; x: string };
 const CALLS = [
   {
     id: "lovejoy",
+    logo: "/calls/lovejoyclinic.com.png",
     client: "LoveJoy Hormone Clinic",
     kind: "Inbound · After hours patient intake",
     src: "/lovejoy-demo.mp3",
@@ -16,6 +17,7 @@ const CALLS = [
   },
   {
     id: "roofing",
+    logo: "/calls/247roofingsolutions.com.png",
     client: "24/7 Restoration & Roofing",
     kind: "Inbound · Roofing receptionist",
     src: "/roofing-demo.mp3",
@@ -23,6 +25,7 @@ const CALLS = [
   },
   {
     id: "merx",
+    logo: "/calls/merx.png",
     client: "Merx Truck & Trailer",
     kind: "Inbound · After hours receptionist",
     src: "/merx-demo.mp3",
@@ -30,6 +33,7 @@ const CALLS = [
   },
   {
     id: "funeral",
+    logo: null,
     client: "Funeral Buddy",
     kind: "Outbound · Sales appointment setter",
     src: "/funeral-demo.mp3",
@@ -37,6 +41,7 @@ const CALLS = [
   },
   {
     id: "tutor",
+    logo: "/calls/tutorabc.com.png",
     client: "TutorABC Brazil",
     kind: "Inbound · Course enrollment",
     src: "/tutor-demo.mp3",
@@ -45,6 +50,16 @@ const CALLS = [
 ] as const;
 
 const BARS = 56;
+
+function ClientIcon({ logo, name, size }: { logo: string | null; name: string; size: string }) {
+  if (logo)
+    return <img src={logo} alt="" className={`${size} shrink-0 rounded-lg bg-white object-contain p-1`} />;
+  return (
+    <span className={`${size} grid shrink-0 place-items-center rounded-lg bg-white/10 text-[0.7em] font-semibold text-white/70`}>
+      {name[0]}
+    </span>
+  );
+}
 
 // [[n]] in a transcript is a redacted span n characters wide (names, DOB)
 function Redactable({ text }: { text: string }) {
@@ -214,7 +229,12 @@ export default function CallConsole() {
           {/* left: player */}
           <div className="flex flex-col border-b border-white/[0.07] p-5 sm:p-7 md:border-b-0 md:border-r">
             <p className="text-[11px] font-medium uppercase tracking-[0.18em] text-white/40">{call.kind}</p>
-            <h3 className="mt-2 text-2xl font-medium tracking-tight text-white">{call.client}</h3>
+            <div className="mt-3 flex items-center gap-3">
+              <motion.div key={call.id} initial={{ scale: 0.6, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}>
+                <ClientIcon logo={call.logo} name={call.client} size="h-10 w-10 text-lg" />
+              </motion.div>
+              <h3 className="text-2xl font-medium tracking-tight text-white">{call.client}</h3>
+            </div>
 
             <div className="relative mt-6 h-28">
               <canvas ref={canvas} className="h-full w-full" />
@@ -244,7 +264,14 @@ export default function CallConsole() {
               </div>
             </div>
 
-            <div className="mt-7 space-y-1.5">
+            <div className="mt-7 flex items-center justify-between px-1 text-[11px] uppercase tracking-[0.16em] text-white/30">
+              <span>More calls</span>
+              <span className="flex items-center gap-1.5 normal-case tracking-normal">
+                Scroll
+                <svg viewBox="0 0 12 12" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M3 4.5 6 7.5l3-3" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              </span>
+            </div>
+            <div className="mt-2 h-[118px] space-y-1.5 overflow-y-auto overscroll-contain pb-6 [mask-image:linear-gradient(to_bottom,black_70%,transparent)] [scrollbar-width:none]">
               {CALLS.map((c, i) => (
                 <button
                   key={c.id}
@@ -253,7 +280,10 @@ export default function CallConsole() {
                     i === idx ? "bg-white/[0.07] text-white" : "text-white/50 hover:bg-white/[0.04] hover:text-white/80"
                   }`}
                 >
-                  <span className="truncate">{c.client}</span>
+                  <span className="flex min-w-0 items-center gap-3">
+                    <ClientIcon logo={c.logo} name={c.client} size="h-6 w-6" />
+                    <span className="truncate">{c.client}</span>
+                  </span>
                   <span className="ml-3 shrink-0 text-xs text-white/35">{c.kind.split(" · ")[0]}</span>
                 </button>
               ))}
