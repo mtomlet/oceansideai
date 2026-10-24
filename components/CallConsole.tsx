@@ -15,6 +15,13 @@ const CALLS = [
     agent: "Ellie",
   },
   {
+    id: "roofing",
+    client: "24/7 Restoration & Roofing",
+    kind: "Inbound · Roofing receptionist",
+    src: "/roofing-demo.mp3",
+    agent: "Receptionist",
+  },
+  {
     id: "merx",
     client: "Merx Truck & Trailer",
     kind: "Inbound · After hours receptionist",
