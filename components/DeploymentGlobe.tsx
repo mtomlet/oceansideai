@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import deployments from "@/lib/deployments.json";
 
 type Dot = { c: string; r: string; s: string; lat: number; lng: number };
@@ -8,9 +8,7 @@ const DOTS = deployments as Dot[];
 const RAD = Math.PI / 180;
 
 export default function DeploymentGlobe() {
-  const wrap = useRef<HTMLDivElement>(null);
   const canvas = useRef<HTMLCanvasElement>(null);
-  const [tip, setTip] = useState<{ x: number; y: number; d: Dot } | null>(null);
 
   useEffect(() => {
     const cv = canvas.current!;
@@ -22,12 +20,11 @@ export default function DeploymentGlobe() {
       .catch(() => {});
 
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const view = { lng: -96, tilt: 24, vel: reduce ? 0 : 0.06 };
+    const view = { lng: -96, tilt: 24 };
     let size = 0;
     let dpr = 1;
     let raf = 0;
     let visible = true;
-    let screen: { x: number; y: number; i: number }[] = [];
 
     const resize = () => {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -55,16 +52,24 @@ export default function DeploymentGlobe() {
     };
 
     let dragging = false;
-    let last = 0;
     let lastX = 0;
     let lastY = 0;
+    let lastT = 0;
+    let idleSince = 0;
+    let vx = 0; // degrees of longitude per frame from a flick
+    let vy = 0;
+    const AUTO = reduce ? 0 : 0.05;
 
     const draw = (time: number) => {
       raf = requestAnimationFrame(draw);
       if (!visible || !size) return;
       if (!dragging) {
-        view.lng -= view.vel;
-        if (Math.abs(view.vel) > 0.06) view.vel *= 0.95;
+        view.lng -= vx;
+        view.tilt = Math.max(-70, Math.min(70, view.tilt + vy));
+        vy *= 0.92;
+        // a flick coasts and slows; after a short rest the globe eases back into a slow spin
+        if (time - idleSince > 2500) vx += (AUTO - vx) * 0.03;
+        else vx *= 0.95;
       }
       const R = size * 0.46;
       const c = size / 2;
@@ -97,14 +102,12 @@ export default function DeploymentGlobe() {
       }
 
       // deployments
-      screen = [];
       const pulse = (time / 1000) % 2.4;
       DOTS.forEach((d, i) => {
         const p = project(d.lat, d.lng);
         if (p.z <= 0.02) return;
         const x = c + p.x * R;
         const y = c - p.y * R;
-        screen.push({ x, y, i });
         const off = d.s.includes("offline");
         const a = 0.35 + p.z * 0.65;
         ctx.fillStyle = off ? `rgba(148,163,184,${a * 0.25})` : `rgba(94,234,212,${a * 0.18})`;
@@ -126,50 +129,41 @@ export default function DeploymentGlobe() {
     };
     raf = requestAnimationFrame(draw);
 
-    let downX = 0;
-    let downY = 0;
+    const degPerPx = () => 180 / (size * 0.46 * Math.PI);
     const onDown = (e: PointerEvent) => {
       dragging = true;
-      downX = lastX = e.clientX;
-      downY = lastY = e.clientY;
-      last = performance.now();
+      vx = vy = 0;
+      lastX = e.clientX;
+      lastY = e.clientY;
+      lastT = performance.now();
       cv.setPointerCapture(e.pointerId);
     };
     const onMove = (e: PointerEvent) => {
       if (!dragging) return;
-      const k = 180 / (size * 0.46 * Math.PI);
+      const k = degPerPx();
       const dx = e.clientX - lastX;
       const dy = e.clientY - lastY;
-      view.lng -= dx * k;
-      view.tilt = Math.max(-60, Math.min(60, view.tilt + dy * k));
       const now = performance.now();
-      view.vel = (-dx * k) / Math.max(1, (now - last) / 16);
-      view.vel = -view.vel;
-      last = now;
+      const frames = Math.max(1, (now - lastT) / 16.7);
+      view.lng -= dx * k;
+      view.tilt = Math.max(-70, Math.min(70, view.tilt + dy * k));
+      vx = (dx * k) / frames;
+      vy = (dy * k) / frames;
       lastX = e.clientX;
       lastY = e.clientY;
+      lastT = now;
     };
-    const onUp = (e: PointerEvent) => {
+    const onUp = () => {
       dragging = false;
-      if (Math.abs(view.vel) < 0.06 && !reduce) view.vel = 0.06;
-      if (Math.hypot(e.clientX - downX, e.clientY - downY) > 5) return;
-      const box = cv.getBoundingClientRect();
-      const mx = e.clientX - box.left;
-      const my = e.clientY - box.top;
-      let best: { x: number; y: number; i: number } | null = null;
-      let bd = 16 * 16;
-      for (const s of screen) {
-        const d = (s.x - mx) ** 2 + (s.y - my) ** 2;
-        if (d < bd) {
-          bd = d;
-          best = s;
-        }
-      }
-      setTip(best ? { x: best.x, y: best.y, d: DOTS[best.i] } : null);
+      if (performance.now() - lastT > 80) vx = vy = 0; // held still before letting go
+      vx = Math.max(-6, Math.min(6, vx));
+      vy = Math.max(-4, Math.min(4, vy));
+      idleSince = performance.now();
     };
     cv.addEventListener("pointerdown", onDown);
     cv.addEventListener("pointermove", onMove);
     cv.addEventListener("pointerup", onUp);
+    cv.addEventListener("pointercancel", onUp);
     return () => {
       cancelAnimationFrame(raf);
       ro.disconnect();
@@ -177,30 +171,18 @@ export default function DeploymentGlobe() {
       cv.removeEventListener("pointerdown", onDown);
       cv.removeEventListener("pointermove", onMove);
       cv.removeEventListener("pointerup", onUp);
+      cv.removeEventListener("pointercancel", onUp);
     };
   }, []);
 
   return (
-    <div ref={wrap} className="relative mx-auto aspect-square w-full max-w-[560px]">
+    <div className="relative mx-auto aspect-square w-full max-w-[560px]">
       <canvas
         ref={canvas}
         className="h-full w-full cursor-grab touch-none active:cursor-grabbing"
-        aria-label="Spinning globe with a dot for every location running one of our voice agents"
+        aria-label="Spinning globe with a dot for every business location running one of our voice agents. Drag to spin it."
         role="img"
       />
-      {tip && (
-        <div
-          className="pointer-events-none absolute z-10 w-max max-w-[220px] -translate-x-1/2 -translate-y-[calc(100%+14px)] rounded-xl border border-white/10 bg-[#0c1014]/95 px-3.5 py-2.5 text-left shadow-[0_20px_50px_-15px_rgba(0,0,0,0.9)]"
-          style={{ left: tip.x, top: tip.y }}
-        >
-          <p className="text-sm font-medium text-white">{tip.d.c}</p>
-          <p className="text-xs text-white/50">{tip.d.r}</p>
-          <p className={`mt-1.5 flex items-center gap-1.5 text-[11px] ${tip.d.s.includes("offline") ? "text-white/45" : "text-teal-200"}`}>
-            <span className={`h-1.5 w-1.5 rounded-full ${tip.d.s.includes("offline") ? "bg-white/40" : "bg-teal-300"}`} />
-            {tip.d.s}
-          </p>
-        </div>
-      )}
     </div>
   );
 }

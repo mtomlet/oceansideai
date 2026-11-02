@@ -1,6 +1,7 @@
 // app/page.tsx
 import CallConsole from "@/components/CallConsole";
 import DeploymentGlobe from "@/components/DeploymentGlobe";
+import CountUp from "@/components/CountUp";
 import deployments from "@/lib/deployments.json";
 import Reveal from "@/components/Reveal";
 import Countries from "@/components/Countries";
@@ -160,14 +161,14 @@ export default function Home() {
             <Reveal>
               <Eyebrow>Where our agents answer</Eyebrow>
               <h2 className="mt-5 text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-white sm:text-6xl">
-                {deployments.length} locations.{" "}
+                <CountUp to={deployments.length} /> locations.{" "}
                 <span className="text-white/40">{new Set(deployments.map((d) => d.r.split(", ").pop())).size} countries.</span>
               </h2>
               <p className="mt-6 max-w-md text-lg leading-relaxed text-white/55">
-                Clinics, repair shops, contractors and home service companies pick up every call with a voice agent we built. Spin the globe and tap a dot.
+                Clinics, repair shops, contractors and home service companies pick up every call with a voice agent we built. Grab the globe and spin it.
               </p>
               <p className="mt-8 max-w-md text-xs leading-relaxed text-white/35">
-                Each dot is a business location running a voice agent we built. Most run one home services template we designed and deployed through a software partner. Locations are approximate.
+                Each dot is a business location running a voice agent we built. Many run one of our templates, deployed through a software partner, so not every dot is an agent we manage ourselves. Locations are approximate.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
