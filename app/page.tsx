@@ -1,5 +1,7 @@
 // app/page.tsx
 import CallConsole from "@/components/CallConsole";
+import DeploymentGlobe from "@/components/DeploymentGlobe";
+import deployments from "@/lib/deployments.json";
 import Reveal from "@/components/Reveal";
 import Countries from "@/components/Countries";
 import HoverPhoto from "@/components/HoverPhoto";
@@ -148,6 +150,29 @@ export default function Home() {
                 ))}
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* deployment globe */}
+        <section className="relative px-5 pt-28 sm:px-8 md:pt-36">
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[520px] w-[720px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-teal-400/[0.06] blur-[120px]" />
+          <div className="mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+            <Reveal>
+              <Eyebrow>Where our agents answer</Eyebrow>
+              <h2 className="mt-5 text-4xl font-medium leading-[1.05] tracking-[-0.035em] text-white sm:text-6xl">
+                {deployments.length} locations.{" "}
+                <span className="text-white/40">{new Set(deployments.map((d) => d.r.split(", ").pop())).size} countries.</span>
+              </h2>
+              <p className="mt-6 max-w-md text-lg leading-relaxed text-white/55">
+                Clinics, repair shops, contractors and home service companies pick up every call with a voice agent we built. Spin the globe and tap a dot.
+              </p>
+              <p className="mt-8 max-w-md text-xs leading-relaxed text-white/35">
+                Each dot is a business location running a voice agent we built. Most run one home services template we designed and deployed through a software partner. Locations are approximate.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <DeploymentGlobe />
+            </Reveal>
           </div>
         </section>
 
