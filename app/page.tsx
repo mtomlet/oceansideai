@@ -168,7 +168,7 @@ export default function Home() {
                 Clinics, repair shops, contractors and home service companies pick up every call with a voice agent we built. Grab the globe and spin it.
               </p>
               <p className="mt-8 max-w-md text-xs leading-relaxed text-white/35">
-                Each dot is a business location running a voice agent we built. Many run one of our templates, deployed through a software partner, so not every dot is an agent we manage ourselves. Locations are approximate.
+                Each dot marks a business location where a voice agent we built has been deployed. Many are template deployments delivered through a software partner and are not managed directly by Oceanside AI. Locations are approximate.
               </p>
             </Reveal>
             <Reveal delay={0.1}>
