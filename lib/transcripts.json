@@ -2,137 +2,147 @@
   "lovejoy": [
     {
       "s": "a",
-      "t": 0.35,
+      "t": 0.37,
       "x": "Thanks for calling LoveJoy Hormone Clinic, I'm Ellie, an AI assistant on a recorded line. You can talk to me like a normal person. How can I help you today?"
     },
     {
       "s": "c",
-      "t": 9.98,
-      "x": "I'd like to get started as a new patient."
+      "t": 11.41,
+      "x": "Wanna see if I could get a consultant."
     },
     {
       "s": "a",
-      "t": 13.55,
-      "x": "Great. Can you spell your first and last name?"
+      "t": 14.69,
+      "x": "Sure, you're looking to talk to someone about getting started. Just to point you in the right direction, are you a new or existing patient?"
     },
     {
       "s": "c",
-      "t": 16.97,
-      "x": "[[7]] [[8]]. [[14]]."
+      "t": 22.85,
+      "x": "New."
     },
     {
       "s": "a",
-      "t": 26.36,
-      "x": "So that's [[16]], right?"
+      "t": 25.2,
+      "x": "Okay, I can help you get started. Can you spell your first and last name?"
     },
     {
       "s": "c",
-      "t": 34.46,
-      "x": "Yep. That's right."
+      "t": 30.97,
+      "x": "A-N-D-R-E-W, [[11]]."
     },
     {
       "s": "a",
-      "t": 38.98,
-      "x": "Can I use the number you're calling from?"
+      "t": 37.43,
+      "x": "So that's A-N-D-R-E-W [[11]], right?"
     },
     {
       "s": "c",
-      "t": 41.29,
-      "x": "Yeah. That's fine."
+      "t": 43.6,
+      "x": "Yes."
     },
     {
       "s": "a",
-      "t": 44.52,
-      "x": "Okay. And what's your date of birth?"
+      "t": 45.89,
+      "x": "And can I use the number you're calling from?"
     },
     {
       "s": "c",
-      "t": 46.86,
-      "x": "[[12]]"
+      "t": 48.98,
+      "x": "Yes."
     },
     {
       "s": "a",
-      "t": 50.64,
+      "t": 51.4,
+      "x": "Okay. What's your date of birth?"
+    },
+    {
+      "s": "c",
+      "t": 54.38,
+      "x": "[[14]]."
+    },
+    {
+      "s": "a",
+      "t": 59.48,
       "x": "And just for the chart, male or female?"
     },
     {
       "s": "c",
-      "t": 53.54,
-      "x": "Female."
+      "t": 63.03,
+      "x": "Male."
     },
     {
       "s": "a",
-      "t": 55.93,
-      "x": "Do you prefer we call you back in the morning or afternoon?"
+      "t": 65.43,
+      "x": "Okay. Do you prefer that we call you back in the morning or afternoon, or does it not matter?"
     },
     {
       "s": "c",
-      "t": 58.52,
-      "x": "Afternoon works."
+      "t": 71.66,
+      "x": "It doesn't matter."
     },
     {
       "s": "a",
-      "t": 61.54,
+      "t": 74.48,
       "x": "And how did you hear about LoveJoy?"
     },
     {
       "s": "c",
-      "t": 63.49,
-      "x": "I found it on Google."
+      "t": 78.26,
+      "x": "One of my friends goes to you guys."
     },
     {
       "s": "a",
-      "t": 66.35,
+      "t": 81.85,
       "x": "Have you ever had hormone therapy before?"
     },
     {
       "s": "c",
-      "t": 68.6,
-      "x": "No, I haven't."
+      "t": 85.51,
+      "x": "No."
     },
     {
       "s": "a",
-      "t": 71.71,
-      "x": "And what made you reach out to LoveJoy?"
+      "t": 87.67,
+      "x": "Okay. What made you reach out to LoveJoy?"
     },
     {
       "s": "c",
-      "t": 74.2,
-      "x": "I've been having hot flashes and trouble sleeping for about six months, plus low energy."
+      "t": 92.13,
+      "x": "Just to see if I could use it, or benefit from it."
     },
     {
       "s": "a",
-      "t": 82.26,
-      "x": "Okay, I'll let the team know about the hot flashes, trouble sleeping, and low energy. What kind of treatment are you interested in? Like pellets, injections, or creams? Or if you're not sure yet, that's totally fine."
+      "t": 100.24,
+      "x": "Makes sense. What kind of treatment are you interested in? Like pellets, injections, or creams? Or if you're not sure yet, that's totally fine."
     },
     {
       "s": "c",
-      "t": 97.0,
-      "x": "I'm interested in pellets and maybe cream. I'd just like to learn a bit more about my options."
+      "t": 108.16,
+      "x": "Probably pellet. Or not sure."
     },
     {
       "s": "a",
-      "t": 105.61,
-      "x": "That's totally fine. The team can walk you through all the options and answer your questions when they call. Is there anything else you'd like them to know before they reach out?"
+      "t": 112.04,
+      "x": "Okay. Is there anything else our team should know before they reach out?"
     },
     {
       "s": "c",
-      "t": 113.7,
-      "x": "I work nights, so afternoons are best."
+      "t": 116.29,
+      "x": "No."
     },
     {
       "s": "a",
-      "t": 118.26,
+      "t": 117.86,
       "x": "You're all set. Our team will reach out to get your lab appointment booked. Is there anything else I can help you with?"
     },
     {
       "s": "c",
-      "t": 124.01,
-      "x": "Thanks. Bye."
+      "t": 124.66,
+      "x": "That should be it."
     },
     {
       "s": "a",
-      "t": 126.88,
+      "t": 127.5,
       "x": "Thanks for calling LoveJoy. Take care."
     }
   ],
